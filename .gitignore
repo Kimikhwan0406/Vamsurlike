@@ -104,3 +104,36 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Executables
+*.exe
+*.out
+
+# Debug files
+*.dSYM/
+*.idb
+*.pdb
+
+### C#
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# NuGet Packages
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# .NET build artifacts
+artifacts/
+
+### Objective-C
+# Xcode user settings
+xcuserdata/
+
+# Xcode build data
+DerivedData/
+
+# Obj-C/Swift specific
+*.hmap
+
