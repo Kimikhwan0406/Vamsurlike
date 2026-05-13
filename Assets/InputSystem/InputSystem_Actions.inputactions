@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "InputSystem_Actions",
     "maps": [
         {
@@ -986,6 +987,34 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Editor",
+            "id": "157dcf64-1895-4882-beec-c3e9e1fec6a3",
+            "actions": [
+                {
+                    "name": "FullScreen",
+                    "type": "Button",
+                    "id": "495bd002-2b35-426e-ab66-fe9eefea9698",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e6b86b3e-63fd-4d6e-b66d-86dc7a0b49be",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullScreen",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
