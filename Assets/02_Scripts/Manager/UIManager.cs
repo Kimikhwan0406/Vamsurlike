@@ -1,14 +1,22 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.Arm;
 
-public class UIManager : SingletonBehaviour<UIManager>
+public class UIManager
 {
-    [SerializeField] GameObject lobbyHUD;
+    Transform UIRoot;
+    GameObject lobbyHUD;
 
     Dictionary<Type, IPresenter> presenters = new();
     Stack<Type> viewStack = new();
+
+    public void Init(Transform uiRoot)
+    {
+        UIRoot = uiRoot;
+        lobbyHUD = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("UI/LobbyCanvas"), UIRoot);
+        lobbyHUD.SetActive(false);
+    }
 
     public void OpenUI<T>(IModel _model, IPresenter _presenter) where T : IView
     {
@@ -30,17 +38,18 @@ public class UIManager : SingletonBehaviour<UIManager>
         }
         else
         {
-            GameObject newOB = Instantiate(Resources.Load<GameObject>($"UI/{viewType}"), this.transform);
+            GameObject newOB = UnityEngine.Object.Instantiate(Resources.Load<GameObject>($"UI/{viewType}"), UIRoot);
             if (null == newOB)
             {
                 Debug.LogError($"Failed to load {viewType}");
                 return;
             }
-            _presenter.Init(_model, newOB.GetComponent<IView>());
             presenters[viewType] = _presenter;
+            presenters[viewType].Init(_model, newOB.GetComponent<IView>());
+
         }
 
-        _presenter.Open();
+        presenters[viewType].Open();
         viewStack.Push(viewType);
     }
 
@@ -55,15 +64,13 @@ public class UIManager : SingletonBehaviour<UIManager>
         presenters[viewStack.Pop()].Close();
     }
 
-    public IPresenter GetPresenter<T>(out bool closed) where T : IView
+    public P GetPresenter<P, V>() where P : class, IPresenter where V : IView
     {
-        Type viewType = typeof(T);
-        closed = false;
+        Type viewType = typeof(V);
 
         if (presenters.ContainsKey(viewType))
         {
-            closed = !presenters[viewType].IsOpen;
-            return presenters[viewType];
+            return presenters[viewType] as P;
         }
 
         Debug.Log($"{viewType} is not exist");

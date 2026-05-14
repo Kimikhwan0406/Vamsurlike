@@ -13,6 +13,11 @@ public class GameHUDView : MonoBehaviour, IView
 
     public bool IsOpen => this.gameObject.activeSelf;
 
+    public void OnClickGoLobbyTest()
+    {
+        GameManager.UI.ShowLobbyHUD();
+    }
+
     public void Close()
     {
         this.gameObject.SetActive(false);
