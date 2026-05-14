@@ -6,14 +6,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FullScreenMode : MonoBehaviour, InputSystem_Actions.IEditorActions
+public class FullScreenMode : MonoBehaviour, InputActions.IEditorActions
 {
-    InputSystem_Actions inputSystem;
+    InputActions inputSystem;
     [SerializeField] bool makeFullscreenAtStart = false;
 
     private void Awake()
     {
-        inputSystem = new InputSystem_Actions();
+        inputSystem = new InputActions();
         inputSystem.Editor.SetCallbacks(this);
         inputSystem.Editor.Enable();
     }
