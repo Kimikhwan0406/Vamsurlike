@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-partial struct EnemySystem : ISystem
+partial struct EnemyMovementSystem : ISystem
 {
     Entity playerEntity;
 
@@ -17,14 +17,14 @@ partial struct EnemySystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        if(playerEntity == Entity.Null || !SystemAPI.Exists(playerEntity))
+        if (playerEntity == Entity.Null || !SystemAPI.Exists(playerEntity))
             playerEntity = SystemAPI.GetSingletonEntity<PlayerPositionComponent>();
 
         var playerPositionComponent = SystemAPI.GetComponent<PlayerPositionComponent>(playerEntity);
 
         state.Dependency = new EnemyMovementJob
         {
-            deltaTime = SystemAPI.Time.DeltaTime,
+            DeltaTime = SystemAPI.Time.DeltaTime,
             PlayerPosition = playerPositionComponent.Position,
         }.ScheduleParallel(state.Dependency);
     }
@@ -33,7 +33,7 @@ partial struct EnemySystem : ISystem
 [BurstCompile]
 public partial struct EnemyMovementJob : IJobEntity
 {
-    public float deltaTime;
+    public float DeltaTime;
     public float3 PlayerPosition;
 
     public void Execute(ref EnemyComponent enemyComponent, ref LocalTransform enemyTransform, Entity entity)
@@ -43,7 +43,7 @@ public partial struct EnemyMovementJob : IJobEntity
 
         if (math.length(direction) > 0.01f)
         {
-            enemyTransform.Position += math.normalize(direction) * enemyComponent.Speed * deltaTime;
+            enemyTransform.Position += math.normalize(direction) * enemyComponent.Speed * DeltaTime;
         }
 
         if (direction.x == 0) return;
