@@ -154,7 +154,7 @@ MonoBehaviour:
   maxSpeed: 1
   minSpawnRadius: 10
   maxSpawnRadius: 50
-  spawnInterval: 2
+  spawnInterval: 5
   randomSeed: 12345
 --- !u!4 &564291045
 Transform:

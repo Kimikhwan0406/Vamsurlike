@@ -62,12 +62,6 @@ partial struct EnemySpawnSystem : ISystem
                     Damage = 0.1f
                 };
                 entityCommandBuffer.AddComponent(enemyEntity, enemyComponent);
-
-                //var spawnTimeComponent = new EnemySpawnTime
-                //{
-                //    Value = random.NextFloat(0f, 10f)
-                //};
-                //entityCommandBuffer.AddComponent(enemyEntity, spawnTimeComponent);
             }
         }
 

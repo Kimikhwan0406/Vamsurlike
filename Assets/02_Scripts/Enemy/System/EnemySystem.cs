@@ -5,36 +5,51 @@ using Unity.Transforms;
 
 partial struct EnemySystem : ISystem
 {
+    Entity playerEntity;
+
     [BurstCompile]
     public void OnCreate(ref SystemState state)
     {
-        //state.RequireForUpdate<EnemyTag>();
-        //state.RequireForUpdate<PlayerPositionComponent>();
+        state.RequireForUpdate<EnemyTag>();
+        state.RequireForUpdate<PlayerPositionComponent>();
     }
 
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        Entity playerEntity = SystemAPI.GetSingletonEntity<PlayerPositionComponent>();
-        var playerPositionComponent = SystemAPI.GetComponentRO<PlayerPositionComponent>(playerEntity);
-        var deltaTime = SystemAPI.Time.DeltaTime;
+        if(playerEntity == Entity.Null || !SystemAPI.Exists(playerEntity))
+            playerEntity = SystemAPI.GetSingletonEntity<PlayerPositionComponent>();
 
-        foreach (var (enemyTransform, enemyComponen) in
-            SystemAPI.Query<RefRW<LocalTransform>, RefRO<EnemyComponent>>())
+        var playerPositionComponent = SystemAPI.GetComponent<PlayerPositionComponent>(playerEntity);
+
+        state.Dependency = new EnemyMovementJob
         {
-            float3 direction = playerPositionComponent.ValueRO.Position - enemyTransform.ValueRO.Position;
-            direction.z = 0f;
+            deltaTime = SystemAPI.Time.DeltaTime,
+            PlayerPosition = playerPositionComponent.Position,
+        }.ScheduleParallel(state.Dependency);
+    }
+}
 
-            if (math.length(direction) > 0.01f)
-            {
-                enemyTransform.ValueRW.Position += math.normalize(direction) * enemyComponen.ValueRO.Speed * deltaTime;
-            }
+[BurstCompile]
+public partial struct EnemyMovementJob : IJobEntity
+{
+    public float deltaTime;
+    public float3 PlayerPosition;
 
-            if (direction.x == 0) continue;
+    public void Execute(ref EnemyComponent enemyComponent, ref LocalTransform enemyTransform, Entity entity)
+    {
+        float3 direction = PlayerPosition - enemyTransform.Position;
+        direction.z = 0f;
 
-            float yRotation = direction.x > 0 ? 0 : math.PI;
-            if (math.abs(enemyTransform.ValueRO.Rotation.value.y - yRotation) > 0.01f)
-                enemyTransform.ValueRW.Rotation = quaternion.RotateY(yRotation);
+        if (math.length(direction) > 0.01f)
+        {
+            enemyTransform.Position += math.normalize(direction) * enemyComponent.Speed * deltaTime;
         }
+
+        if (direction.x == 0) return;
+
+        float yRotation = direction.x < 0 ? 0 : math.PI;
+        if (math.abs(enemyTransform.Rotation.value.y - yRotation) > 0.01f)
+            enemyTransform.Rotation = quaternion.RotateY(yRotation);
     }
 }
