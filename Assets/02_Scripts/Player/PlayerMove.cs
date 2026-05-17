@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public Vector3 MoveInput;
-
-
-    [SerializeField] float speed = 5f;
+    [SerializeField] PlayerInputHandler inputHandler;
+    [SerializeField] float moveSpeed = 5f;
 
 
     void Update()
@@ -16,7 +14,7 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        transform.position += MoveInput * Time.deltaTime * speed;
+        transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
     }
 
 
