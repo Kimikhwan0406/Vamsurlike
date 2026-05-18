@@ -1,27 +1,17 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemySpawnManager
 {
-    Transform playerTransform;
+    [Header("Spawn Settings")]
     [SerializeField] float spawnMinRadius = 10f;
     [SerializeField] float spawnMaxRadius = 50f;
     [SerializeField] float spawnCount = 10_000f;
 
-    public EnemySpawnManager(Transform _playerTransform)
-    {
-        playerTransform = _playerTransform;
+    List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
-        if (null == playerTransform)
-        {
-            Debug.LogError($"{GetType()}: playerTransform is null");
-            return;
-        }
-
-        TestSpawnEnemy();
-    }
-
-    void TestSpawnEnemy()
+    public List<EnemyBase> TestSpawnEnemy()
     {
         for(int i = 0; i < spawnCount; i++)
         {
@@ -37,8 +27,11 @@ public class EnemySpawnManager
                     Debug.LogError("Failed to get EnemyBase component from instantiated enemy.");
                     continue;
                 }
-                enemyBase.Init(playerTransform);
+                //enemyBase.Init(playerTransform);
+                spawnedEnemies.Add(enemyBase);
             }
         }
+
+        return spawnedEnemies;
     }
 }
