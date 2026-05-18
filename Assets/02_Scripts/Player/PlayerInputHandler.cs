@@ -11,7 +11,16 @@ public class PlayerInputHandler : MonoBehaviour, InputActions.IPlayerActions
     {
         inputSystem = new InputActions();
         inputSystem.Player.SetCallbacks(this);
+    }
+
+    void OnEnable()
+    {
         inputSystem.Player.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputSystem.Player.Disable();
     }
 
     public void OnMove(InputAction.CallbackContext context)
