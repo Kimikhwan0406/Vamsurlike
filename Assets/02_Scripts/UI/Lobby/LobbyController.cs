@@ -4,7 +4,7 @@ public class LobbyController : MonoBehaviour
 {
     public void OnClickGameStartBtn()
     {
-        GameManager.UI.ShowIngameHUD();
+        GameManager.Instance.StageEnter();
     }
     public void OnClickAchievementBtn()
     {
