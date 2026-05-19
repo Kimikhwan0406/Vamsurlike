@@ -3,23 +3,27 @@ using UnityEngine;
 public class GameManager : SingletonBehaviour<GameManager>
 {
     public static UIManager UI { get { return Instance.ui; } }
+    public static DataTable DataTable { get { return Instance.dataTable; } }
 
     #region Variables
+
     [Header("Managers")]
-    UIManager ui;
+    UIManager ui = new();
     InGameCore inGameCore;
+    DataTable dataTable = new();
 
     [Header("InGame")]
     GameObject playMap;
     bool isPlaying = false;
+
     #endregion
 
     protected override void Init()
     {
         base.Init();
 
-        ui = new(); 
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
+        dataTable.LoadAllData();
     }
 
     void Update()
