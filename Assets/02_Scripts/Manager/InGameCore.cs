@@ -10,6 +10,12 @@ public class InGameCore
         PlayerSpawn();
     }
 
+    ~InGameCore()
+    {
+        Object.Destroy(player);
+        player = null;
+    }
+
     public void Update()
     {
         GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddTime(Time.deltaTime);
@@ -18,5 +24,11 @@ public class InGameCore
     void PlayerSpawn()
     {
         player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player"));
+    }
+
+    public void Release()
+    {
+        Object.Destroy(player);
+        player = null;
     }
 }

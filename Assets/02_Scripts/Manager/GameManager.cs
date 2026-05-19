@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
@@ -6,9 +5,12 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static UIManager UI { get { return Instance.ui; } }
 
     #region Variables
+    [Header("Managers")]
     UIManager ui;
     InGameCore inGameCore;
 
+    [Header("InGame")]
+    GameObject playMap;
     bool isPlaying = false;
     #endregion
 
@@ -32,6 +34,9 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public void StageEnter()
     {
+        // TODO : 맵 추가시 로직 변경
+        playMap = Instantiate(Utils.ResourcesLoad<GameObject>("BasicMap"));
+
         inGameCore = new InGameCore();
         UI.ShowIngameHUD();
         isPlaying = true;
@@ -41,6 +46,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         isPlaying = false;
         UI.ShowLobbyHUD();
+        inGameCore.Release();
         inGameCore = null;
+
+        Destroy(playMap);
+        playMap = null;
     }
 }
