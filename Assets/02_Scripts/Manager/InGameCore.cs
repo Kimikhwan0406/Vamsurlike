@@ -1,26 +1,34 @@
 using UnityEngine;
 
-public class InGameCore : MonoBehaviour
+public class InGameCore
 {
-    public GameObject player;
+    GameObject player;
+    public GameObject Player => player;
 
-    void Awake()
-    {
-        Init();
-    }
-
-    void Update()
-    {
-        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddTime(Time.deltaTime);
-    }
-
-    void Init()
+    public InGameCore()
     {
         PlayerSpawn();
     }
 
+    ~InGameCore()
+    {
+        Object.Destroy(player);
+        player = null;
+    }
+
+    public void Update()
+    {
+        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddTime(Time.deltaTime);
+    }
+
     void PlayerSpawn()
     {
-        player = Instantiate(Resources.Load<GameObject>("Player"));
+        player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player"));
+    }
+
+    public void Release()
+    {
+        Object.Destroy(player);
+        player = null;
     }
 }

@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     void Awake()
     {
-        playerTransform = GetComponent<InGameCore>().player.transform;
+        playerTransform = GameManager.Instance.GetPlayer().transform;
         enemySpawnManager = new();
 
         spawnedEnemies = enemySpawnManager.TestSpawnEnemy();

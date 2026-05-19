@@ -19,7 +19,8 @@ public class EnemySpawnManager
             float distance = UnityEngine.Random.Range(spawnMinRadius, spawnMaxRadius);
             var spawnPosition = new Vector3(Mathf.Cos(angle) * distance, Mathf.Sin(angle) * distance, i * 0.001f);
 
-            if(Object.Instantiate(Resources.Load<GameObject>("TestEnemy"), spawnPosition, Quaternion.identity)
+            // TODO: 적 몬스터 소환
+            if(Object.Instantiate(Utils.ResourcesLoad<GameObject>("TestEnemy"), spawnPosition, Quaternion.identity)
                 .TryGetComponent<EnemyBase>(out var enemyBase))
             {
                 if(null == enemyBase)
