@@ -17,6 +17,6 @@ public class InGameCore
 
     void PlayerSpawn()
     {
-        player = Object.Instantiate(Resources.Load<GameObject>("Player"));
+        player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player"));
     }
 }

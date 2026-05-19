@@ -14,7 +14,7 @@ public class UIManager
     public void Init(Transform uiRoot)
     {
         UIRoot = uiRoot;
-        lobbyHUD = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("UI/LobbyCanvas"), UIRoot);
+        lobbyHUD = UnityEngine.Object.Instantiate(Utils.ResourcesLoad<GameObject>("UI/LobbyCanvas"), UIRoot);
         lobbyHUD.SetActive(false);
     }
 
@@ -38,7 +38,7 @@ public class UIManager
         }
         else
         {
-            GameObject newOB = UnityEngine.Object.Instantiate(Resources.Load<GameObject>($"UI/{viewType}"), UIRoot);
+            GameObject newOB = UnityEngine.Object.Instantiate(Utils.ResourcesLoad<GameObject>($"UI/{viewType}"), UIRoot);
             if (null == newOB)
             {
                 Debug.LogError($"Failed to load {viewType}");

@@ -16,8 +16,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         base.Init();
 
-        ui = new();
-        ui.Init(Instantiate(Resources.Load<GameObject>("UI/UIRoot")).transform);
+        ui = new(); 
+        ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
     }
 
     void Update()
