@@ -1,16 +1,19 @@
+using System.Data;
 using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
     public static UIManager UI { get { return Instance.ui; } }
     public static DataTable DataTable { get { return Instance.dataTable; } }
+    public static UserDataManager UserData { get { return Instance.userData; } }
 
     #region Variables
 
     [Header("Managers")]
+    UserDataManager userData = new();
+    DataTable dataTable = new();
     UIManager ui = new();
     InGameCore inGameCore;
-    DataTable dataTable = new();
 
     [Header("InGame")]
     GameObject playMap;
@@ -22,8 +25,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         base.Init();
 
-        ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
+
+        userData.LoadAllData();
         dataTable.LoadAllData();
+        ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
     }
 
     void Update()
