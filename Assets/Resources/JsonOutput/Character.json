@@ -1,0 +1,71 @@
+[
+  {
+    "Id": "300001",
+    "Name": "Antonio",
+    "MaxHealth": 100,
+    "DefaultWeapon": "채찍",
+    "Ability": [
+      "damage"
+    ],
+    "AbilityCondition": [
+      "10"
+    ],
+    "AbilityMargin": [
+      "50"
+    ],
+    "AbilityValue": [
+      "0.1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "None",
+    "UnlockConditionGold": 0
+  },
+  {
+    "Id": "300002",
+    "Name": "Imelad",
+    "MaxHealth": 100,
+    "DefaultWeapon": "마법 지팡이",
+    "Ability": [
+      "exp"
+    ],
+    "AbilityCondition": [
+      "5"
+    ],
+    "AbilityMargin": [
+      "30"
+    ],
+    "AbilityValue": [
+      "0.1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Gold",
+    "UnlockConditionGold": 10
+  },
+  {
+    "Id": "300003",
+    "Name": "Pasqualina",
+    "MaxHealth": 100,
+    "DefaultWeapon": "룬 트레이서",
+    "Ability": [
+      "투사체가속"
+    ],
+    "AbilityCondition": [
+      "5"
+    ],
+    "AbilityMargin": [
+      "30"
+    ],
+    "AbilityValue": [
+      "0.1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Gold",
+    "UnlockConditionGold": 110
+  }
+]

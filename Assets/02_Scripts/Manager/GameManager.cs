@@ -1,24 +1,33 @@
+using System.Data;
 using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
     public static UIManager UI { get { return Instance.ui; } }
+    public static DataTable DataTable { get { return Instance.dataTable; } }
+    public static UserDataManager UserData { get { return Instance.userData; } }
 
     #region Variables
+
     [Header("Managers")]
-    UIManager ui;
+    UserDataManager userData = new();
+    DataTable dataTable = new();
+    UIManager ui = new();
     InGameCore inGameCore;
 
     [Header("InGame")]
     GameObject playMap;
     bool isPlaying = false;
+
     #endregion
 
     protected override void Init()
     {
         base.Init();
 
-        ui = new(); 
+
+        userData.LoadAllData();
+        dataTable.LoadAllData();
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
     }
 

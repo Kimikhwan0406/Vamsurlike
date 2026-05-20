@@ -1,0 +1,16 @@
+{
+    "Amount": false,
+    "Growth": false,
+    "Cooldown": false,
+    "Armor": false,
+    "Luck": false,
+    "Might": false,
+    "Recovery": false,
+    "Greed": false,
+    "Area": false,
+    "ProjectileSpeed": false,
+    "Duration": false,
+    "MoveSpeed": false,
+    "Magnet": false,
+    "MaxHealth": false
+}
