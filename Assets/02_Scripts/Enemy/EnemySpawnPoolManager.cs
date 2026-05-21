@@ -43,18 +43,26 @@ public class EnemySpawnPoolManager// : SingletonBehaviour<EnemySpawnPoolManager>
     {
         if (stop) return;
 
-        var min = GameManager.Instance.GetPlayTime() / 60;
-        string stageId = ((int)min + stageIdOffset).ToString();
+        for (int i = 0; i < 10000; i++)
+        {
+            GameObject.Instantiate(Utils.ResourcesLoad<GameObject>($"Enemy/260101"));
+        }
 
-        if (elapsedTime >= GameManager.DataTable.GetStageData(stageId).SpawnInterval)
-        {
-            SpawnEnemy(GameManager.DataTable.GetStageData(stageId).Enemies);
-            elapsedTime = 0f;
-        }
-        else
-        {
-            elapsedTime += Time.deltaTime;
-        }
+
+
+
+        //var min = GameManager.Instance.GetPlayTime() / 60;
+        //string stageId = ((int)min + stageIdOffset).ToString();
+
+        //if (elapsedTime >= GameManager.DataTable.GetStageData(stageId).SpawnInterval)
+        //{
+        //    SpawnEnemy(GameManager.DataTable.GetStageData(stageId).Enemies);
+        //    elapsedTime = 0f;
+        //}
+        //else
+        //{
+        //    elapsedTime += Time.deltaTime;
+        //}
     }
 
     EnemyBase CreateNewEnemy(string createEnemyId, bool isEnqueue = false)
