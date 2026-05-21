@@ -21,3 +21,25 @@ public class CharacterData : BaseData
     public string UnlockCondition;
     public int UnlockConditionGold;
 }
+
+[Serializable]
+public class EnemyData : BaseData
+{
+    public string Name;
+    public float MaxHealth;
+    public float Power;
+    public float Damage;
+    public float MoveSpeed;
+    public float XP;
+}
+
+[Serializable]
+public class StageData : BaseData
+{
+    public int TimeElapsed;
+    public List<string> Enemies;
+    public int EnemyMinimum;
+    public float SpawnInterval;
+    public List<string> Boss;
+    public string MapEvent;
+}

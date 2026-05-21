@@ -4,6 +4,7 @@ public class InGameCore
 {
     GameObject player;
     public GameObject Player => player;
+    public float GetPlayTime() => GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().GetPlayTime();
 
     public InGameCore()
     {

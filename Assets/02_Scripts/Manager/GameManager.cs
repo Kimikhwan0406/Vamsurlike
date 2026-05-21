@@ -6,40 +6,49 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static UIManager UI { get { return Instance.ui; } }
     public static DataTable DataTable { get { return Instance.dataTable; } }
     public static UserDataManager UserData { get { return Instance.userData; } }
+    public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
 
     #region Variables
+    [SerializeField] Transform poolTransform;
 
     [Header("Managers")]
     UserDataManager userData = new();
     DataTable dataTable = new();
     UIManager ui = new();
+    EnemySpawnPoolManager spawnPool = new();
+
+    [Header("Caching")]
     InGameCore inGameCore;
+    GameObject enemyManager;
 
     [Header("InGame")]
     GameObject playMap;
     bool isPlaying = false;
-
+    public bool IsPlaying => isPlaying;
     #endregion
 
     protected override void Init()
     {
         base.Init();
 
-
         userData.LoadAllData();
         dataTable.LoadAllData();
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
+
+        spawnPool.Init(poolTransform);
     }
 
     void Update()
     {
-        if(isPlaying)
+        if (isPlaying)
         {
             inGameCore.Update();
+            spawnPool.Update();
         }
     }
 
     public GameObject GetPlayer() => inGameCore.Player;
+    public float GetPlayTime() => inGameCore.GetPlayTime();
 
     public void StageEnter()
     {
@@ -49,10 +58,17 @@ public class GameManager : SingletonBehaviour<GameManager>
         inGameCore = new InGameCore();
         UI.ShowIngameHUD();
         isPlaying = true;
+
+        enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
+        spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
     }
 
     public void StageExit()
     {
+        spawnPool.ReleaseEnemyManager();
+        Destroy(enemyManager);
+        enemyManager = null;
+
         isPlaying = false;
         UI.ShowLobbyHUD();
         inGameCore.Release();
