@@ -1,0 +1,123 @@
+[
+  {
+    "Id": "267001",
+    "Name": "Antonio",
+    "MaxHealth": 100,
+    "DefaultWeapon": "채찍",
+    "Ability": [
+      "damage"
+    ],
+    "AbilityCondition": [
+      "10"
+    ],
+    "AbilityMargin": [
+      "50"
+    ],
+    "AbilityValue": [
+      "0.1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "None",
+    "UnlockConditionGold": 0
+  },
+  {
+    "Id": "267002",
+    "Name": "Imelad",
+    "MaxHealth": 100,
+    "DefaultWeapon": "마법 지팡이",
+    "Ability": [
+      "exp"
+    ],
+    "AbilityCondition": [
+      "5"
+    ],
+    "AbilityMargin": [
+      "30"
+    ],
+    "AbilityValue": [
+      "0.1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Gold",
+    "UnlockConditionGold": 10
+  },
+  {
+    "Id": "267003",
+    "Name": "Pasqualina",
+    "MaxHealth": 100,
+    "DefaultWeapon": "룬 트레이서",
+    "Ability": [
+      "투사체가속"
+    ],
+    "AbilityCondition": [
+      "5"
+    ],
+    "AbilityMargin": [
+      "30"
+    ],
+    "AbilityValue": [
+      "0.1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Gold",
+    "UnlockConditionGold": 110
+  },
+  {
+    "Id": "267004",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  },
+  {
+    "Id": "267005",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  },
+  {
+    "Id": "267006",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  },
+  {
+    "Id": "267007",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  }
+]

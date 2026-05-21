@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
@@ -8,49 +7,60 @@ using UnityEngine.Jobs;
 
 public class EnemyManager : MonoBehaviour
 {
-    [Header("Enemy Spawn")]
-    EnemySpawnManager enemySpawnManager;
-    List<EnemyBase> spawnedEnemies;
-
     [Header("Player Caching")]
     Transform playerTransform;
 
     [Header("Enemy Move Job")]
     TransformAccessArray enemyTransforms;
-    NativeArray<float> enemySpeeds;
+    NativeList<float> enemySpeeds;
     JobHandle moveJobHandle;
 
     void Awake()
     {
-        playerTransform = GetComponent<InGameCore>().player.transform;
-        enemySpawnManager = new();
+        playerTransform = GameManager.Instance.GetPlayer().transform;
 
-        spawnedEnemies = enemySpawnManager.TestSpawnEnemy();
-        enemyTransforms = new TransformAccessArray(spawnedEnemies.Count);
-        enemySpeeds = new NativeArray<float>(spawnedEnemies.Count, Allocator.Persistent);
-    }
-
-    void Start()
-    {
-        for (int i = 0; i < spawnedEnemies.Count; i++)
-        {
-            enemyTransforms.Add(spawnedEnemies[i].transform);
-            enemySpeeds[i] = spawnedEnemies[i].MoveSpeed;
-        }   
+        enemyTransforms = new TransformAccessArray(1024);
+        enemySpeeds = new NativeList<float>(1024, Allocator.Persistent);
     }
 
     void Update()
     {
-        //moveJobHandle.Complete();
+        moveJobHandle.Complete();
+
+        if(GameManager.EnemySpawnPool.ActivatedEnemys.Count <= 0)
+            return;
 
         var job = new EnemyMoveJob
         {
             PlayerPosition = playerTransform.position,
             DeltaTime = Time.deltaTime,
-            EnemySpeeds = enemySpeeds
+            EnemySpeeds = enemySpeeds.AsArray()
         };
 
         moveJobHandle = job.Schedule(enemyTransforms);
+    }
+
+    /// <summary>
+    /// EnemyBase의 id를 먼저 설정하고 등록해야 함.
+    /// </summary>
+    /// <param name="enemy"></param>
+    public void RegisterEnemy(EnemyBase enemy)
+    {
+        moveJobHandle.Complete();
+
+        enemyTransforms.Add(enemy.transform);
+        enemySpeeds.Add(enemy.MoveSpeed);
+    }
+
+    public void UnregisterEnemy(int removeIndex)
+    {
+        moveJobHandle.Complete();
+
+        if (removeIndex < 0 || removeIndex > enemyTransforms.length)
+            return;
+
+        enemyTransforms.RemoveAtSwapBack(removeIndex);
+        enemySpeeds.RemoveAtSwapBack(removeIndex);
     }
 
     void LateUpdate()
@@ -60,8 +70,13 @@ public class EnemyManager : MonoBehaviour
 
     void OnDestroy()
     {
-        enemyTransforms.Dispose();
-        enemySpeeds.Dispose();
+        moveJobHandle.Complete();
+
+        if (enemyTransforms.isCreated)
+            enemyTransforms.Dispose();
+
+        if (enemySpeeds.IsCreated)
+            enemySpeeds.Dispose();
     }
 }
 
@@ -71,7 +86,6 @@ public struct EnemyMoveJob : IJobParallelForTransform
     public float3 PlayerPosition;
     public float DeltaTime;
 
-    //public NativeArray<float3> EnemyPositions;
     [ReadOnly] public NativeArray<float> EnemySpeeds;
 
     public void Execute(int index, TransformAccess transform)

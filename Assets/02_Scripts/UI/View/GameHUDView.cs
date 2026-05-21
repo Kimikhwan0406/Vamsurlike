@@ -13,9 +13,11 @@ public class GameHUDView : MonoBehaviour, IView
 
     public bool IsOpen => this.gameObject.activeSelf;
 
+    // TODO: 테스트용, 추후 게임 끝난 후 스테이지 종료 버튼으로 변경
     public void OnClickGoLobbyTest()
     {
         GameManager.UI.ShowLobbyHUD();
+        GameManager.Instance.StageExit();
     }
 
     public void Close()
@@ -32,7 +34,7 @@ public class GameHUDView : MonoBehaviour, IView
     #region Update View
     public void UpdateExp(float exp)
     {
-        // TODO: maxEXP�� ������
+        // TODO: maxEXP로 나누기
         expBar.fillAmount = exp;
         expTxt.text = $"{exp:0.##}%";
     }

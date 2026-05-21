@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 public class PlayerInputHandler : MonoBehaviour, InputActions.IPlayerActions
 {
     InputActions inputSystem;
-    public Vector3 MoveInput;
+    public Vector3 MoveInput { get; private set; }
 
     void Awake()
     {
