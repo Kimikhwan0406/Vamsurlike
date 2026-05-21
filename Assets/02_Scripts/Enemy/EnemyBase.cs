@@ -6,9 +6,11 @@ public class EnemyBase : MonoBehaviour
     public int ManagerIndex => managerIndex;
     public string EnemyId => enemyId;
 
-
-    float moveSpeed;
     string enemyId;
+    float health;
+    float power;
+    float xp;
+    float moveSpeed;
     int managerIndex = -1;
 
 
@@ -20,6 +22,12 @@ public class EnemyBase : MonoBehaviour
     public void Init(string _enemyId)
     {
         enemyId = _enemyId;
-        moveSpeed = GameManager.DataTable.GetEnemyData(enemyId).MoveSpeed * 0.025f;
+
+        var enemyData = GameManager.DataTable.GetEnemyData(enemyId);
+
+        moveSpeed = enemyData.MoveSpeed * 0.025f;
+        health = enemyData.MaxHealth;
+        power = enemyData.Power;
+        xp = enemyData.XP;
     }
 }

@@ -28,7 +28,6 @@ public class EnemyData : BaseData
     public string Name;
     public float MaxHealth;
     public float Power;
-    public float Damage;
     public float MoveSpeed;
     public float XP;
 }
