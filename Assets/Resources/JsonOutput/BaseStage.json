@@ -1,0 +1,413 @@
+[
+  {
+    "Id": "269001",
+    "TimeElapsed": 0,
+    "Enemies": [
+      "260101"
+    ],
+    "EnemyMinimum": 15,
+    "SpawnInterval": 1,
+    "Boss": null,
+    "MapEvent": null
+  },
+  {
+    "Id": "269002",
+    "TimeElapsed": 60,
+    "Enemies": [
+      "260102",
+      "260103"
+    ],
+    "EnemyMinimum": 30,
+    "SpawnInterval": 1,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269003",
+    "TimeElapsed": 120,
+    "Enemies": [
+      "260103",
+      "260101"
+    ],
+    "EnemyMinimum": 50,
+    "SpawnInterval": 0.5,
+    "Boss": null,
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269004",
+    "TimeElapsed": 180,
+    "Enemies": [
+      "260104"
+    ],
+    "EnemyMinimum": 40,
+    "SpawnInterval": 0.25,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269005",
+    "TimeElapsed": 240,
+    "Enemies": [
+      "260104",
+      "260105"
+    ],
+    "EnemyMinimum": 30,
+    "SpawnInterval": 1,
+    "Boss": null,
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269006",
+    "TimeElapsed": 300,
+    "Enemies": [
+      "260106"
+    ],
+    "EnemyMinimum": 10,
+    "SpawnInterval": 1,
+    "Boss": [
+      "260210"
+    ],
+    "MapEvent": "FlowerWall"
+  },
+  {
+    "Id": "269007",
+    "TimeElapsed": 360,
+    "Enemies": [
+      "260102",
+      "260106"
+    ],
+    "EnemyMinimum": 20,
+    "SpawnInterval": 0.5,
+    "Boss": null,
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269008",
+    "TimeElapsed": 420,
+    "Enemies": [
+      "260101",
+      "260107"
+    ],
+    "EnemyMinimum": 80,
+    "SpawnInterval": 0.5,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269009",
+    "TimeElapsed": 480,
+    "Enemies": [
+      "260102"
+    ],
+    "EnemyMinimum": 100,
+    "SpawnInterval": 1.5,
+    "Boss": [
+      "260108"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269010",
+    "TimeElapsed": 540,
+    "Enemies": [
+      "260108",
+      "260102"
+    ],
+    "EnemyMinimum": 30,
+    "SpawnInterval": 0.5,
+    "Boss": [
+      "260215"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269011",
+    "TimeElapsed": 600,
+    "Enemies": [
+      "260107",
+      "260106"
+    ],
+    "EnemyMinimum": 10,
+    "SpawnInterval": 0.5,
+    "Boss": [
+      "260220"
+    ],
+    "MapEvent": "FlowerWall"
+  },
+  {
+    "Id": "269012",
+    "TimeElapsed": 660,
+    "Enemies": [
+      "260104"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269013",
+    "TimeElapsed": 720,
+    "Enemies": [
+      "260109",
+      "260105",
+      "260104"
+    ],
+    "EnemyMinimum": 20,
+    "SpawnInterval": 0.25,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269014",
+    "TimeElapsed": 780,
+    "Enemies": [
+      "260109",
+      "260105"
+    ],
+    "EnemyMinimum": 150,
+    "SpawnInterval": 0.5,
+    "Boss": null,
+    "MapEvent": "Ghostwarm"
+  },
+  {
+    "Id": "269015",
+    "TimeElapsed": 840,
+    "Enemies": [
+      "260108",
+      "260109"
+    ],
+    "EnemyMinimum": 20,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260215"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269016",
+    "TimeElapsed": 900,
+    "Enemies": [
+      "260109",
+      "260108",
+      "260104"
+    ],
+    "EnemyMinimum": 100,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260216"
+    ],
+    "MapEvent": "FlowerWall"
+  },
+  {
+    "Id": "269017",
+    "TimeElapsed": 960,
+    "Enemies": [
+      "260110",
+      "260107",
+      "260106"
+    ],
+    "EnemyMinimum": 100,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269018",
+    "TimeElapsed": 1020,
+    "Enemies": [
+      "260111"
+    ],
+    "EnemyMinimum": 20,
+    "SpawnInterval": 1,
+    "Boss": null,
+    "MapEvent": null
+  },
+  {
+    "Id": "269019",
+    "TimeElapsed": 1080,
+    "Enemies": [
+      "260111",
+      "260107"
+    ],
+    "EnemyMinimum": 60,
+    "SpawnInterval": 0.5,
+    "Boss": [
+      "260215"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269020",
+    "TimeElapsed": 1140,
+    "Enemies": [
+      "260111",
+      "260106"
+    ],
+    "EnemyMinimum": 100,
+    "SpawnInterval": 0.5,
+    "Boss": null,
+    "MapEvent": null
+  },
+  {
+    "Id": "269021",
+    "TimeElapsed": 1200,
+    "Enemies": [
+      "260111",
+      "260106",
+      "260108"
+    ],
+    "EnemyMinimum": 100,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260217"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269022",
+    "TimeElapsed": 1260,
+    "Enemies": [
+      "260112"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260213",
+      "260214"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269023",
+    "TimeElapsed": 1320,
+    "Enemies": [
+      "260112",
+      "260111"
+    ],
+    "EnemyMinimum": 200,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269024",
+    "TimeElapsed": 1380,
+    "Enemies": [
+      "260112",
+      "260111"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260215"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269025",
+    "TimeElapsed": 1440,
+    "Enemies": [
+      "260112",
+      "260111"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260113"
+    ],
+    "MapEvent": null
+  },
+  {
+    "Id": "269026",
+    "TimeElapsed": 1500,
+    "Enemies": [
+      "260113"
+    ],
+    "EnemyMinimum": 100,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260218"
+    ],
+    "MapEvent": "FlowerWall"
+  },
+  {
+    "Id": "269027",
+    "TimeElapsed": 1560,
+    "Enemies": [
+      "260113",
+      "260112"
+    ],
+    "EnemyMinimum": 150,
+    "SpawnInterval": 0.1,
+    "Boss": null,
+    "MapEvent": null
+  },
+  {
+    "Id": "269028",
+    "TimeElapsed": 1620,
+    "Enemies": [
+      "260111",
+      "260107",
+      "260106"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": "Ghostwarm"
+  },
+  {
+    "Id": "269029",
+    "TimeElapsed": 1680,
+    "Enemies": [
+      "260108",
+      "260114"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": null,
+    "MapEvent": null
+  },
+  {
+    "Id": "269030",
+    "TimeElapsed": 1740,
+    "Enemies": [
+      "260114",
+      "260115"
+    ],
+    "EnemyMinimum": 300,
+    "SpawnInterval": 0.1,
+    "Boss": [
+      "260214"
+    ],
+    "MapEvent": "BatSwarm"
+  },
+  {
+    "Id": "269031",
+    "TimeElapsed": 1800,
+    "Enemies": null,
+    "EnemyMinimum": 1,
+    "SpawnInterval": 60,
+    "Boss": [
+      "260119"
+    ],
+    "MapEvent": null
+  }
+]

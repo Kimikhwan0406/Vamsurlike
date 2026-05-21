@@ -1,6 +1,6 @@
 [
   {
-    "Id": "300001",
+    "Id": "267001",
     "Name": "Antonio",
     "MaxHealth": 100,
     "DefaultWeapon": "채찍",
@@ -23,7 +23,7 @@
     "UnlockConditionGold": 0
   },
   {
-    "Id": "300002",
+    "Id": "267002",
     "Name": "Imelad",
     "MaxHealth": 100,
     "DefaultWeapon": "마법 지팡이",
@@ -46,7 +46,7 @@
     "UnlockConditionGold": 10
   },
   {
-    "Id": "300003",
+    "Id": "267003",
     "Name": "Pasqualina",
     "MaxHealth": 100,
     "DefaultWeapon": "룬 트레이서",
@@ -67,5 +67,57 @@
     ],
     "UnlockCondition": "Gold",
     "UnlockConditionGold": 110
+  },
+  {
+    "Id": "267004",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  },
+  {
+    "Id": "267005",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  },
+  {
+    "Id": "267006",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
+  },
+  {
+    "Id": "267007",
+    "Name": null,
+    "MaxHealth": null,
+    "DefaultWeapon": null,
+    "Ability": null,
+    "AbilityCondition": null,
+    "AbilityMargin": null,
+    "AbilityValue": null,
+    "PN": null,
+    "UnlockCondition": null,
+    "UnlockConditionGold": null
   }
 ]

@@ -1,0 +1,242 @@
+[
+  {
+    "Id": "260101",
+    "Name": "RedEyedPipeestrello",
+    "MaxHealth": 1,
+    "Power": 1,
+    "MoveSpeed": 140,
+    "XP": "1"
+  },
+  {
+    "Id": "260102",
+    "Name": "Zombie",
+    "MaxHealth": 10,
+    "Power": 10,
+    "MoveSpeed": 100,
+    "XP": "1"
+  },
+  {
+    "Id": "260103",
+    "Name": "Pipeestrello",
+    "MaxHealth": 1,
+    "Power": 5,
+    "MoveSpeed": 140,
+    "XP": "1"
+  },
+  {
+    "Id": "260104",
+    "Name": "Skeleton",
+    "MaxHealth": 15,
+    "Power": 10,
+    "MoveSpeed": 100,
+    "XP": "2"
+  },
+  {
+    "Id": "260105",
+    "Name": "Ghost",
+    "MaxHealth": 10,
+    "Power": 5,
+    "MoveSpeed": 200,
+    "XP": "1.5"
+  },
+  {
+    "Id": "260106",
+    "Name": "GreenMudman",
+    "MaxHealth": 150,
+    "Power": 10,
+    "MoveSpeed": 100,
+    "XP": "2.5"
+  },
+  {
+    "Id": "260107",
+    "Name": "GrayMudman",
+    "MaxHealth": 70,
+    "Power": 10,
+    "MoveSpeed": 100,
+    "XP": "2.5"
+  },
+  {
+    "Id": "260108",
+    "Name": "GiantBat",
+    "MaxHealth": 270,
+    "Power": 10,
+    "MoveSpeed": 140,
+    "XP": "2.5"
+  },
+  {
+    "Id": "260208",
+    "Name": "GiantBat",
+    "MaxHealth": 500,
+    "Power": 20,
+    "MoveSpeed": 140,
+    "XP": "25"
+  },
+  {
+    "Id": "260109",
+    "Name": "Werewolf",
+    "MaxHealth": 180,
+    "Power": 14,
+    "MoveSpeed": 130,
+    "XP": "2"
+  },
+  {
+    "Id": "260209",
+    "Name": "Werewolf",
+    "MaxHealth": 200,
+    "Power": 20,
+    "MoveSpeed": 130,
+    "XP": "2"
+  },
+  {
+    "Id": "260110",
+    "Name": "Mantichana",
+    "MaxHealth": 500,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "3"
+  },
+  {
+    "Id": "260210",
+    "Name": "Mantichana",
+    "MaxHealth": 500,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "3"
+  },
+  {
+    "Id": "260111",
+    "Name": "GiantMummy",
+    "MaxHealth": 500,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "3"
+  },
+  {
+    "Id": "260112",
+    "Name": "FlowerWall",
+    "MaxHealth": 30,
+    "Power": 1,
+    "MoveSpeed": 20,
+    "XP": "2"
+  },
+  {
+    "Id": "260113",
+    "Name": "Venus",
+    "MaxHealth": 500,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "3"
+  },
+  {
+    "Id": "260213",
+    "Name": "Venus",
+    "MaxHealth": 500,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "3"
+  },
+  {
+    "Id": "260114",
+    "Name": "GlowingBat",
+    "MaxHealth": 50,
+    "Power": 10,
+    "MoveSpeed": 140,
+    "XP": "30"
+  },
+  {
+    "Id": "260214",
+    "Name": "GlowingBat",
+    "MaxHealth": 50,
+    "Power": 10,
+    "MoveSpeed": 140,
+    "XP": "30"
+  },
+  {
+    "Id": "260115",
+    "Name": "SilverBat",
+    "MaxHealth": 50,
+    "Power": 10,
+    "MoveSpeed": 140,
+    "XP": "30"
+  },
+  {
+    "Id": "260215",
+    "Name": "SilverBat",
+    "MaxHealth": 50,
+    "Power": 10,
+    "MoveSpeed": 140,
+    "XP": "30"
+  },
+  {
+    "Id": "260116",
+    "Name": "WerewolfLord",
+    "MaxHealth": 200,
+    "Power": 20,
+    "MoveSpeed": 130,
+    "XP": "2"
+  },
+  {
+    "Id": "260216",
+    "Name": "WerewolfLord",
+    "MaxHealth": 200,
+    "Power": 20,
+    "MoveSpeed": 130,
+    "XP": "2"
+  },
+  {
+    "Id": "260117",
+    "Name": "MummyLord",
+    "MaxHealth": 250,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "25"
+  },
+  {
+    "Id": "260217",
+    "Name": "MummyLord",
+    "MaxHealth": 250,
+    "Power": 20,
+    "MoveSpeed": 80,
+    "XP": "25"
+  },
+  {
+    "Id": "260118",
+    "Name": "GiantBlueVenus",
+    "MaxHealth": 150,
+    "Power": 30,
+    "MoveSpeed": 160,
+    "XP": "50"
+  },
+  {
+    "Id": "260218",
+    "Name": "GiantBlueVenus",
+    "MaxHealth": 150,
+    "Power": 30,
+    "MoveSpeed": 160,
+    "XP": "50"
+  },
+  {
+    "Id": "260119",
+    "Name": "TheReaper",
+    "MaxHealth": 655350,
+    "Power": 65535,
+    "MoveSpeed": 1200,
+    "XP": "0"
+  },
+  {
+    "Id": "260120",
+    "Name": "MantichanaLord",
+    "MaxHealth": 150,
+    "Power": 20,
+    "MoveSpeed": 160,
+    "XP": "50"
+  },
+  {
+    "Id": "260220",
+    "Name": "MantichanaLord",
+    "MaxHealth": 150,
+    "Power": 20,
+    "MoveSpeed": 160,
+    "XP": "50"
+  }
+]

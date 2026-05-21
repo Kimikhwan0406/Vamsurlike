@@ -6,6 +6,9 @@ using UnityEngine;
 public class DataTable
 {
     public Dictionary<string, CharacterData> CharacterDataTable { get; private set; } = new();
+    public Dictionary<string, EnemyData> EnemyDataTable { get; private set; } = new();
+    public Dictionary<string, StageData> StageDataTable { get; private set; } = new();
+
 
     [Serializable]
     class SerializationWrapper<T>
@@ -16,6 +19,8 @@ public class DataTable
     public void LoadAllData()
     {
         CharacterDataTable = LoadData<CharacterData>("Character");
+        EnemyDataTable = LoadData<EnemyData>("Enemy");
+        StageDataTable = LoadData<StageData>("BaseStage");
     }
 
     Dictionary<string, T> LoadData<T>(string tableNmae) where T : BaseData
@@ -62,6 +67,25 @@ public class DataTable
         if (null == CharacterDataTable || string.IsNullOrEmpty(id)) return null;
 
         return CharacterDataTable.TryGetValue(id, out var data) ? data : null;
+    }
+
+    public EnemyData GetEnemyData(string id)
+    {
+        if (null == EnemyDataTable || string.IsNullOrEmpty(id)) return null;
+
+        return EnemyDataTable.TryGetValue(id, out var data) ? data : null;
+    }
+
+    /// <summary>
+    /// ID는 (현재 분 + 1) + 269,000 형식으로 구성
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public StageData GetStageData(string id)
+    {
+        if (null == StageDataTable || string.IsNullOrEmpty(id)) return null;
+
+        return StageDataTable.TryGetValue(id, out var data) ? data : null;
     }
 
     #endregion

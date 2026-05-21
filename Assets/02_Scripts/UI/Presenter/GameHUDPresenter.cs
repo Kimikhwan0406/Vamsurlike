@@ -29,6 +29,7 @@ public class GameHUDPresenter : IPresenter
         view.Close();
     }
 
+    public float GetPlayTime() => model.Time;
 
     #region Handler
 
@@ -36,7 +37,7 @@ public class GameHUDPresenter : IPresenter
     {
         model.Exp += exp;
         view.UpdateExp(model.Exp);
-        // TODO: ·¹º§¾÷ Ã¼Å©, ·¹º§¾÷½Ã SetLevelÈ£Ãâ
+        // TODO: ë ˆë²¨ì—… ì²´í¬, ë ˆë²¨ì—…ì‹œ SetLevelí˜¸ì¶œ
     }
 
     public void AddTime(float time)
