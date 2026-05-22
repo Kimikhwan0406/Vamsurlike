@@ -7,6 +7,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static DataTable DataTable { get { return Instance.dataTable; } }
     public static UserDataManager UserData { get { return Instance.userData; } }
     public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
+    public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
 
     #region Variables
     [SerializeField] Transform poolTransform;
@@ -16,6 +17,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     DataTable dataTable = new();
     UIManager ui = new();
     EnemySpawnPoolManager spawnPool = new();
+    CombatQuerySystem combatQuerySystem;
 
     [Header("Caching")]
     InGameCore inGameCore;
@@ -47,7 +49,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         }
     }
 
-    public GameObject GetPlayer() => inGameCore.Player;
+    public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
 
     public void StageEnter()
@@ -61,10 +63,13 @@ public class GameManager : SingletonBehaviour<GameManager>
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
         spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
+        combatQuerySystem = new();
     }
 
     public void StageExit()
     {
+        combatQuerySystem = null;
+
         spawnPool.ReleaseEnemyManager();
         Destroy(enemyManager);
         enemyManager = null;

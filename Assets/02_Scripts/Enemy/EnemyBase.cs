@@ -5,6 +5,9 @@ public class EnemyBase : MonoBehaviour
     public float MoveSpeed => moveSpeed;
     public int ManagerIndex => managerIndex;
     public string EnemyId => enemyId;
+    public float Power => power;
+    public float HitRadius => hitRadius;
+
 
     string enemyId;
     float health;
@@ -12,6 +15,8 @@ public class EnemyBase : MonoBehaviour
     float xp;
     float moveSpeed;
     int managerIndex = -1;
+    bool isDead = false;
+    [SerializeField] float hitRadius = 0.5f;
 
 
     public void SetManagerIndex(int _managerIndex)
@@ -29,5 +34,27 @@ public class EnemyBase : MonoBehaviour
         health = enemyData.MaxHealth;
         power = enemyData.Power;
         xp = enemyData.XP;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        GameManager.EnemySpawnPool.DespawnEnemy(this);
+        isDead = true;
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = isDead ? Color.blue : Color.red;
+        Gizmos.DrawWireSphere(transform.position, hitRadius);
     }
 }

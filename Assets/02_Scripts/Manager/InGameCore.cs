@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class InGameCore
 {
-    GameObject player;
-    public GameObject Player => player;
+    Player player;
+    public Player Player => player;
     public float GetPlayTime() => GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().GetPlayTime();
 
     public InGameCore()
@@ -24,7 +24,8 @@ public class InGameCore
 
     void PlayerSpawn()
     {
-        player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player"));
+        player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player")).GetComponent<Player>();
+        // TODO: 플레이어 초기 데이터 셋팅
     }
 
     public void Release()

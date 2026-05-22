@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2667064324438211131}
   - component: {fileID: 8895544380616962189}
-  - component: {fileID: 5164806670475931174}
+  - component: {fileID: -7951378367970227994}
   m_Layer: 0
   m_Name: 260218
   m_TagString: Untagged
@@ -423,7 +423,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5164806670475931174
+--- !u!114 &-7951378367970227994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
