@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnemySpawnPoolManager// : SingletonBehaviour<EnemySpawnPoolManager>
 {
@@ -26,6 +27,15 @@ public class EnemySpawnPoolManager// : SingletonBehaviour<EnemySpawnPoolManager>
     public void Init(Transform _poolTransform)
     {
         poolTransform = _poolTransform;
+
+        //for (int i = 0; i < 1000; i++)
+        //{
+        //    var newOB = GameObject.Instantiate(Utils.ResourcesLoad<GameObject>($"Enemy/Test"));
+        //    float angle = UnityEngine.Random.Range(0f, math.PI * 2f);
+        //    float distance = UnityEngine.Random.Range(spawnMinRadius, spawnMaxRadius);
+        //    var spawnPosition = new Vector3(Mathf.Cos(angle) * distance, Mathf.Sin(angle) * distance, 0f);
+        //    newOB.transform.position = spawnPosition;
+        //}
     }
 
     public void RegisterEnemyManager(EnemyManager _enemyManager)
@@ -43,26 +53,56 @@ public class EnemySpawnPoolManager// : SingletonBehaviour<EnemySpawnPoolManager>
     {
         if (stop) return;
 
-        for (int i = 0; i < 10000; i++)
+        var min = GameManager.Instance.GetPlayTime() / 60;
+        string stageId = ((int)min + stageIdOffset).ToString();
+
+        if (elapsedTime >= GameManager.DataTable.GetStageData(stageId).SpawnInterval)
         {
-            GameObject.Instantiate(Utils.ResourcesLoad<GameObject>($"Enemy/260101"));
+            SpawnEnemy(GameManager.DataTable.GetStageData(stageId).Enemies);
+            elapsedTime = 0f;
+        }
+        else
+        {
+            elapsedTime += Time.deltaTime;
+        }
+    }
+
+    public void DespawnEnemy(EnemyBase enemy)
+    {
+        int removeIndex = enemy.ManagerIndex;
+        int lastIndex = activatedEnemys.Count - 1;
+
+        if (removeIndex < 0 || removeIndex > lastIndex)
+        {
+            Debug.LogError("인덱스 범위 벗어남.");
+            return;
         }
 
+        EnemyBase lastEnemy = activatedEnemys[lastIndex];
 
+        enemyManager.UnregisterEnemy(removeIndex);
 
+        activatedEnemys[removeIndex] = lastEnemy;
+        activatedEnemys.RemoveAt(lastIndex);
 
-        //var min = GameManager.Instance.GetPlayTime() / 60;
-        //string stageId = ((int)min + stageIdOffset).ToString();
+        enemy.SetManagerIndex(-1);
 
-        //if (elapsedTime >= GameManager.DataTable.GetStageData(stageId).SpawnInterval)
-        //{
-        //    SpawnEnemy(GameManager.DataTable.GetStageData(stageId).Enemies);
-        //    elapsedTime = 0f;
-        //}
-        //else
-        //{
-        //    elapsedTime += Time.deltaTime;
-        //}
+        if (lastEnemy != enemy)
+        {
+            lastEnemy.SetManagerIndex(removeIndex);
+        }
+
+        enemy.gameObject.SetActive(false);
+        enemy.transform.SetParent(poolTransform);
+        enemyPool[enemy.EnemyId].Enqueue(enemy);
+    }
+
+    public void AllDespawnEnemy()
+    {
+        for (int i = activatedEnemys.Count - 1; i >= 0; i--)
+        {
+            DespawnEnemy(activatedEnemys[i]);
+        }
     }
 
     EnemyBase CreateNewEnemy(string createEnemyId, bool isEnqueue = false)
@@ -128,49 +168,11 @@ public class EnemySpawnPoolManager// : SingletonBehaviour<EnemySpawnPoolManager>
         return enemyObj;
     }
 
-    void DespawnEnemy(EnemyBase enemy)
-    {
-        int removeIndex = enemy.ManagerIndex;
-        int lastIndex = activatedEnemys.Count - 1;
-
-        if (removeIndex < 0 || removeIndex > lastIndex)
-        {
-            Debug.LogError("인덱스 범위 벗어남.");
-            return;
-        }
-
-        EnemyBase lastEnemy = activatedEnemys[lastIndex];
-
-        enemyManager.UnregisterEnemy(removeIndex);
-
-        activatedEnemys[removeIndex] = lastEnemy;
-        activatedEnemys.RemoveAt(lastIndex);
-
-        enemy.SetManagerIndex(-1);
-
-        if (lastEnemy != enemy)
-        {
-            lastEnemy.SetManagerIndex(removeIndex);
-        }
-
-        enemy.gameObject.SetActive(false);
-        enemy.transform.SetParent(poolTransform);
-        enemyPool[enemy.EnemyId].Enqueue(enemy);
-    }
-
-    public void AllDespawnEnemy()
-    {
-        for (int i = activatedEnemys.Count - 1; i >= 0; i--)
-        {
-            DespawnEnemy(activatedEnemys[i]);
-        }
-    }
-
     void SetPosition(EnemyBase enemy)
     {
         float angle = UnityEngine.Random.Range(0f, math.PI * 2f);
         float distance = UnityEngine.Random.Range(spawnMinRadius, spawnMaxRadius);
-        var spawnPosition = new Vector3(Mathf.Cos(angle) * distance, Mathf.Sin(angle) * distance, 0f);
+        var spawnPosition = new Vector3(Mathf.Cos(angle) * distance, Mathf.Sin(angle) * distance, 0f) + GameManager.Instance.GetPlayer().transform.position;
         enemy.transform.position = spawnPosition;
     }
 }

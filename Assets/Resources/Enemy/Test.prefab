@@ -100,10 +100,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4546435984887356581}
-  - component: {fileID: 5971384972294159782}
-  - component: {fileID: -3860572752399872140}
+  - component: {fileID: 5676468720421791569}
+  - component: {fileID: 6566292425283027044}
   m_Layer: 0
-  m_Name: 260101
+  m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ Transform:
   - {fileID: 4546435984208813565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5971384972294159782
+--- !u!95 &5676468720421791569
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-3860572752399872140
+--- !u!114 &6566292425283027044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
