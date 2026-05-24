@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,11 +10,11 @@ public class Player : MonoBehaviour
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
-    
 
-    public void Init(float _currentHealth)
+    public void Init(string characterId)
     {
-        currentHealth = _currentHealth;
+        CharacterData characterData = GameManager.DataTable.GetCharacterData(characterId);
+        currentHealth = characterData.MaxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -38,17 +39,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        OnAutoSkill();
     }
 
     void Move()
     {
         transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
-    }
-
-    // TODO: 여기에 스킬 추가
-    void OnAutoSkill()
-    {
-
     }
 }

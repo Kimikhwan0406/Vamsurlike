@@ -190,9 +190,9 @@ GameObject:
   - component: {fileID: 6419453138967938789}
   - component: {fileID: 2289071205870951653}
   - component: {fileID: 1072595157841082357}
-  - component: {fileID: 4745203166732509619}
   - component: {fileID: 9083262522723671657}
   - component: {fileID: 4003797483155921953}
+  - component: {fileID: 6328011588191507216}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -340,20 +340,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &4745203166732509619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4397394531841268498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fccb60f7b0ebc041ac29d442df71e0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  inputHandler: {fileID: 9083262522723671657}
-  moveSpeed: 5
 --- !u!114 &9083262522723671657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +366,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   inputHandler: {fileID: 9083262522723671657}
   moveSpeed: 5
+--- !u!114 &6328011588191507216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397394531841268498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6d6f0d91bc1bb4b94389530181cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponController
 --- !u!1 &6752927096205637583
 GameObject:
   m_ObjectHideFlags: 0

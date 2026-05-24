@@ -8,8 +8,6 @@ public class RePosition : MonoBehaviour
     {
         if (!collision.CompareTag("Area")) return;
 
-        Debug.Log($"{GetType()}: Player Exit from map");
-
         Vector3 playerPos = collision.gameObject.transform.position;
 
         float diffX = playerPos.x - transform.position.x;

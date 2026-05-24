@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class CombatQuerySystem
 {
-    private readonly List<EnemyBase> resultBuffer = new();
-
-    public List<EnemyBase> QueryCircle(Vector2 center, float radius)
+    public List<EnemyBase> QueryCircle(Vector2 center, float radius, List<EnemyBase> resultBuffer)
     {
         resultBuffer.Clear();
 
         foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
         {
-            if (HitSerach.Circle(center, radius, enemy.transform.position, enemy.HitRadius))
+            if (EnemySearch.FindCircleSearch(center, radius, enemy.transform.position, enemy.HitRadius))
             {
                 resultBuffer.Add(enemy);
             }
@@ -20,21 +18,26 @@ public class CombatQuerySystem
         return resultBuffer;
     }
 
-    public static bool SegmentCircle( Vector2 start, Vector2 end, Vector2 circleCenter, float radius)
+    public void QuerySegment(Vector2 start, Vector2 end, float projectileRadius, List<EnemyBase> resultBuffer)
     {
-        Vector2 segment = end - start;
-        float segmentLengthSqr = segment.sqrMagnitude;
+        resultBuffer.Clear();
 
-        if (segmentLengthSqr <= 0.00001f)
+        foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
         {
-            return (circleCenter - start).sqrMagnitude <= radius * radius;
+            if (!IsValidEnemy(enemy))
+                continue;
+
+            float dadius = enemy.HitRadius + projectileRadius;
+
+            if(EnemySearch.QuerySegmentSerach(start, end, enemy.transform.position, dadius))
+            {
+                resultBuffer.Add(enemy);
+            }
         }
+    }
 
-        float t = Vector2.Dot(circleCenter - start, segment) / segmentLengthSqr;
-        t = Mathf.Clamp01(t);
-
-        Vector2 closestPoint = start + segment * t;
-
-        return (circleCenter - closestPoint).sqrMagnitude <= radius * radius;
+    static bool IsValidEnemy(EnemyBase enemy)
+    {
+        return !enemy.IsDead;
     }
 }

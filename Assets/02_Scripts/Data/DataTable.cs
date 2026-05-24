@@ -8,6 +8,8 @@ public class DataTable
     public Dictionary<string, CharacterData> CharacterDataTable { get; private set; } = new();
     public Dictionary<string, EnemyData> EnemyDataTable { get; private set; } = new();
     public Dictionary<string, StageData> StageDataTable { get; private set; } = new();
+    public Dictionary<string, WeaponData> WeaponDataTable { get; private set; } = new();
+    public Dictionary<string, WeaponLevelData> WeaponLevelDataTable { get; private set; } = new();
 
 
     [Serializable]
@@ -21,6 +23,8 @@ public class DataTable
         CharacterDataTable = LoadData<CharacterData>("Character");
         EnemyDataTable = LoadData<EnemyData>("Enemy");
         StageDataTable = LoadData<StageData>("BaseStage");
+        WeaponDataTable = LoadData<WeaponData>("Weapon");
+        WeaponLevelDataTable = LoadData<WeaponLevelData>("WeaponLevel");
     }
 
     Dictionary<string, T> LoadData<T>(string tableNmae) where T : BaseData
@@ -45,7 +49,7 @@ public class DataTable
             {
                 Debug.LogError($"[{typeof(T).Name}] JSON 파싱 결과가 비어 있습니다.");
             }
-
+            
             if (null != wrapper && null != wrapper.items)
             {
                 Debug.Log($"{typeof(T).Name} 데이터를 {wrapper.items.Count}개 로드했습니다.");
@@ -86,6 +90,20 @@ public class DataTable
         if (null == StageDataTable || string.IsNullOrEmpty(id)) return null;
 
         return StageDataTable.TryGetValue(id, out var data) ? data : null;
+    }
+
+    public WeaponData GetWeaponData(string id)
+    {
+        if (null == WeaponDataTable || string.IsNullOrEmpty(id)) return null;
+
+        return WeaponDataTable.TryGetValue(id, out var data) ? data : null;
+    }
+
+    public WeaponLevelData GetWeaponLevelData(string id)
+    {
+        if (null == WeaponLevelDataTable || string.IsNullOrEmpty(id)) return null;
+
+        return WeaponLevelDataTable.TryGetValue(id, out var data) ? data : null;
     }
 
     #endregion
