@@ -1,0 +1,292 @@
+[
+  {
+    "Id": "265001",
+    "Name": "Spinach",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Might"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 40,
+    "Unlock": "Unlocked by default."
+  },
+  {
+    "Id": "265002",
+    "Name": "Armor",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Armor"
+    ],
+    "EffectValue": [
+      "1"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 40,
+    "Unlock": "Unlocked by default."
+  },
+  {
+    "Id": "265003",
+    "Name": "Hollow Heart",
+    "Max level": 5,
+    "Rarity": 90,
+    "Effects": [
+      "MaxHealth"
+    ],
+    "EffectValue": [
+      "20"
+    ],
+    "ValueMax": "200",
+    "UnlockCost": 40,
+    "Unlock": "Survive 1 minute with any character."
+  },
+  {
+    "Id": "265004",
+    "Name": "Pummarola",
+    "Max level": 5,
+    "Rarity": 90,
+    "Effects": [
+      "Recovery"
+    ],
+    "EffectValue": [
+      "0.2"
+    ],
+    "ValueMax": "1",
+    "UnlockCost": 40,
+    "Unlock": "Survive 5 minutes with Gennaro Belpaese."
+  },
+  {
+    "Id": "265005",
+    "Name": "Empty Tome",
+    "Max level": 5,
+    "Rarity": 50,
+    "Effects": [
+      "Cooldown"
+    ],
+    "EffectValue": [
+      "8"
+    ],
+    "ValueMax": "40",
+    "UnlockCost": 400,
+    "Unlock": "Have 6 different weapons simultaneously."
+  },
+  {
+    "Id": "265006",
+    "Name": "Candelabrador",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Area"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 200,
+    "Unlock": "Get Santa Water to Level 4."
+  },
+  {
+    "Id": "265007",
+    "Name": "Bracer",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Speed"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 200,
+    "Unlock": "Get King Bible to Level 4."
+  },
+  {
+    "Id": "265008",
+    "Name": "Spellbinder",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Duration"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 200,
+    "Unlock": "Get Runetracer to Level 7."
+  },
+  {
+    "Id": "265009",
+    "Name": "Duplicator",
+    "Max level": 2,
+    "Rarity": 50,
+    "Effects": [
+      "Amount"
+    ],
+    "EffectValue": [
+      "1"
+    ],
+    "ValueMax": "2",
+    "UnlockCost": 400,
+    "Unlock": "Get Magic Wand to Level 7."
+  },
+  {
+    "Id": "265010",
+    "Name": "Wings",
+    "Max level": 5,
+    "Rarity": 50,
+    "Effects": [
+      "MoveSpeed"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 40,
+    "Unlock": "Reach Level 5."
+  },
+  {
+    "Id": "265011",
+    "Name": "Attractorb",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Magnet"
+    ],
+    "EffectValue": [
+      "M25"
+    ],
+    "ValueMax": "-",
+    "UnlockCost": 40,
+    "Unlock": "Pick up a Vacuum."
+  },
+  {
+    "Id": "265012",
+    "Name": "Clover",
+    "Max level": 5,
+    "Rarity": 100,
+    "Effects": [
+      "Luck"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 7,
+    "Unlock": "Pick up a Little Clover."
+  },
+  {
+    "Id": "265013",
+    "Name": "Crown",
+    "Max level": 5,
+    "Rarity": 70,
+    "Effects": [
+      "Growth"
+    ],
+    "EffectValue": [
+      "8"
+    ],
+    "ValueMax": "40",
+    "UnlockCost": 40,
+    "Unlock": "Reach Level 10."
+  },
+  {
+    "Id": "265014",
+    "Name": "Stone Mask",
+    "Max level": 5,
+    "Rarity": 70,
+    "Effects": [
+      "Greed"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "50",
+    "UnlockCost": 40,
+    "Unlock": "Finding it and picking it up."
+  },
+  {
+    "Id": "265015",
+    "Name": "Skull O'Maniac",
+    "Max level": 5,
+    "Rarity": 40,
+    "Effects": [
+      "Curse"
+    ],
+    "EffectValue": [
+      "10"
+    ],
+    "ValueMax": "30",
+    "UnlockCost": 200,
+    "Unlock": "Survive 30 minutes with Lama Ladonna."
+  },
+  {
+    "Id": "265016",
+    "Name": "Tirajisú",
+    "Max level": 2,
+    "Rarity": 40,
+    "Effects": [
+      "Revival"
+    ],
+    "EffectValue": [
+      "1"
+    ],
+    "ValueMax": "2",
+    "UnlockCost": 400,
+    "Unlock": "Survive 20 minutes with Krochi Freetto."
+  },
+  {
+    "Id": "265017",
+    "Name": "Torrona's Box",
+    "Max level": 9,
+    "Rarity": 40,
+    "Effects": [
+      "+4% Omni (Max +25%) +3% Omni from level 2 to 8 +100% Curse at level 9 Omni is Might",
+      "Speed",
+      "Duration",
+      "and Area"
+    ],
+    "EffectValue": null,
+    "ValueMax": null,
+    "UnlockCost": 3200,
+    "Unlock": "Have 6 different weapon evolutions simultaneously."
+  },
+  {
+    "Id": "265018",
+    "Name": "Parm Aegis",
+    "Max level": 5,
+    "Rarity": 40,
+    "Effects": [
+      "Invulnerability"
+    ],
+    "EffectValue": [
+      "0.05"
+    ],
+    "ValueMax": "0.25",
+    "UnlockCost": 0,
+    "Unlock": "Find a Parm Aegis in The Coop."
+  },
+  {
+    "Id": "265019",
+    "Name": "Karoma's Mana",
+    "Max level": 5,
+    "Rarity": 40,
+    "Effects": [
+      "Charm",
+      "GoldFever",
+      "GoldFingerduration"
+    ],
+    "EffectValue": [
+      "10",
+      "10",
+      "10"
+    ],
+    "ValueMax": "50,50,50",
+    "UnlockCost": 0,
+    "Unlock": "Find a Karoma's Mana in Westwoods."
+  }
+]

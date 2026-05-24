@@ -7,6 +7,7 @@ public class EnemyBase : MonoBehaviour
     public string EnemyId => enemyId;
     public float Power => power;
     public float HitRadius => hitRadius;
+    public bool IsDead => isDead;
 
 
     string enemyId;
@@ -52,7 +53,7 @@ public class EnemyBase : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = isDead ? Color.blue : Color.red;
         Gizmos.DrawWireSphere(transform.position, hitRadius);

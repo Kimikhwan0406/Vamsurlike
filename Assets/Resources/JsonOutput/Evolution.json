@@ -1,0 +1,863 @@
+[
+  {
+    "Id": "264001",
+    "Name": "Bloody Tear",
+    "Base Damage": 40,
+    "EvolveFrom": "Whip",
+    "Accessories": "Hollow Heart"
+  },
+  {
+    "Id": "264002",
+    "Name": "Holy Wand",
+    "Base Damage": 30,
+    "EvolveFrom": "Magic Wand",
+    "Accessories": "Empty Tome"
+  },
+  {
+    "Id": "264003",
+    "Name": "Thousand Edge",
+    "Base Damage": 0,
+    "EvolveFrom": "Knife",
+    "Accessories": "Bracer"
+  },
+  {
+    "Id": "264004",
+    "Name": "Death Spiral",
+    "Base Damage": 60,
+    "EvolveFrom": "Axe",
+    "Accessories": "Candelabrador"
+  },
+  {
+    "Id": "264005",
+    "Name": "Heaven Sword",
+    "Base Damage": 77,
+    "EvolveFrom": "Cross",
+    "Accessories": "Clover"
+  },
+  {
+    "Id": "264006",
+    "Name": "Unholy Vespers",
+    "Base Damage": 30,
+    "EvolveFrom": "King Bible",
+    "Accessories": "Spellbinder"
+  },
+  {
+    "Id": "264007",
+    "Name": "Hellfire",
+    "Base Damage": 100,
+    "EvolveFrom": "Fire Wand",
+    "Accessories": "Spinach"
+  },
+  {
+    "Id": "264008",
+    "Name": "Soul Eater",
+    "Base Damage": 20,
+    "EvolveFrom": "Garlic",
+    "Accessories": "Pummarola"
+  },
+  {
+    "Id": "264009",
+    "Name": "La Borra",
+    "Base Damage": 40,
+    "EvolveFrom": "Santa Water",
+    "Accessories": "Attractorb"
+  },
+  {
+    "Id": "264010",
+    "Name": "NO FUTURE",
+    "Base Damage": 30,
+    "EvolveFrom": "Runetracer",
+    "Accessories": "Armor"
+  },
+  {
+    "Id": "264011",
+    "Name": "Thunder Loop",
+    "Base Damage": 65,
+    "EvolveFrom": "Lightning Ring",
+    "Accessories": "Duplicator"
+  },
+  {
+    "Id": "264012",
+    "Name": "Gorgeous Moon",
+    "Base Damage": 0,
+    "EvolveFrom": "Pentagram",
+    "Accessories": "Crown"
+  },
+  {
+    "Id": "264013",
+    "Name": "Vicious Hunger",
+    "Base Damage": 30,
+    "EvolveFrom": "Gatti Amari",
+    "Accessories": "Stone Mask"
+  },
+  {
+    "Id": "264014",
+    "Name": "Mannajja",
+    "Base Damage": 40,
+    "EvolveFrom": "Song of Mana",
+    "Accessories": "Skull O'Maniac"
+  },
+  {
+    "Id": "264015",
+    "Name": "Valkyrie Turner",
+    "Base Damage": 35,
+    "EvolveFrom": "Shadow Pinion",
+    "Accessories": "Wings"
+  },
+  {
+    "Id": "264016",
+    "Name": "Infinite Corridor",
+    "Base Damage": 0,
+    "EvolveFrom": "Clock Lancet",
+    "Accessories": "Max Level Silver Ring and Gold Ring"
+  },
+  {
+    "Id": "264017",
+    "Name": "Crimson Shroud",
+    "Base Damage": 0,
+    "EvolveFrom": "Laurel",
+    "Accessories": "Max Level Metaglio Left and Metaglio Right"
+  },
+  {
+    "Id": "264022",
+    "Name": "Bi-Bracelet",
+    "Base Damage": 30,
+    "EvolveFrom": "Bracelet",
+    "Accessories": "None"
+  },
+  {
+    "Id": "264023",
+    "Name": "Tri-Bracelet",
+    "Base Damage": 30,
+    "EvolveFrom": "Bi-Bracelet",
+    "Accessories": "None"
+  },
+  {
+    "Id": "264024",
+    "Name": "Mazo Familiar",
+    "Base Damage": 40,
+    "EvolveFrom": "Pako Battiliar",
+    "Accessories": "Max Level Hollow Heart"
+  },
+  {
+    "Id": "264025",
+    "Name": "Gunastrophe",
+    "Base Damage": 0,
+    "EvolveFrom": "Ammo Appalate",
+    "Accessories": "Max Level Bracer"
+  },
+  {
+    "Id": "264026",
+    "Name": "Ashes of Muspell",
+    "Base Damage": 50,
+    "EvolveFrom": "Flames of Misspell",
+    "Accessories": "Max Level Torrona's Box"
+  },
+  {
+    "Id": "264027",
+    "Name": "Wicked Ruler",
+    "Base Damage": 25,
+    "EvolveFrom": "Chaos Rune",
+    "Accessories": "Max Level Spellbinder"
+  },
+  {
+    "Id": "264028",
+    "Name": "Celestial Voulge",
+    "Base Damage": 20,
+    "EvolveFrom": "Glass Fandango",
+    "Accessories": "Max Level Wings"
+  },
+  {
+    "Id": "264029",
+    "Name": "Seraphic Cry",
+    "Base Damage": 70,
+    "EvolveFrom": "Santa Javelin",
+    "Accessories": "Max Level Clover"
+  },
+  {
+    "Id": "264030",
+    "Name": "Embrace of Gaea",
+    "Base Damage": 40,
+    "EvolveFrom": "Gaze of Gaea",
+    "Accessories": "Parm Aegis"
+  },
+  {
+    "Id": "264031",
+    "Name": "Kyra-Stones",
+    "Base Damage": 10,
+    "EvolveFrom": "Magi-Stone",
+    "Accessories": "Karoma's Mana"
+  },
+  {
+    "Id": "264032",
+    "Name": "Photonstorm",
+    "Base Damage": 25,
+    "EvolveFrom": "Phas3r",
+    "Accessories": "Max Level Empty Tome"
+  },
+  {
+    "Id": "264033",
+    "Name": "Festive Winds",
+    "Base Damage": 30,
+    "EvolveFrom": "Silver Wind",
+    "Accessories": "Max Level Pummarola"
+  },
+  {
+    "Id": "264034",
+    "Name": "Godai Shuffle",
+    "Base Damage": 10,
+    "EvolveFrom": "Four Seasons",
+    "Accessories": "Max Level Candelabrador"
+  },
+  {
+    "Id": "264035",
+    "Name": "Echo Night",
+    "Base Damage": 30,
+    "EvolveFrom": "Summon Night",
+    "Accessories": "Max Level Duplicator"
+  },
+  {
+    "Id": "264036",
+    "Name": "J'Odore",
+    "Base Damage": 60,
+    "EvolveFrom": "Mirage Robe",
+    "Accessories": "Max Level Attractorb"
+  },
+  {
+    "Id": "264037",
+    "Name": "Muramasa",
+    "Base Damage": 100,
+    "EvolveFrom": "Night Sword",
+    "Accessories": "Max Level Stone Mask"
+  },
+  {
+    "Id": "264038",
+    "Name": "Boo Roo Boolle",
+    "Base Damage": 20,
+    "EvolveFrom": "Mille Bolle Blu",
+    "Accessories": "Max Level Spellbinder"
+  },
+  {
+    "Id": "264039",
+    "Name": "Legionnaire",
+    "Base Damage": 40,
+    "EvolveFrom": "Eskizzibur",
+    "Accessories": "Max Level Armor"
+  },
+  {
+    "Id": "264040",
+    "Name": "Millionaire",
+    "Base Damage": 40,
+    "EvolveFrom": "Flash Arrow",
+    "Accessories": "Max Level Bracer"
+  },
+  {
+    "Id": "264041",
+    "Name": "Luminaire",
+    "Base Damage": 25,
+    "EvolveFrom": "Prismatic Missile",
+    "Accessories": "Max Level Crown"
+  },
+  {
+    "Id": "264042",
+    "Name": "Ophion",
+    "Base Damage": 50,
+    "EvolveFrom": "Shadow Servant",
+    "Accessories": "Max Level Skull O'Maniac"
+  },
+  {
+    "Id": "264043",
+    "Name": "Emergency Meeting",
+    "Base Damage": 45,
+    "EvolveFrom": "Report!",
+    "Accessories": "Max Level Mini Crewmate"
+  },
+  {
+    "Id": "264044",
+    "Name": "Crossed Wires",
+    "Base Damage": 40,
+    "EvolveFrom": "Lucky Swipe",
+    "Accessories": "Max Level Mini Engineer"
+  },
+  {
+    "Id": "264045",
+    "Name": "Paranormal Scan",
+    "Base Damage": 0,
+    "EvolveFrom": "Lifesign Scan",
+    "Accessories": "Max Level Mini Ghost"
+  },
+  {
+    "Id": "264046",
+    "Name": "Unjust Ejection",
+    "Base Damage": 100,
+    "EvolveFrom": "Just Vent",
+    "Accessories": "Max Level Mini Shapeshifter"
+  },
+  {
+    "Id": "264047",
+    "Name": "Clear Asteroids",
+    "Base Damage": 50,
+    "EvolveFrom": "Clear Debris",
+    "Accessories": "Max Level Mini Guardian"
+  },
+  {
+    "Id": "264048",
+    "Name": "Impostongue",
+    "Base Damage": 45,
+    "EvolveFrom": "Sharp Tongue",
+    "Accessories": "Max Level Mini Impostor"
+  },
+  {
+    "Id": "264049",
+    "Name": "Rocket Science",
+    "Base Damage": 20,
+    "EvolveFrom": "Science Rocks",
+    "Accessories": "Max Level Mini Scientist"
+  },
+  {
+    "Id": "264050",
+    "Name": "Prototype A",
+    "Base Damage": 10,
+    "EvolveFrom": "Long Gun",
+    "Accessories": "Weapon Power-Up"
+  },
+  {
+    "Id": "264051",
+    "Name": "Prototype B",
+    "Base Damage": 60,
+    "EvolveFrom": "Short Gun",
+    "Accessories": "Weapon Power-Up + Bracer"
+  },
+  {
+    "Id": "264052",
+    "Name": "Prototype C",
+    "Base Damage": 35,
+    "EvolveFrom": "Spread Shot",
+    "Accessories": "Weapon Power-Up + Empty Tome"
+  },
+  {
+    "Id": "264053",
+    "Name": "Pronto Beam",
+    "Base Damage": 25,
+    "EvolveFrom": "C-U-Laser",
+    "Accessories": "Weapon Power-Up + Tirajisú"
+  },
+  {
+    "Id": "264054",
+    "Name": "Fire-L3GS",
+    "Base Damage": 28,
+    "EvolveFrom": "Firearm",
+    "Accessories": "Weapon Power-Up + Candelabrador"
+  },
+  {
+    "Id": "264055",
+    "Name": "Wave Beam",
+    "Base Damage": 30,
+    "EvolveFrom": "Sonic Bloom",
+    "Accessories": "Weapon Power-Up + Armor"
+  },
+  {
+    "Id": "264056",
+    "Name": "Multistage Missiles",
+    "Base Damage": 40,
+    "EvolveFrom": "Homing Miss",
+    "Accessories": "Weapon Power-Up + Duplicator"
+  },
+  {
+    "Id": "264057",
+    "Name": "Atmo-Torpedo",
+    "Base Damage": 40,
+    "EvolveFrom": "Diver Mines",
+    "Accessories": "Weapon Power-Up + Attractorb"
+  },
+  {
+    "Id": "264058",
+    "Name": "BFC2000-AD",
+    "Base Damage": 24,
+    "EvolveFrom": "Blade Crossbow",
+    "Accessories": "Weapon Power-Up + Clover"
+  },
+  {
+    "Id": "264059",
+    "Name": "Time Warp",
+    "Base Damage": 10,
+    "EvolveFrom": "Prism Lass",
+    "Accessories": "Weapon Power-Up + Wings"
+  },
+  {
+    "Id": "264060",
+    "Name": "Big Fuzzy Fist",
+    "Base Damage": 60,
+    "EvolveFrom": "Metal Claw",
+    "Accessories": "Weapon Power-Up + Hollow Heart"
+  },
+  {
+    "Id": "264061",
+    "Name": "Vampire Killer",
+    "Base Damage": 80,
+    "EvolveFrom": "Alchemy Whip",
+    "Accessories": "Tirajisú"
+  },
+  {
+    "Id": "264062",
+    "Name": "Spirit Tornado Tip",
+    "Base Damage": 30,
+    "EvolveFrom": "Wind Whip",
+    "Accessories": "Crown"
+  },
+  {
+    "Id": "264063",
+    "Name": "Cross Crasher Tip",
+    "Base Damage": 50,
+    "EvolveFrom": "Platinum Whip",
+    "Accessories": "Clover"
+  },
+  {
+    "Id": "264064",
+    "Name": "Hydrostormer Tip",
+    "Base Damage": 40,
+    "EvolveFrom": "Dragon Water Whip",
+    "Accessories": "Attractorb"
+  },
+  {
+    "Id": "264065",
+    "Name": "Crissaegrim Tip",
+    "Base Damage": 25,
+    "EvolveFrom": "Sonic Whip",
+    "Accessories": "Skull O'Maniac"
+  },
+  {
+    "Id": "264066",
+    "Name": "Mormegil Tip",
+    "Base Damage": 40,
+    "EvolveFrom": "Jet Black Whip",
+    "Accessories": "Stone Mask"
+  },
+  {
+    "Id": "264067",
+    "Name": "Daybreaker Tip",
+    "Base Damage": 60,
+    "EvolveFrom": "Vibhuti Whip",
+    "Accessories": "Candelabrador"
+  },
+  {
+    "Id": "264068",
+    "Name": "Aurablaster Tip",
+    "Base Damage": 40,
+    "EvolveFrom": "Vanitas Whip",
+    "Accessories": "Hollow Heart"
+  },
+  {
+    "Id": "264069",
+    "Name": "Yagyu Shuriken",
+    "Base Damage": 20,
+    "EvolveFrom": "Shuriken",
+    "Accessories": "Empty Tome"
+  },
+  {
+    "Id": "264070",
+    "Name": "Bwaka Knife",
+    "Base Damage": 20,
+    "EvolveFrom": "Curved Knife",
+    "Accessories": "Bracer"
+  },
+  {
+    "Id": "264071",
+    "Name": "Long Inus",
+    "Base Damage": 30,
+    "EvolveFrom": "Javelin",
+    "Accessories": "Spellbinder"
+  },
+  {
+    "Id": "264072",
+    "Name": "Stellar Blade",
+    "Base Damage": 30,
+    "EvolveFrom": "Discus",
+    "Accessories": "Max Level Parm Aegis"
+  },
+  {
+    "Id": "264073",
+    "Name": "Wrecking Ball",
+    "Base Damage": 100,
+    "EvolveFrom": "Iron Ball",
+    "Accessories": "Armor"
+  },
+  {
+    "Id": "264074",
+    "Name": "Jewel Gun",
+    "Base Damage": 100,
+    "EvolveFrom": "Silver Revolver",
+    "Accessories": "Karoma's Mana"
+  },
+  {
+    "Id": "264075",
+    "Name": "The RPG",
+    "Base Damage": 40,
+    "EvolveFrom": "Hand Grenade",
+    "Accessories": "Max Level Candelabrador"
+  },
+  {
+    "Id": "264076",
+    "Name": "Meal Ticket",
+    "Base Damage": 15,
+    "EvolveFrom": "Wine Glass",
+    "Accessories": "Max Level Tirajisú"
+  },
+  {
+    "Id": "264077",
+    "Name": "Salamender",
+    "Base Damage": 20,
+    "EvolveFrom": "Raging Fire",
+    "Accessories": "Max Level Spinach"
+  },
+  {
+    "Id": "264078",
+    "Name": "Cocytus",
+    "Base Damage": 5,
+    "EvolveFrom": "Ice Fang",
+    "Accessories": "Max Level Spellbinder"
+  },
+  {
+    "Id": "264079",
+    "Name": "Pneuma Tempestas",
+    "Base Damage": 20,
+    "EvolveFrom": "Gale Force",
+    "Accessories": "Max Level Bracer"
+  },
+  {
+    "Id": "264080",
+    "Name": "Gemma Torpor",
+    "Base Damage": 50,
+    "EvolveFrom": "Rock Riot",
+    "Accessories": "Max Level Stone Mask"
+  },
+  {
+    "Id": "264081",
+    "Name": "Tenebris Tonitrus",
+    "Base Damage": 20,
+    "EvolveFrom": "Fulgur",
+    "Accessories": "Max Level Duplicator"
+  },
+  {
+    "Id": "264082",
+    "Name": "Keremet Morbus",
+    "Base Damage": 20,
+    "EvolveFrom": "Keremet Bubbles",
+    "Accessories": "Max Level Armor"
+  },
+  {
+    "Id": "264083",
+    "Name": "Nightmare",
+    "Base Damage": 25,
+    "EvolveFrom": "Hex",
+    "Accessories": "Max Level Skull O'Maniac"
+  },
+  {
+    "Id": "264084",
+    "Name": "Sanctuary",
+    "Base Damage": 10,
+    "EvolveFrom": "Refectio",
+    "Accessories": "Max Level Clover"
+  },
+  {
+    "Id": "264085",
+    "Name": "Stamazza",
+    "Base Damage": 80,
+    "EvolveFrom": "Mace",
+    "Accessories": "Max level Hollow Heart"
+  },
+  {
+    "Id": "264086",
+    "Name": "Moon Rod",
+    "Base Damage": 20,
+    "EvolveFrom": "Star Flail",
+    "Accessories": "Max Level Pummarola"
+  },
+  {
+    "Id": "264087",
+    "Name": "Thunderbolt Spear",
+    "Base Damage": 50,
+    "EvolveFrom": "Alucard Spear",
+    "Accessories": "Wings"
+  },
+  {
+    "Id": "264088",
+    "Name": "Gungnir-Souris",
+    "Base Damage": 40,
+    "EvolveFrom": "Trident",
+    "Accessories": "Max Level Duplicator"
+  },
+  {
+    "Id": "264089",
+    "Name": "Dark Iron Shield",
+    "Base Damage": 20,
+    "EvolveFrom": "Iron Shield",
+    "Accessories": "Parm Aegis"
+  },
+  {
+    "Id": "264090",
+    "Name": "Sacred Beasts Tower Shield",
+    "Base Damage": 20,
+    "EvolveFrom": "Guardian's Targe",
+    "Accessories": "Pummarola"
+  },
+  {
+    "Id": "264091",
+    "Name": "Rune Sword",
+    "Base Damage": 90,
+    "EvolveFrom": "Tyrfing",
+    "Accessories": "Spinach"
+  },
+  {
+    "Id": "264092",
+    "Name": "Alucard Swords",
+    "Base Damage": 50,
+    "EvolveFrom": "Alucart Sworb",
+    "Accessories": "None"
+  },
+  {
+    "Id": "264093",
+    "Name": "Vol Confodere",
+    "Base Damage": 10,
+    "EvolveFrom": "Confodere",
+    "Accessories": "None"
+  },
+  {
+    "Id": "264094",
+    "Name": "Melio Confodere",
+    "Base Damage": 14,
+    "EvolveFrom": "Vol Confodere",
+    "Accessories": "None"
+  },
+  {
+    "Id": "264095",
+    "Name": "Nitesco",
+    "Base Damage": 20,
+    "EvolveFrom": "Globus",
+    "Accessories": "Max Level Empty Tome"
+  },
+  {
+    "Id": "264096",
+    "Name": "Acerbatus",
+    "Base Damage": 50,
+    "EvolveFrom": "Optical Shot",
+    "Accessories": "Max Level Karoma's Mana"
+  },
+  {
+    "Id": "264097",
+    "Name": "Rapidus Fio",
+    "Base Damage": 10,
+    "EvolveFrom": "Sonic Dash",
+    "Accessories": "Max Level Wings"
+  },
+  {
+    "Id": "264098",
+    "Name": "Vol Luminatio",
+    "Base Damage": 12,
+    "EvolveFrom": "Luminatio",
+    "Accessories": "Max Level Crown"
+  },
+  {
+    "Id": "264099",
+    "Name": "Vol Umbra",
+    "Base Damage": 12,
+    "EvolveFrom": "Umbra",
+    "Accessories": "Max Level Attractorb"
+  },
+  {
+    "Id": "264100",
+    "Name": "Claimh Solais",
+    "Base Damage": 77,
+    "EvolveFrom": "Pocket Knife",
+    "Accessories": "Max Level Torrona's Box"
+  },
+  {
+    "Id": "264101",
+    "Name": "Dress Sword",
+    "Base Damage": 12,
+    "EvolveFrom": "Fleuret",
+    "Accessories": "Crystalline Carve tech★"
+  },
+  {
+    "Id": "264102",
+    "Name": "Espada Ropera",
+    "Base Damage": 18,
+    "EvolveFrom": "Dress Sword",
+    "Accessories": "Shocking Rush tech★★"
+  },
+  {
+    "Id": "264103",
+    "Name": "Lordstar",
+    "Base Damage": 0,
+    "EvolveFrom": "Town Sword",
+    "Accessories": "Swallow Slice tech★"
+  },
+  {
+    "Id": "264104",
+    "Name": "Dayblade",
+    "Base Damage": 20,
+    "EvolveFrom": "Lordstar",
+    "Accessories": "Airwave tech★★"
+  },
+  {
+    "Id": "264105",
+    "Name": "Pursuant Blades",
+    "Base Damage": 40,
+    "EvolveFrom": "Splashers",
+    "Accessories": "Spellbinder + Dual Whirlwind tech★"
+  },
+  {
+    "Id": "264106",
+    "Name": "Zweihander",
+    "Base Damage": 30,
+    "EvolveFrom": "Flamberge",
+    "Accessories": "Bull Crush tech★"
+  },
+  {
+    "Id": "264107",
+    "Name": "Galatyn",
+    "Base Damage": 60,
+    "EvolveFrom": "Zweihander",
+    "Accessories": "Absetzen tech★★"
+  },
+  {
+    "Id": "264108",
+    "Name": "Pressure Point",
+    "Base Damage": 0,
+    "EvolveFrom": "Punch",
+    "Accessories": "Raksha tech★"
+  },
+  {
+    "Id": "264109",
+    "Name": "Gilded Hand",
+    "Base Damage": 0,
+    "EvolveFrom": "Pressure Point",
+    "Accessories": "Shenlong Firefist tech★★"
+  },
+  {
+    "Id": "264110",
+    "Name": "Triangle Kick",
+    "Base Damage": 30,
+    "EvolveFrom": "Kick",
+    "Accessories": "Pummarola + Thunder Kick tech★"
+  },
+  {
+    "Id": "264111",
+    "Name": "Hecaton Machine Gun",
+    "Base Damage": 1,
+    "EvolveFrom": "Saber Machine Gun",
+    "Accessories": "Requires Shockwave tech★"
+  },
+  {
+    "Id": "264112",
+    "Name": "Divergence",
+    "Base Damage": 2,
+    "EvolveFrom": "Hecaton Machine Gun",
+    "Accessories": "Bombarding Fire tech★★"
+  },
+  {
+    "Id": "264113",
+    "Name": "Hydra Cannon",
+    "Base Damage": 20,
+    "EvolveFrom": "Super Missile",
+    "Accessories": "Ballistic Missiles tech★"
+  },
+  {
+    "Id": "264114",
+    "Name": "Hyperion Bazooka",
+    "Base Damage": 30,
+    "EvolveFrom": "Hydra Cannon",
+    "Accessories": "Artificial Hailstorm tech★★"
+  },
+  {
+    "Id": "264115",
+    "Name": "Pendragon",
+    "Base Damage": 10,
+    "EvolveFrom": "Eagle Gun",
+    "Accessories": "Spinach + Falconfire tech★"
+  },
+  {
+    "Id": "264116",
+    "Name": "Jetstream",
+    "Base Damage": 0,
+    "EvolveFrom": "Khukuri",
+    "Accessories": "Parm Aegis + Moonfall Slash tech★"
+  },
+  {
+    "Id": "264117",
+    "Name": "Gekkabijin",
+    "Base Damage": 25,
+    "EvolveFrom": "Twin Dragon",
+    "Accessories": "Karoma's Mana + Gravedigger tech★"
+  },
+  {
+    "Id": "264118",
+    "Name": "Falconwind",
+    "Base Damage": 30,
+    "EvolveFrom": "Bullova",
+    "Accessories": "Max Level Skull O'Maniac + Hell's Fury tech★"
+  },
+  {
+    "Id": "264119",
+    "Name": "Blood Chalice",
+    "Base Damage": 16,
+    "EvolveFrom": "Sanguine Star",
+    "Accessories": "Stone Mask + Blood Rage tech★"
+  },
+  {
+    "Id": "264120",
+    "Name": "Feather Spear",
+    "Base Damage": 12,
+    "EvolveFrom": "Glaive",
+    "Accessories": "Divine Lancer tech★"
+  },
+  {
+    "Id": "264121",
+    "Name": "Lohengrin",
+    "Base Damage": 24,
+    "EvolveFrom": "Feather Spear",
+    "Accessories": "Stardust tech★★"
+  },
+  {
+    "Id": "264122",
+    "Name": "Rings of Calamity",
+    "Base Damage": 20,
+    "EvolveFrom": "Spirit Rings",
+    "Accessories": "Requires Max: any 5 passives"
+  },
+  {
+    "Id": "264123",
+    "Name": "Emerald Wave",
+    "Base Damage": 0,
+    "EvolveFrom": "Emerald Rapture",
+    "Accessories": "Crown"
+  },
+  {
+    "Id": "264124",
+    "Name": "NaneInferno",
+    "Base Damage": 30,
+    "EvolveFrom": "Infernolatro",
+    "Accessories": "Max Level Outer Saboteur"
+  },
+  {
+    "Id": "264125",
+    "Name": "Cavendish",
+    "Base Damage": 25,
+    "EvolveFrom": "Gros Michel",
+    "Accessories": "Max Level Outer Saboteur"
+  },
+  {
+    "Id": "264126",
+    "Name": "Royal Flush",
+    "Base Damage": 40,
+    "EvolveFrom": "Fibonacci Spritz",
+    "Accessories": "Max Level Outer Saboteur"
+  },
+  {
+    "Id": "264127",
+    "Name": "Negative Space",
+    "Base Damage": 20,
+    "EvolveFrom": "Celestial Booster",
+    "Accessories": "Max Level Outer Saboteur"
+  }
+]

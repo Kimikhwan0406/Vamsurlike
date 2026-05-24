@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7727658829343735081}
   - component: {fileID: 5048182258782965353}
-  - component: {fileID: 6844477966607024000}
+  - component: {fileID: 7567045452827725080}
   m_Layer: 0
-  m_Name: Skill
+  m_Name: TestWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: d96f6aabc43915a45a05d6df44c42f8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e12aeb8f85d8f534c924037f7e3baa74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &6844477966607024000
+--- !u!114 &7567045452827725080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,6 +101,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5351431055002558821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7feb86374a6ddff4283790eef38e304e, type: 3}
+  m_Script: {fileID: 11500000, guid: 22b03cee492437846a2e8014e34a0403, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestSkill
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
