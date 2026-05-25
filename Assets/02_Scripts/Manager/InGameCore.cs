@@ -29,7 +29,7 @@ public class InGameCore
 
     void PlayerSpawn()
     {
-        player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player")).GetComponent<Player>();
+        player = Object.Instantiate(Utils.ResourcesLoad<GameObject>($"Player/{characterId}")).GetComponent<Player>();
         // TODO: 플레이어 초기 데이터 셋팅, 추후 캐릭터 선택 UI 에서 받아오기
         player.Init(characterId);
     }

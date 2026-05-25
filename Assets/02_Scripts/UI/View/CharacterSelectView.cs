@@ -40,7 +40,7 @@ public class CharacterSelectView : MonoBehaviour, IView
         }
 
         selectedCharacterName.text = data.Name;
-        selectedCharacterIcon.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Character/{characterId}");
+        selectedCharacterIcon.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/PlayerSprite/{characterId}");
         selectedCharacterDescription.text = data.Description;
     }
 

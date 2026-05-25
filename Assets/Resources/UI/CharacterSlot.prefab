@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1023a467b54f744891e478ae1d9b154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSlot
+  characterNameText: {fileID: 1122979987684533031}
+  baseWeaponImage: {fileID: 8627705892318626922}
 --- !u!1 &2717867168362240397
 GameObject:
   m_ObjectHideFlags: 0
