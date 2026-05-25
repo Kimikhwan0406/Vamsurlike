@@ -7,7 +7,7 @@ public class ProjectileWeaponPattern : IWeaponPattern
     {
         GameObject.Instantiate(
             Utils.ResourcesLoad<GameObject>("TestWeapon")
-            , GameManager.Instance.GetPlayer().transform.position
+            , context.OwnerTransform.position
             , Quaternion.identity);
     }
 }

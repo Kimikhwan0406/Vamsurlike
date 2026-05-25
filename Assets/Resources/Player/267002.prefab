@@ -425,7 +425,6 @@ GameObject:
   - component: {fileID: 4662705906675228359}
   - component: {fileID: 2829633648927272607}
   - component: {fileID: 89652827007026602}
-  - component: {fileID: 4360924056286280245}
   m_Layer: 0
   m_Name: 267002
   m_TagString: Untagged
@@ -563,18 +562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09d5dd6d73c23b45b29952e1df38e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
---- !u!114 &4360924056286280245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8177106075341488768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e6d6f0d91bc1bb4b94389530181cd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponController
 --- !u!1 &8177106075487130135
 GameObject:
   m_ObjectHideFlags: 0

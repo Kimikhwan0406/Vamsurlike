@@ -8,6 +8,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static UserDataManager UserData { get { return Instance.userData; } }
     public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
+    public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
 
     #region Variables
     [SerializeField] Transform poolTransform;
@@ -17,6 +18,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     DataTable dataTable = new();
     UIManager ui = new();
     EnemySpawnPoolManager spawnPool = new();
+    PlayerWeaponController weaponController = new();
     CombatQuerySystem combatQuerySystem;
 
     [Header("Caching")]
@@ -47,6 +49,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         {
             inGameCore.Update();
             spawnPool.Update();
+            weaponController.Update();
         }
     }
 
@@ -64,28 +67,52 @@ public class GameManager : SingletonBehaviour<GameManager>
         playMap = Instantiate(Utils.ResourcesLoad<GameObject>("BasicMap"));
 
         inGameCore = new InGameCore(selectedCharacterId);
+        CreateWeaponContext();
         UI.ShowIngameHUD();
-        isPlaying = true;
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
         spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
         combatQuerySystem = new();
+
+
+        isPlaying = true;
+
+
+
+
+
+
+        // TEST
+        weaponController.RegisterWeapon("263001");
     }
 
     public void StageExit()
     {
+        isPlaying = false;
+
+        weaponController.Release();
         combatQuerySystem = null;
 
         spawnPool.ReleaseEnemyManager();
         Destroy(enemyManager);
         enemyManager = null;
 
-        isPlaying = false;
         UI.ShowLobbyHUD();
         inGameCore.Release();
         inGameCore = null;
 
         Destroy(playMap);
         playMap = null;
+    }
+
+    void CreateWeaponContext()
+    {
+        weaponController.CreateWeaponContext(
+            new WeaponContext
+            {
+                Owner = GetPlayer().gameObject,
+                OwnerTransform = GetPlayer().transform,
+                CombatQuerySystem = combatQuerySystem
+            });
     }
 }

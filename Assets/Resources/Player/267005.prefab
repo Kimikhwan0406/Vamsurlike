@@ -436,7 +436,6 @@ GameObject:
   - component: {fileID: 5160892879838078196}
   - component: {fileID: 8600126851257174416}
   - component: {fileID: 1964340930429502846}
-  - component: {fileID: 4350620029668023378}
   m_Layer: 0
   m_Name: 267005
   m_TagString: Untagged
@@ -573,15 +572,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   inputHandler: {fileID: 8600126851257174416}
   moveSpeed: 5
---- !u!114 &4350620029668023378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7482322589216929537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e6d6f0d91bc1bb4b94389530181cd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponController

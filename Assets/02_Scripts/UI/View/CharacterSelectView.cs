@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CharacterSelectView : MonoBehaviour, IView
 {
-    public Transform CharacterGroupParent;
+    public Transform CharacterSlotGroupParent;
     public GameObject CharacterSlotPrefab;
     public Button StartGameButton;
 

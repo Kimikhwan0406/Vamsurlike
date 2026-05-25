@@ -60,7 +60,7 @@ public class CharacterSelectPresenter : IPresenter
 
     void CreateCharacterSlot(string characterId)
     {
-        GameObject slot = GameObject.Instantiate(view.CharacterSlotPrefab, view.CharacterGroupParent);
+        GameObject slot = Object.Instantiate(view.CharacterSlotPrefab, view.CharacterSlotGroupParent);
         if (null == slot)
         {
             Debug.LogError($"Failed to create character slot for characterId: {characterId}");

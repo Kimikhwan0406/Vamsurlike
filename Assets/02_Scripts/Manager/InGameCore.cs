@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class InGameCore
 {
@@ -18,8 +19,7 @@ public class InGameCore
 
     ~InGameCore()
     {
-        Object.Destroy(player);
-        player = null;
+        Release();
     }
 
     public void Update()

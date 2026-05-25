@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b8ea3038c2e74787a5e30ca1165de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectView
-  CharacterGroupParent: {fileID: 3758146186426904174}
+  CharacterSlotGroupParent: {fileID: 3758146186426904174}
   CharacterSlotPrefab: {fileID: 2283384149224381446, guid: d9fc6e6925a28c043b923079669c5d94, type: 3}
   StartGameButton: {fileID: 6611563317676012079}
   selectedCharacterName: {fileID: 4422917553097506937}

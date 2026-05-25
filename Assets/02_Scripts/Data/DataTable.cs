@@ -13,6 +13,7 @@ public class DataTable
     Dictionary<string, WeaponLevelData> WeaponLevelDataTable { get;  set; } = new();
 
     public Dictionary<string, CharacterData> GetCharacterDataTable() => CharacterDataTable;
+    public Dictionary<string, WeaponData> GetWeaponDataTable() => WeaponDataTable;
 
 
 

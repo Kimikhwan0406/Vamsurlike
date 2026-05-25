@@ -74,4 +74,5 @@ public class WeaponLevelData : BaseData
     public int Level;
     public List<string> EffectName;
     public List<string> EffectValue;
+    public string Description;
 }
