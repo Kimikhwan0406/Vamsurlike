@@ -191,7 +191,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -40, y: 0}
-  m_SizeDelta: {x: 120, y: 60}
+  m_SizeDelta: {x: 120, y: 80}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4215302299137952706
 CanvasRenderer:
@@ -274,7 +274,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8099819068181414450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2861129940489586445}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1353352467746861216
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +514,7 @@ GameObject:
   - component: {fileID: 666389333618193940}
   - component: {fileID: 5671322148546109363}
   - component: {fileID: 4955225179047914193}
+  - component: {fileID: 4822848967754989772}
   m_Layer: 5
   m_Name: CharacterSelectView
   m_TagString: Untagged
@@ -592,6 +605,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4822848967754989772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861129940489586445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814b8ea3038c2e74787a5e30ca1165de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectView
+  CharacterGroupParent: {fileID: 3758146186426904174}
+  CharacterSlotPrefab: {fileID: 2283384149224381446, guid: d9fc6e6925a28c043b923079669c5d94, type: 3}
+  StartGameButton: {fileID: 6611563317676012079}
+  selectedCharacterName: {fileID: 4422917553097506937}
+  selectedCharacterIcon: {fileID: 807844925492872449}
+  selectedCharacterDescription: {fileID: 3984419713493699523}
 --- !u!1 &3325963532833978158
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +901,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm
+  m_text: 'Game
+
+    Start'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

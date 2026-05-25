@@ -21,7 +21,8 @@ public class CharacterData : BaseData
     public List<string> AbilityValue;
     public List<string> PN;
     public string UnlockCondition;
-    public int UnlockConditionGold;
+    public int UnlockValue;
+    public string Description;
 }
 
 [Serializable]

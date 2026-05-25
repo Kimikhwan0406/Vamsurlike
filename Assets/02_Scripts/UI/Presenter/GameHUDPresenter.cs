@@ -27,6 +27,8 @@ public class GameHUDPresenter : IPresenter
     public void Close()
     {
         view.Close();
+        view = null;
+        model = null;
     }
 
     public float GetPlayTime() => model.Time;

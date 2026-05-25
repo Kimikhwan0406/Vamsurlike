@@ -24,9 +24,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     GameObject enemyManager;
 
     [Header("InGame")]
+    public bool IsPlaying => isPlaying;
     GameObject playMap;
     bool isPlaying = false;
-    public bool IsPlaying => isPlaying;
+    string selectedCharacterId;
     #endregion
 
     protected override void Init()
@@ -52,12 +53,17 @@ public class GameManager : SingletonBehaviour<GameManager>
     public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
 
+    public void SetCharacterId(string characterId)
+    {
+        selectedCharacterId = characterId;
+    }
+
     public void StageEnter()
     {
         // TODO : 맵 추가시 로직 변경
         playMap = Instantiate(Utils.ResourcesLoad<GameObject>("BasicMap"));
 
-        inGameCore = new InGameCore();
+        inGameCore = new InGameCore(selectedCharacterId);
         UI.ShowIngameHUD();
         isPlaying = true;
 

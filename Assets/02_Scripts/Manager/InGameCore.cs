@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class InGameCore
 {
-    Player player;
     public Player Player => player;
     public float GetPlayTime() => GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().GetPlayTime();
 
-    public InGameCore()
+
+    Player player;
+
+    string characterId;
+
+    public InGameCore(string characterId)
     {
+        this.characterId = characterId;
         PlayerSpawn();
     }
 
@@ -26,7 +31,7 @@ public class InGameCore
     {
         player = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Player")).GetComponent<Player>();
         // TODO: 플레이어 초기 데이터 셋팅, 추후 캐릭터 선택 UI 에서 받아오기
-        player.Init("267001");
+        player.Init(characterId);
     }
 
     public void Release()
