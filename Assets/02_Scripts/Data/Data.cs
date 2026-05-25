@@ -21,7 +21,8 @@ public class CharacterData : BaseData
     public List<string> AbilityValue;
     public List<string> PN;
     public string UnlockCondition;
-    public int UnlockConditionGold;
+    public int UnlockValue;
+    public string Description;
 }
 
 [Serializable]
@@ -73,4 +74,5 @@ public class WeaponLevelData : BaseData
     public int Level;
     public List<string> EffectName;
     public List<string> EffectValue;
+    public string Description;
 }

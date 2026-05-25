@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using UnityEngine;
 
 public class DataTable
 {
-    public Dictionary<string, CharacterData> CharacterDataTable { get; private set; } = new();
-    public Dictionary<string, EnemyData> EnemyDataTable { get; private set; } = new();
-    public Dictionary<string, StageData> StageDataTable { get; private set; } = new();
-    public Dictionary<string, WeaponData> WeaponDataTable { get; private set; } = new();
-    public Dictionary<string, WeaponLevelData> WeaponLevelDataTable { get; private set; } = new();
+    Dictionary<string, CharacterData> CharacterDataTable { get; set; } = new();
+    Dictionary<string, EnemyData> EnemyDataTable { get; set; } = new();
+    Dictionary<string, StageData> StageDataTable { get; set; } = new();
+    Dictionary<string, WeaponData> WeaponDataTable { get; set; } = new();
+    Dictionary<string, WeaponLevelData> WeaponLevelDataTable { get;  set; } = new();
+
+    public Dictionary<string, CharacterData> GetCharacterDataTable() => CharacterDataTable;
+    public Dictionary<string, WeaponData> GetWeaponDataTable() => WeaponDataTable;
+
 
 
     [Serializable]
@@ -24,7 +29,7 @@ public class DataTable
         EnemyDataTable = LoadData<EnemyData>("Enemy");
         StageDataTable = LoadData<StageData>("BaseStage");
         WeaponDataTable = LoadData<WeaponData>("Weapon");
-        WeaponLevelDataTable = LoadData<WeaponLevelData>("WeaponLevel");
+        //WeaponLevelDataTable = LoadData<WeaponLevelData>("WeaponLevel");
     }
 
     Dictionary<string, T> LoadData<T>(string tableNmae) where T : BaseData

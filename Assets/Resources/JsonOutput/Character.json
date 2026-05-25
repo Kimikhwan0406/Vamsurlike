@@ -20,7 +20,8 @@
       "P"
     ],
     "UnlockCondition": "None",
-    "UnlockConditionGold": 0
+    "UnlockValue": 0,
+    "Description": "267001 캐릭터입니다."
   },
   {
     "Id": "267002",
@@ -43,7 +44,8 @@
       "P"
     ],
     "UnlockCondition": "Gold",
-    "UnlockConditionGold": 10
+    "UnlockValue": 10,
+    "Description": "267002 캐릭터입니다."
   },
   {
     "Id": "267003",
@@ -51,7 +53,7 @@
     "MaxHealth": 100,
     "DefaultWeapon": "룬 트레이서",
     "Ability": [
-      "투사체가속"
+      "투사체속도"
     ],
     "AbilityCondition": [
       "5"
@@ -66,58 +68,106 @@
       "P"
     ],
     "UnlockCondition": "Gold",
-    "UnlockConditionGold": 110
+    "UnlockValue": 110,
+    "Description": "267003 캐릭터입니다."
   },
   {
     "Id": "267004",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Gennaro",
+    "MaxHealth": 120,
+    "DefaultWeapon": "단검",
+    "Ability": [
+      "투사체 수"
+    ],
+    "AbilityCondition": [
+      "0"
+    ],
+    "AbilityMargin": [
+      "0"
+    ],
+    "AbilityValue": [
+      "1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "267004 캐릭터입니다."
   },
   {
     "Id": "267005",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Arca",
+    "MaxHealth": 100,
+    "DefaultWeapon": "불의 지팡이",
+    "Ability": [
+      "피해량",
+      "쿨타임"
+    ],
+    "AbilityCondition": [
+      "0",
+      "10"
+    ],
+    "AbilityMargin": [
+      "0",
+      "15"
+    ],
+    "AbilityValue": [
+      "0.05"
+    ],
+    "PN": [
+      "N"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "267005 캐릭터입니다."
   },
   {
     "Id": "267006",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Porta",
+    "MaxHealth": 100,
+    "DefaultWeapon": "번개 반지",
+    "Ability": [
+      "공격 범위"
+    ],
+    "AbilityCondition": [
+      "0"
+    ],
+    "AbilityMargin": [
+      "0"
+    ],
+    "AbilityValue": [
+      "0.3"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "267006 캐릭터입니다."
   },
   {
     "Id": "267007",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Poe",
+    "MaxHealth": 70,
+    "DefaultWeapon": "마늘",
+    "Ability": [
+      "자석"
+    ],
+    "AbilityCondition": [
+      "0"
+    ],
+    "AbilityMargin": [
+      "0"
+    ],
+    "AbilityValue": [
+      "0.25"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "267007 캐릭터입니다."
   }
 ]

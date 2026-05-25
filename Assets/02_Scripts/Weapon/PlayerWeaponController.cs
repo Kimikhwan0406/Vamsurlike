@@ -1,48 +1,101 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class PlayerWeaponController : MonoBehaviour
+public class PlayerWeaponController
 {
-    List<WeaponObject> weapons;
+    List<WeaponObject> weaponList = new();
     WeaponContext context;
+    List<string> maxLevelWeapons = new();
 
-    void Awake()
+    public void CreateWeaponContext(WeaponContext context)
     {
-        context = new WeaponContext
-        {
-            Owner = gameObject,
-            OwnerTransform = transform,
-            CombatQuerySystem = GameManager.CombatQuery
-        };
-
-        weapons = new List<WeaponObject>();
-
-        RegisterWeapon(new WeaponObject("263001"));
+        this.context = context;
     }
 
-    void Update()
+
+    public void Update()
     {
         float deltaTime = Time.deltaTime;
 
-        for (int i = 0; i < weapons.Count; i++)
+        for (int i = 0; i < weaponList.Count; i++)
         {
-            weapons[i].Update(deltaTime, context);
+            weaponList[i].Update(deltaTime, context);
         }
     }
 
-    public void RegisterWeapon(WeaponObject weapon)
+    public List<string> GetMaxLevelWeapons() => maxLevelWeapons;
+
+    public bool HasWeapon(string weaponId) => weaponList.Exists(w => w.WeaponId == weaponId);
+    public int GetWeaponLevel(string weaponId)
     {
-        weapons.Add(weapon);
+        var weapon = weaponList.Find(w => w.WeaponId == weaponId);
+        if (weapon != null)
+        {
+            return weapon.WeaponLevel;
+        }
+        else
+        {
+            Debug.Log($"{GetType()}: 무기가 존재하지 않음");
+            return 0;
+        }
     }
 
-    public void UpgradeWeapon(WeaponObject weapon)
+    public void RegisterWeapon(string weaponId)
     {
-        for (int i = 0; i < weapons.Count; i++)
+        if (weaponList.Exists(w => w.WeaponId == weaponId))
         {
-            if (weapons[i] == weapon)
+            Debug.Log($"{GetType()}: 무기가 이미 존재함");
+            return;
+        }
+
+        var weapon = new WeaponObject(weaponId);
+
+        weaponList.Add(weapon);
+    }
+
+    public void UnregisterWeapon(string weaponId)
+    {
+        if (!weaponList.Exists(w => w.WeaponId == weaponId))
+        {
+            Debug.Log($"{GetType()}: 무기가 존재하지 않음");
+            return;
+        }
+
+        foreach (var weapon in weaponList)
+        {
+            if (weapon.WeaponId == weaponId)
             {
-                weapons[i].UpgradeWeapon();
+                weaponList.Remove(weapon);
+                break;
             }
         }
+    }
+
+    public void UpgradeWeapon(string weaponId)
+    {
+        var weapon = weaponList.Find(w => w.WeaponId == weaponId);
+        if (weapon == null)
+        {
+            Debug.Log($"{GetType()}: 무기가 존재하지 않음");
+            return;
+        }
+
+        weapon.UpgradeWeapon();
+
+
+        if (weapon.WeaponLevel == GameManager.DataTable.GetWeaponData(weaponId).MaxLevel)
+        {
+            maxLevelWeapons.Add(weaponId);
+        }
+    }
+
+    public void Release()
+    {
+        context = null;
+        weaponList.Clear();
+        maxLevelWeapons.Clear();
     }
 }

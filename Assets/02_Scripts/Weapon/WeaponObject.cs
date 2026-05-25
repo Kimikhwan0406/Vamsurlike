@@ -5,6 +5,9 @@ public class WeaponObject
     IWeaponPattern pattern;
     WeaponData weaponData;
 
+    public string WeaponId => weaponId;
+    public int WeaponLevel => level;
+
     string weaponId;
     float coolTimeTimer;
     float coolTime = 1f;

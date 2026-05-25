@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayerInputHandler inputHandler;
+    PlayerInputHandler inputHandler;
     [SerializeField] float moveSpeed = 5f;
 
     float currentHealth;
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
+
+    void Awake()
+    {
+        inputHandler = GetComponent<PlayerInputHandler>();
+    }
 
     public void Init(string characterId)
     {
