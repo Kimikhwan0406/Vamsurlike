@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     Vector3 prePosition;
     List<EnemyBase> hitBuffer = new();
     List<EnemyBase> alreadyHit = new();
-    float projectileRadius = 1f;
+    [SerializeField] float projectileRadius = 1f;
 
     void Awake()
     {

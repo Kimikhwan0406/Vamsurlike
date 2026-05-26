@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Unity.Mathematics;
 using static Unity.Collections.AllocatorManager;
 
 [Serializable]
@@ -33,6 +34,8 @@ public class EnemyData : BaseData
     public float Power;
     public float MoveSpeed;
     public float XP;
+    public List<float> PositionOffset;
+    public float Radius;
 }
 
 [Serializable]
