@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   enemyPoolTransform: {fileID: 141222011}
-  fieldObjectPoolTransform: {fileID: 1261365765}
+  objectPoolTransform: {fileID: 1261365765}
 --- !u!4 &112767877
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261365765}
   m_Layer: 0
-  m_Name: FieldObejctPool
+  m_Name: ObejctPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

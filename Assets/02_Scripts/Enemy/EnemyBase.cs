@@ -49,7 +49,10 @@ public class EnemyBase : MonoBehaviour
     void Die()
     {
         GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddEnemyCount(1);
-        GameManager.FieldObjectPool.GetFieldObject(gameObject.transform, xp);
+
+        var e = GameManager.Pool.GetObject(PoolType.FieldObject, gameObject.transform);
+        e.GetComponent<FieldObject>().Init(xp);
+
         GameManager.EnemySpawnPool.DespawnEnemy(this);
         isDead = true;
     }
