@@ -712,9 +712,9 @@ GameObject:
   - component: {fileID: 7454703915555697585}
   - component: {fileID: 6822951396875109278}
   - component: {fileID: 1445375901608000980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 267003
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -847,5 +847,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a84ccbea8a59a647861092d366ef8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  inputHandler: {fileID: 6822951396875109278}
   moveSpeed: 5
