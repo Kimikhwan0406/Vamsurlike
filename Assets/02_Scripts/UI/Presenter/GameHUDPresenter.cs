@@ -68,6 +68,38 @@ public class GameHUDPresenter : IPresenter
         view.UpdateEnemyCount(model.EnemyCount);
     }
 
+    public void AddHUDWeaponSlot(string weaponId)
+    {
+        var slot = CreateHUDWeaponSlot(weaponId);
+
+        model.HudWeaponSlots.Add(weaponId, slot);
+        view.AddHUDWeaponSlot(slot);
+    }
+
+    public void RemoveHUDWeaponSlot(string weaponId)
+    {
+        if (model.HudWeaponSlots.TryGetValue(weaponId, out var slot))
+        {
+            view.RemoveHUDWeaponSlot(slot);
+            model.HudWeaponSlots.Remove(weaponId);
+        }
+    }
+
+    GameObject CreateHUDWeaponSlot(string weaponId)
+    {
+        GameObject slot = Object.Instantiate(Utils.ResourcesLoad<GameObject>("UI/HudWeaponSlot"));
+
+        if(slot.TryGetComponent(out HudWeaponSlot slotComponent))
+        {
+            slotComponent.Init(weaponId);
+        }
+        else
+        {
+            Debug.LogError("HudWeaponSlot component not found.");
+        }
+
+        return slot;
+    }
 
     void SetLevel(int level)
     {

@@ -40,7 +40,7 @@ public class PlayerWeaponController
         }
     }
 
-    public void RegisterWeapon(string weaponId)
+    public void AddWeapon(string weaponId)
     {
         if (weaponList.Exists(w => w.WeaponId == weaponId))
         {
@@ -50,10 +50,11 @@ public class PlayerWeaponController
 
         var weapon = new WeaponObject(weaponId);
 
+        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddHUDWeaponSlot(weaponId);
         weaponList.Add(weapon);
     }
 
-    public void UnregisterWeapon(string weaponId)
+    public void RemoveWeapon(string weaponId)
     {
         if (!weaponList.Exists(w => w.WeaponId == weaponId))
         {
@@ -66,6 +67,7 @@ public class PlayerWeaponController
             if (weapon.WeaponId == weaponId)
             {
                 weaponList.Remove(weapon);
+                GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().RemoveHUDWeaponSlot(weaponId);
                 break;
             }
         }

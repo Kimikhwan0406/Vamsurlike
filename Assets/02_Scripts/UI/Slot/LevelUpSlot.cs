@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class LevelUpSlot : MonoBehaviour
 {
     string itemId;
+    bool isNewItem = false;
 
     [SerializeField] Image SkilIcon;
     [SerializeField] TextMeshProUGUI skilName;
@@ -14,9 +15,6 @@ public class LevelUpSlot : MonoBehaviour
     public void Init(string id, int level)
     {
         itemId = id;
-
-        //TEST
-        level = 2;
 
         string weaponLevelId = level.ToString() + "62" + id.Substring(3);
 
@@ -30,6 +28,7 @@ public class LevelUpSlot : MonoBehaviour
         {
             skilLevel.text = "New!";
             skilLevel.color = Color.yellow;
+            isNewItem = true;
         }
         else
         {
@@ -46,6 +45,15 @@ public class LevelUpSlot : MonoBehaviour
 
     public void OnClickSlot()
     {
-        GameManager.WeaponController.UpgradeWeapon(itemId);
+        if (!isNewItem)
+        {
+            GameManager.WeaponController.UpgradeWeapon(itemId);
+        }
+        else
+        {
+            GameManager.WeaponController.AddWeapon(itemId);
+        }
+        
+        GameManager.UI.CloseUI();
     }
 }

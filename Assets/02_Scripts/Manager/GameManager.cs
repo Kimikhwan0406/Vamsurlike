@@ -88,7 +88,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 
         // TEST
-        weaponController.RegisterWeapon("263080");
+        weaponController.AddWeapon("263080");
         //weaponController.RegisterWeapon("263079");
     }
 

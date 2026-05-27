@@ -72,6 +72,11 @@ public class WeaponObject
 
         string weaponLevelId = level.ToString() + weaponId.Substring(1);
         var data = GameManager.DataTable.GetWeaponLevelData(weaponLevelId);
+        if(null == data)
+        {
+            Debug.Log($"WeaponLevelId : {weaponLevelId} null");
+            return;
+        }
 
         for (int i = 0; i < data.EffectName.Count; i++)
         {

@@ -11,6 +11,7 @@ public class GameHUDView : MonoBehaviour, IView
     [SerializeField] TextMeshProUGUI timeTxt;
     [SerializeField] TextMeshProUGUI enemyCntTxt;
     [SerializeField] TextMeshProUGUI goldTxt;
+    [SerializeField] Transform hudWeaponLayout;
 
     public bool IsOpen => this.gameObject.activeSelf;
 
@@ -62,6 +63,16 @@ public class GameHUDView : MonoBehaviour, IView
         goldTxt.text = gold.ToString();
     }
     #endregion
+
+    public void AddHUDWeaponSlot(GameObject obj)
+    {
+        obj.transform.SetParent(hudWeaponLayout);
+    }
+
+    public void RemoveHUDWeaponSlot(GameObject obj)
+    {
+        Destroy(obj);
+    }
 
     void Init()
     {
