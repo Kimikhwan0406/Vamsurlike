@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// 주의점!
+// 몬스터 위치 그대로 넘기는 것이 아닌, HiPosition과 HitRadius를 밀어 넣는다.
+
 public class CombatQuerySystem
 {
     public List<EnemyBase> QueryCircle(Vector2 center, float radius, List<EnemyBase> resultBuffer)
@@ -9,7 +13,7 @@ public class CombatQuerySystem
 
         foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
         {
-            if (EnemySearch.FindCircleSearch(center, radius, enemy.transform.position, enemy.HitRadius))
+            if (EnemySearch.FindCircleSearch(center, radius, enemy.HitPosition, enemy.HitRadius))
             {
                 resultBuffer.Add(enemy);
             }
@@ -29,7 +33,7 @@ public class CombatQuerySystem
 
             float dadius = enemy.HitRadius + projectileRadius;
 
-            if(EnemySearch.QuerySegmentSerach(start, end, enemy.transform.position, dadius))
+            if(EnemySearch.QuerySegmentSerach(start, end, enemy.HitPosition, dadius))
             {
                 resultBuffer.Add(enemy);
             }

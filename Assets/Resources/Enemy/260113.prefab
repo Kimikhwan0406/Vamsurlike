@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3af4ff026d314419b442ffcc44a8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  hitPositionOffset: {x: -0.34, y: 0.46, z: 0}
+  hitRadius: 1.54
 --- !u!1 &7387360734180868808
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Unity.Mathematics;
 using static Unity.Collections.AllocatorManager;
 
 [Serializable]
@@ -33,6 +34,8 @@ public class EnemyData : BaseData
     public float Power;
     public float MoveSpeed;
     public float XP;
+    public List<float> PositionOffset;
+    public float Radius;
 }
 
 [Serializable]
@@ -53,17 +56,17 @@ public class WeaponData : BaseData
     public int MaxLevel;
     public int ProjectileLimits;
     public int ProjectileCount;
-    public string ProjectileSpeed;
+    public float ProjectileSpeed;
     public int Rarity;
-    public int CoolTIme;        // 공격 간격
-    public int RepeatInterval;  // 한 공격 주기에서 투사체 발사 간격
-    public int BaseDamage;
-    public int Range;
+    public float CoolTIme;        // 공격 간격
+    public float RepeatInterval;  // 한 공격 주기에서 투사체 발사 간격
+    public float BaseDamage;
+    public float Range;
     public int Knockback;
-    public int Duration;
+    public float Duration;
     public string Evolution;
 
-    public WeaponPatternType PatternType;
+    public string PatternType;
     //public TargetingType TargetingType;
     //public int PenetrationCount;
 }
