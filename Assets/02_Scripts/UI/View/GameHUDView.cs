@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,9 +35,8 @@ public class GameHUDView : MonoBehaviour, IView
     #region Update View
     public void UpdateExp(float exp)
     {
-        // TODO: maxEXP로 나누기
         expBar.fillAmount = exp;
-        expTxt.text = $"{exp:0.##}%";
+        expTxt.text = $"{exp*100:0.##}%";
     }
 
     public void UpdateLevel(int level)

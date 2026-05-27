@@ -5,7 +5,12 @@
     "MaxHealth": 1,
     "Power": 1,
     "MoveSpeed": 140,
-    "XP": "1"
+    "XP": "1",
+    "PositionOffset": [
+      "0.08",
+      "0.2"
+    ],
+    "Radius": 0.7
   },
   {
     "Id": "260102",
@@ -13,7 +18,12 @@
     "MaxHealth": 10,
     "Power": 10,
     "MoveSpeed": 100,
-    "XP": "1"
+    "XP": "1",
+    "PositionOffset": [
+      "0.1",
+      "0.8"
+    ],
+    "Radius": 1.3
   },
   {
     "Id": "260103",
@@ -21,7 +31,12 @@
     "MaxHealth": 1,
     "Power": 5,
     "MoveSpeed": 140,
-    "XP": "1"
+    "XP": "1",
+    "PositionOffset": [
+      "-0.24",
+      "0.45"
+    ],
+    "Radius": 1.3
   },
   {
     "Id": "260104",
@@ -29,7 +44,9 @@
     "MaxHealth": 15,
     "Power": 10,
     "MoveSpeed": 100,
-    "XP": "2"
+    "XP": "2",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260105",
@@ -37,7 +54,9 @@
     "MaxHealth": 10,
     "Power": 5,
     "MoveSpeed": 200,
-    "XP": "1.5"
+    "XP": "1.5",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260106",
@@ -45,7 +64,9 @@
     "MaxHealth": 150,
     "Power": 10,
     "MoveSpeed": 100,
-    "XP": "2.5"
+    "XP": "2.5",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260107",
@@ -53,7 +74,9 @@
     "MaxHealth": 70,
     "Power": 10,
     "MoveSpeed": 100,
-    "XP": "2.5"
+    "XP": "2.5",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260108",
@@ -61,7 +84,9 @@
     "MaxHealth": 270,
     "Power": 10,
     "MoveSpeed": 140,
-    "XP": "2.5"
+    "XP": "2.5",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260208",
@@ -69,7 +94,9 @@
     "MaxHealth": 500,
     "Power": 20,
     "MoveSpeed": 140,
-    "XP": "25"
+    "XP": "25",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260109",
@@ -77,7 +104,9 @@
     "MaxHealth": 180,
     "Power": 14,
     "MoveSpeed": 130,
-    "XP": "2"
+    "XP": "2",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260209",
@@ -85,7 +114,9 @@
     "MaxHealth": 200,
     "Power": 20,
     "MoveSpeed": 130,
-    "XP": "2"
+    "XP": "2",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260110",
@@ -93,7 +124,9 @@
     "MaxHealth": 500,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "3"
+    "XP": "3",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260210",
@@ -101,7 +134,9 @@
     "MaxHealth": 500,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "3"
+    "XP": "3",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260111",
@@ -109,7 +144,9 @@
     "MaxHealth": 500,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "3"
+    "XP": "3",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260112",
@@ -117,7 +154,9 @@
     "MaxHealth": 30,
     "Power": 1,
     "MoveSpeed": 20,
-    "XP": "2"
+    "XP": "2",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260113",
@@ -125,7 +164,9 @@
     "MaxHealth": 500,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "3"
+    "XP": "3",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260213",
@@ -133,7 +174,9 @@
     "MaxHealth": 500,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "3"
+    "XP": "3",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260114",
@@ -141,7 +184,9 @@
     "MaxHealth": 50,
     "Power": 10,
     "MoveSpeed": 140,
-    "XP": "30"
+    "XP": "30",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260214",
@@ -149,7 +194,9 @@
     "MaxHealth": 50,
     "Power": 10,
     "MoveSpeed": 140,
-    "XP": "30"
+    "XP": "30",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260115",
@@ -157,7 +204,9 @@
     "MaxHealth": 50,
     "Power": 10,
     "MoveSpeed": 140,
-    "XP": "30"
+    "XP": "30",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260215",
@@ -165,7 +214,9 @@
     "MaxHealth": 50,
     "Power": 10,
     "MoveSpeed": 140,
-    "XP": "30"
+    "XP": "30",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260116",
@@ -173,7 +224,9 @@
     "MaxHealth": 200,
     "Power": 20,
     "MoveSpeed": 130,
-    "XP": "2"
+    "XP": "2",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260216",
@@ -181,7 +234,9 @@
     "MaxHealth": 200,
     "Power": 20,
     "MoveSpeed": 130,
-    "XP": "2"
+    "XP": "2",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260117",
@@ -189,7 +244,9 @@
     "MaxHealth": 250,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "25"
+    "XP": "25",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260217",
@@ -197,7 +254,9 @@
     "MaxHealth": 250,
     "Power": 20,
     "MoveSpeed": 80,
-    "XP": "25"
+    "XP": "25",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260118",
@@ -205,7 +264,9 @@
     "MaxHealth": 150,
     "Power": 30,
     "MoveSpeed": 160,
-    "XP": "50"
+    "XP": "50",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260218",
@@ -213,7 +274,9 @@
     "MaxHealth": 150,
     "Power": 30,
     "MoveSpeed": 160,
-    "XP": "50"
+    "XP": "50",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260119",
@@ -221,7 +284,9 @@
     "MaxHealth": 655350,
     "Power": 65535,
     "MoveSpeed": 1200,
-    "XP": "0"
+    "XP": "0",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260120",
@@ -229,7 +294,9 @@
     "MaxHealth": 150,
     "Power": 20,
     "MoveSpeed": 160,
-    "XP": "50"
+    "XP": "50",
+    "PositionOffset": null,
+    "Radius": null
   },
   {
     "Id": "260220",
@@ -237,6 +304,8 @@
     "MaxHealth": 150,
     "Power": 20,
     "MoveSpeed": 160,
-    "XP": "50"
+    "XP": "50",
+    "PositionOffset": null,
+    "Radius": null
   }
 ]

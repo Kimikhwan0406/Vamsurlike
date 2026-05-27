@@ -17,6 +17,9 @@ public class GameHUDPresenter : IPresenter
             Debug.LogError("InGameHUDPresenter Init Failed");
             return;
         }
+
+        model.Level = 1;
+        model.MaxExp = 5f;
     }
 
     public void Open()
@@ -33,13 +36,18 @@ public class GameHUDPresenter : IPresenter
 
     public float GetPlayTime() => model.Time;
 
-    #region Handler
 
     public void AddExp(float exp)
     {
         model.Exp += exp;
-        view.UpdateExp(model.Exp);
-        // TODO: 레벨업 체크, 레벨업시 SetLevel호출
+        view.UpdateExp(model.Exp / model.MaxExp);
+        
+        if(model.Exp >= model.MaxExp)
+        {
+            model.Exp -= model.MaxExp;
+            SetLevel(model.Level + 1);
+            view.UpdateExp(model.Exp / model.MaxExp);
+        }
     }
 
     public void AddTime(float time)
@@ -65,7 +73,17 @@ public class GameHUDPresenter : IPresenter
     {
         model.Level = level;
         view.UpdateLevel(model.Level);
+
+        SetMaxExp();
     }
 
-    #endregion
+    void SetMaxExp()
+    {
+        if (model.Level >= 2)
+            model.MaxExp += 10;
+        else if (model.Level >= 21)
+            model.MaxExp += 13;
+        else if (model.Level >= 41)
+            model.MaxExp += 16;
+    }
 }

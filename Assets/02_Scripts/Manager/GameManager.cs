@@ -9,11 +9,11 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
     public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
-    public static FieldObjectPool FieldObjectPool { get { return Instance.fieldObjectPool; } }
+    public static PoolManager Pool { get { return Instance.poolManager; } }
 
     #region Variables
     [SerializeField] Transform enemyPoolTransform;
-    [SerializeField] Transform fieldObjectPoolTransform;
+    [SerializeField] Transform objectPoolTransform;
 
 
     [Header("Managers")]
@@ -21,7 +21,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     DataTable dataTable = new();
     UIManager ui = new();
     EnemySpawnPoolManager spawnPool = new();
-    FieldObjectPool fieldObjectPool = new();
+    PoolManager poolManager = new();
     PlayerWeaponController weaponController = new();
     CombatQuerySystem combatQuerySystem;
 
@@ -45,7 +45,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
 
         spawnPool.Init(enemyPoolTransform);
-        fieldObjectPool.Init(fieldObjectPoolTransform);
+        poolManager.Init(objectPoolTransform);
     }
 
     void Update()
@@ -88,7 +88,8 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 
         // TEST
-        weaponController.RegisterWeapon("263010");
+        //weaponController.RegisterWeapon("263080");
+        weaponController.RegisterWeapon("263079");
     }
 
     public void StageExit()
