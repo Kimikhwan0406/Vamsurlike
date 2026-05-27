@@ -5,6 +5,7 @@ using UnityEngine;
 public enum PoolType
 {
     FieldObject,
+    Orbit,
     Projectile,
     COUNT
 }
@@ -35,6 +36,11 @@ public class PoolManager
         for (int i = 0; i < 30; i++)
         {
             CreateObject(PoolType.Projectile);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            CreateObject(PoolType.Orbit);
         }
     }
 
@@ -76,7 +82,7 @@ public class PoolManager
         return obj;
     }
 
-    public void ReturnFieldObject(PoolType type, GameObject obj)
+    public void ReturnObject(PoolType type, GameObject obj)
     {
         obj.SetActive(false);
         obj.transform.SetParent(poolTransform);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ProjectileWeaponPattern : IWeaponPattern
 {
-    public void Excute(WeaponContext context, WeaponData levelData)
+    public void Excute(WeaponContext context, WeaponData weaponData)
     {
         GameManager.Pool.GetObject(PoolType.Projectile, context.OwnerTransform);
 

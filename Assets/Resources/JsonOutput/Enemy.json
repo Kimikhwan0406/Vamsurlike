@@ -8,7 +8,7 @@
     "XP": "1",
     "PositionOffset": [
       "0.08",
-      "0.15"
+      "0.2"
     ],
     "Radius": 0.7
   },
@@ -32,8 +32,11 @@
     "Power": 5,
     "MoveSpeed": 140,
     "XP": "1",
-    "PositionOffset": null,
-    "Radius": null
+    "PositionOffset": [
+      "-0.24",
+      "0.45"
+    ],
+    "Radius": 1.3
   },
   {
     "Id": "260104",

@@ -88,7 +88,8 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 
         // TEST
-        weaponController.RegisterWeapon("263010");
+        //weaponController.RegisterWeapon("263080");
+        weaponController.RegisterWeapon("263079");
     }
 
     public void StageExit()

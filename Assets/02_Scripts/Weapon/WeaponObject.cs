@@ -10,7 +10,7 @@ public class WeaponObject
 
     string weaponId;
     float coolTimeTimer;
-    float coolTime = 1f;
+    float coolTime;
     int level = 1;
 
     public WeaponObject(string weaponId)
@@ -19,14 +19,14 @@ public class WeaponObject
 
         this.weaponId = weaponId;
         pattern = WeaponFatternFactory.Create(weaponData.PatternType);
-        coolTime = weaponData.CoolTIme;
-        coolTimeTimer = coolTime;
+        coolTime = weaponData.CoolTIme + weaponData.Duration;
+        coolTimeTimer = 0;
     }
 
     public void Update(float deltaTime, WeaponContext context)
     {
         coolTimeTimer -= deltaTime;
-
+        
         if (coolTimeTimer > 0f) return;
 
         pattern.Excute(context, weaponData);
