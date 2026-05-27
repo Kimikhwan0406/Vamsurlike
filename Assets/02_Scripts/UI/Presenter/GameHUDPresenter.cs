@@ -75,6 +75,8 @@ public class GameHUDPresenter : IPresenter
         view.UpdateLevel(model.Level);
 
         SetMaxExp();
+
+        GameManager.UI.OpenUI<LevelUpView>(new LevelUpModel(), new LevelUpPresenter());
     }
 
     void SetMaxExp()

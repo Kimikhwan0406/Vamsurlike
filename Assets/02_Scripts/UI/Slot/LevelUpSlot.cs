@@ -15,9 +15,17 @@ public class LevelUpSlot : MonoBehaviour
     {
         itemId = id;
 
+        //TEST
+        level = 2;
+
+        string weaponLevelId = level.ToString() + "62" + id.Substring(3);
 
         skilName.text = GameManager.DataTable.GetWeaponData(itemId).Name;
-        skilDesc.text = GameManager.DataTable.GetWeaponLevelData(id).Description;
+        if (level != 1)
+            skilDesc.text = GameManager.DataTable.GetWeaponLevelData(weaponLevelId).Description;
+        else
+            skilDesc.text = "";
+
         if (level == 1)
         {
             skilLevel.text = "New!";
@@ -34,6 +42,10 @@ public class LevelUpSlot : MonoBehaviour
                 skilLevel.color = color;
             }
         }
+    }
 
+    public void OnClickSlot()
+    {
+        GameManager.WeaponController.UpgradeWeapon(itemId);
     }
 }

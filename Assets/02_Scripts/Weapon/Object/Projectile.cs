@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    float angle;
-    Vector2 dir;
-    Vector3 prePosition;
+    [SerializeField] float projectileRadius = 1f;
+
     List<EnemyBase> hitBuffer = new();
     List<EnemyBase> alreadyHit = new();
-    [SerializeField] float projectileRadius = 1f;
+
+    Vector2 dir;
+    Vector3 prePosition;
+
+    float angle;
+    int hitCount = 0;
+    int projectilePenetration = 1;
+
 
     void Awake()
     {
         angle = UnityEngine.Random.Range(0f, math.PI * 2f);
         dir = new Vector2(math.cos(angle), math.sin(angle));
-        prePosition = transform.position;
+
+        var randomValue = UnityEngine.Random.Range(-0.5f, 0.5f);
+
+        prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
+
     void Update()
     {
         prePosition = transform.position;
@@ -24,6 +34,11 @@ public class Projectile : MonoBehaviour
         Move();
 
         CheckHit();
+    }
+
+    public void Init(int projectilePenetration)
+    {
+        this.projectilePenetration = projectilePenetration;
     }
 
     void Move()
@@ -42,7 +57,16 @@ public class Projectile : MonoBehaviour
 
             alreadyHit.Add(hitBuffer[i]);
             hitBuffer[i].TakeDamage(10f);
+            hitCount++;
+
+            if (hitCount >= projectilePenetration)
+                Release();
         }
+    }
+
+    void Release()
+    {
+        GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
     }
 
     void OnDrawGizmos()

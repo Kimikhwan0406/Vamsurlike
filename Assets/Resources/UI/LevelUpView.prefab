@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7a5b27c4c60584d90b26dc42aa5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelUpView
-  LevelUpSlotPrefab: {fileID: 640776609624880615}
+  LevelUpSlotPrefab: {fileID: 6290222207150554472, guid: 92807c1f361df654d9c42db87a8a15a5, type: 3}
   LevelUpSlotGroupParent: {fileID: 5292309947296787165}
 --- !u!1 &2077894538001989912
 GameObject:

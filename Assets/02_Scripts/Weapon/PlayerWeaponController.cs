@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerWeaponController
 {
@@ -79,7 +76,7 @@ public class PlayerWeaponController
         var weapon = weaponList.Find(w => w.WeaponId == weaponId);
         if (weapon == null)
         {
-            Debug.Log($"{GetType()}: 무기가 존재하지 않음");
+            Debug.LogError($"{GetType()}: 무기가 존재하지 않음");
             return;
         }
 
