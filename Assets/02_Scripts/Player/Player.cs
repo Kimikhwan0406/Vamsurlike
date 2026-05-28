@@ -1,12 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     PlayerInputHandler inputHandler;
+    [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
 
     float currentHealth;
+    float maxHealth;
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
@@ -19,7 +21,9 @@ public class Player : MonoBehaviour
     public void Init(string characterId)
     {
         CharacterData characterData = GameManager.DataTable.GetCharacterData(characterId);
-        currentHealth = characterData.MaxHealth;
+        healthBar.fillAmount = 1f;
+        maxHealth = characterData.MaxHealth;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -36,7 +40,9 @@ public class Player : MonoBehaviour
         isInvincible = true;
         currentHealth -= damage;
 
-        if(currentHealth <= 0f)
+        healthBar.fillAmount = currentHealth / maxHealth;
+
+        if (currentHealth <= 0f)
         {
             Debug.Log("Player is dead.");
         }
