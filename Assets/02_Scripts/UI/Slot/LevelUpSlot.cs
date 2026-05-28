@@ -16,6 +16,8 @@ public class LevelUpSlot : MonoBehaviour
     {
         itemId = id;
 
+        SkilIcon.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Weapon/{id}");
+
         string weaponLevelId = level.ToString() + "62" + id.Substring(3);
 
         skilName.text = GameManager.DataTable.GetWeaponData(itemId).Name;

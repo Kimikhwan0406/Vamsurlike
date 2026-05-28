@@ -1,8 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResultWeaponTextSlot : MonoBehaviour
 {
+    [SerializeField] Image weaponImage;
+
     [SerializeField] TextMeshProUGUI weaponNameText;
     [SerializeField] TextMeshProUGUI weaponLevelText;
     [SerializeField] TextMeshProUGUI weaponTotalDamageText;
@@ -11,6 +14,8 @@ public class ResultWeaponTextSlot : MonoBehaviour
 
     public void Init(CombatStat stat, int weaponLevel, float ownedTime)
     {
+        weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Weapon/{stat.WeaponId}");
+
         weaponNameText.text = GameManager.DataTable.GetWeaponData(stat.WeaponId).Name;
         weaponLevelText.text = weaponLevel.ToString();
         weaponOwnedTimeText.text = ownedTime.ToString();

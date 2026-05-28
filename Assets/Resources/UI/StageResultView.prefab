@@ -1319,6 +1319,7 @@ RectTransform:
   m_Children:
   - {fileID: 5044347324696285946}
   - {fileID: 8038855908605464251}
+  - {fileID: 4222704938104803869}
   m_Father: {fileID: 2482404914530040904}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2779,7 +2780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4222704938104803869}
   - component: {fileID: 6739302831624616}
-  - component: {fileID: 6764086312468872117}
+  - component: {fileID: 4577798592534952695}
   m_Layer: 5
   m_Name: Weapons
   m_TagString: Untagged
@@ -2799,13 +2800,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2482404914530040904}
+  m_Father: {fileID: 2374590464824150104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -52.2}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 700, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6739302831624616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,7 +2833,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &6764086312468872117
+--- !u!114 &4577798592534952695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3135,7 +3136,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2374590464824150104}
-  - {fileID: 4222704938104803869}
   m_Father: {fileID: 3106947644099678707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
