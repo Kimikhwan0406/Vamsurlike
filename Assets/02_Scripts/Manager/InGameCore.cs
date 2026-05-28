@@ -15,6 +15,7 @@ public class InGameCore
     {
         this.characterId = characterId;
         PlayerSpawn();
+        CameraManager.Instance.FollowPlayer(player.transform);
     }
 
     ~InGameCore()

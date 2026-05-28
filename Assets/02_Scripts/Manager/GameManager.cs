@@ -76,6 +76,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         playMap = Instantiate(Utils.ResourcesLoad<GameObject>("BasicMap"));
 
         inGameCore = new InGameCore(selectedCharacterId);
+
         CreateWeaponContext();
         UI.ShowIngameHUD();
 
@@ -100,6 +101,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void StageExit()
     {
         isPlaying = false;
+
+        CameraManager.Instance.ClearFollow();
 
         combatStatRecorder.Release();
         weaponController.Release();
