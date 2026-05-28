@@ -57,6 +57,7 @@ public class WeaponObject
 
     public void Update(float deltaTime, WeaponContext context)
     {
+        // TODO: runtimeWeaponData.CoolTIme -1인 것은 한 번만 Excute하면 무한으로 동작
         coolTimeTimer -= deltaTime;
 
         if (coolTimeTimer > 0f) return;

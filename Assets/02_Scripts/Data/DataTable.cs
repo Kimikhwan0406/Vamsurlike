@@ -28,7 +28,7 @@ public class DataTable
         CharacterDataTable = LoadData<CharacterData>("Character");
         EnemyDataTable = LoadData<EnemyData>("Enemy");
         StageDataTable = LoadData<StageData>("BaseStage");
-        WeaponDataTable = LoadData<WeaponData>("Weapon");
+        WeaponDataTable = LoadData<WeaponData>("WeaponMy");
         WeaponLevelDataTable = LoadData<WeaponLevelData>("WeaponLevel");
     }
 
