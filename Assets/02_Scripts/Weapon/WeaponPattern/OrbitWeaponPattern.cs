@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEngine;
 
 public class OrbitWeaponPattern : IWeaponPattern
 {
@@ -15,7 +13,7 @@ public class OrbitWeaponPattern : IWeaponPattern
             OrbitWeaponObject orbit = GameManager.Pool.GetObject(PoolType.Orbit, context.OwnerTransform)
                 .GetComponent<OrbitWeaponObject>();
 
-            orbit.Init(new OrbitWeaponData
+            orbit.Init(data.WeaponId, new OrbitWeaponData
             {
                 OwnerTransform = context.OwnerTransform,
                 StartAngle = angle,

@@ -10,6 +10,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
     public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
     public static PoolManager Pool { get { return Instance.poolManager; } }
+    public static CombatStatRecorder CombatRecorder { get { return Instance.combatStatRecorder; } }
 
     #region Variables
     [SerializeField] Transform enemyPoolTransform;
@@ -23,6 +24,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     EnemySpawnPoolManager spawnPool = new();
     PoolManager poolManager = new();
     PlayerWeaponController weaponController = new();
+    CombatStatRecorder combatStatRecorder = new();
     CombatQuerySystem combatQuerySystem;
 
     [Header("Caching")]
@@ -34,6 +36,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     GameObject playMap;
     bool isPlaying = false;
     string selectedCharacterId;
+    string baseWeapinId;
     #endregion
 
     protected override void Init()
@@ -61,9 +64,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
 
-    public void SetCharacterId(string characterId)
+    public void SetCharacterId(string characterId, string baseWeaponId)
     {
         selectedCharacterId = characterId;
+        this.baseWeapinId = baseWeaponId;
     }
 
     public void StageEnter()
@@ -85,10 +89,11 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 
 
+        weaponController.AddWeapon(baseWeapinId);
 
 
         // TEST
-        weaponController.AddWeapon("263080");
+        //weaponController.AddWeapon("263080");
         //weaponController.RegisterWeapon("263079");
     }
 
@@ -96,6 +101,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         isPlaying = false;
 
+        combatStatRecorder.Release();
         weaponController.Release();
         combatQuerySystem = null;
 

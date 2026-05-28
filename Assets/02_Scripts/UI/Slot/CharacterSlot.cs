@@ -11,13 +11,15 @@ public class CharacterSlot : MonoBehaviour
     [SerializeField] Image baseWeaponImage;
     [SerializeField] Button selectedButton;
 
-    event Action<string> onClickCharacterSlot;
+    event Action<string, string> onClickCharacterSlot;
 
     string characterId;
+    string baseWeaponId;
 
-    public void Init(string characterId, string weaponId, Action<string> onClickCallback)
+    public void Init(string characterId, string weaponId, Action<string, string> onClickCallback)
     {
         this.characterId = characterId;
+        baseWeaponId = weaponId;
 
         characterNameText.text = GameManager.DataTable.GetCharacterData(characterId).Name;
         characterImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/PlayerSprite/{characterId}");
@@ -28,7 +30,7 @@ public class CharacterSlot : MonoBehaviour
 
     public void OnClickCharacterSlot()
     {
-        onClickCharacterSlot?.Invoke(characterId);
+        onClickCharacterSlot?.Invoke(characterId, baseWeaponId);
     }
 
     public void ChangeSelectedSlot(bool isSelected)

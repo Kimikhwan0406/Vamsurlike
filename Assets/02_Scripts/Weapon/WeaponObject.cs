@@ -1,9 +1,8 @@
-using System;
-using System.Reflection;
 using UnityEngine;
 
 public struct RunTimeWeaponlData
 {
+    public string WeaponId;
     public int ProjectileCount;
     public int ProjectileLimits;
     public int ProjectilePenetration;   // 관통 횟수
@@ -24,10 +23,12 @@ public class WeaponObject
 
     public string WeaponId => weaponId;
     public int WeaponLevel => level;
+    public float OwnedStartTime => ownedStartTime;
 
     string weaponId;
     float coolTime;
     float coolTimeTimer;
+    float ownedStartTime;
     int level = 1;
 
     public WeaponObject(string weaponId)
@@ -38,6 +39,7 @@ public class WeaponObject
 
         runtimeWeaponData = new RunTimeWeaponlData
         {
+            WeaponId = weaponId,
             ProjectileCount = 1,
             ProjectileLimits = weaponData.ProjectileLimits,
             ProjectilePenetration = weaponData.ProjectilePenetration,
@@ -53,6 +55,8 @@ public class WeaponObject
 
         coolTime = runtimeWeaponData.CoolTIme + runtimeWeaponData.Duration;
         coolTimeTimer = 0;
+
+        ownedStartTime = Time.time;
     }
 
     public void Update(float deltaTime, WeaponContext context)

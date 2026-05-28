@@ -132,4 +132,9 @@ public class LevelUpPresenter : IPresenter
             Debug.LogError("TryGetComponent Error.");
         }
     }
+
+    public void ResetModel()
+    {
+        
+    }
 }

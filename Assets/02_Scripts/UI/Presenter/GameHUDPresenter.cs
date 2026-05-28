@@ -12,21 +12,20 @@ public class GameHUDPresenter : IPresenter
         model = _model as GameHUDModel;
         view = _view as GameHUDView;
 
-        if(model == null || view == null)
+        if (model == null || view == null)
         {
             Debug.LogError("InGameHUDPresenter Init Failed");
             return;
         }
 
-        model.Level = 1;
-        model.MaxExp = 5f;
+        ResetModel();
     }
 
     public void Open()
     {
         view.Open();
     }
-    
+
     public void Close()
     {
         view.Close();
@@ -35,14 +34,17 @@ public class GameHUDPresenter : IPresenter
     }
 
     public float GetPlayTime() => model.Time;
+    public int GetGold() => model.Gold;
+    public int GetLevel() => model.Level;
+    public int GetEnemyCount() => model.EnemyCount;
 
 
     public void AddExp(float exp)
     {
         model.Exp += exp;
         view.UpdateExp(model.Exp / model.MaxExp);
-        
-        if(model.Exp >= model.MaxExp)
+
+        if (model.Exp >= model.MaxExp)
         {
             model.Exp -= model.MaxExp;
             SetLevel(model.Level + 1);
@@ -89,7 +91,7 @@ public class GameHUDPresenter : IPresenter
     {
         GameObject slot = Object.Instantiate(Utils.ResourcesLoad<GameObject>("UI/HudWeaponSlot"));
 
-        if(slot.TryGetComponent(out HudWeaponSlot slotComponent))
+        if (slot.TryGetComponent(out HudWeaponSlot slotComponent))
         {
             slotComponent.Init(weaponId);
         }
@@ -119,5 +121,16 @@ public class GameHUDPresenter : IPresenter
             model.MaxExp += 13;
         else if (model.Level >= 41)
             model.MaxExp += 16;
+    }
+
+    public void ResetModel()
+    {
+        model.Exp = 0;
+        model.Time = 0;
+        model.EnemyCount = 0;
+        model.Gold = 0;
+
+        model.Level = 1;
+        model.MaxExp = 5f;
     }
 }

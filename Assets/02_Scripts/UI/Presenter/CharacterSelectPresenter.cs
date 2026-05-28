@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CharacterSelectPresenter : IPresenter
 {
@@ -20,7 +21,7 @@ public class CharacterSelectPresenter : IPresenter
 
     public void OnClickEnterStage()
     {
-        GameManager.Instance.SetCharacterId(model.CharacterId);
+        GameManager.Instance.SetCharacterId(model.CharacterId, model.BaseWeaponId);
         GameManager.UI.CloseUI();
         GameManager.Instance.StageEnter();
     }
@@ -71,9 +72,10 @@ public class CharacterSelectPresenter : IPresenter
         }
     }
 
-    void OnClickCharacterSlot(string characterId)
+    void OnClickCharacterSlot(string characterId, string baseWeaponId)
     {
         model.CharacterId = characterId;
+        model.BaseWeaponId = baseWeaponId;
         view.UpdateSelectedCharacterInfo(characterId);
 
         foreach (var slotKV in characterSlots)
@@ -82,5 +84,11 @@ public class CharacterSelectPresenter : IPresenter
             bool isSelected = slotKV.Key == characterId;
             slot.ChangeSelectedSlot(isSelected);
         }
+    }
+
+    public void ResetModel()
+    {
+        model.CharacterId = null;
+        model.BaseWeaponId = null;
     }
 }

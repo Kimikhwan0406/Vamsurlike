@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer projectileImage;
     [SerializeField] float projectileRadius = 1f;
 
     List<EnemyBase> hitBuffer = new();
@@ -11,6 +12,8 @@ public class Projectile : MonoBehaviour
 
     Vector2 dir;
     Vector3 prePosition;
+
+    DamageContext damageContext;
 
     float angle;
     int hitCount = 0;
@@ -36,9 +39,18 @@ public class Projectile : MonoBehaviour
         CheckHit();
     }
 
-    public void Init(int projectilePenetration)
+    public void Init(RunTimeWeaponlData data)
     {
-        this.projectilePenetration = projectilePenetration;
+        this.projectilePenetration = data.ProjectilePenetration;
+
+        projectileImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+
+        damageContext = new DamageContext
+        {
+            WeaponId = data.WeaponId,
+            Damage = data.Damage,
+        };
+
     }
 
     void Move()
@@ -56,7 +68,7 @@ public class Projectile : MonoBehaviour
                 continue;
 
             alreadyHit.Add(hitBuffer[i]);
-            hitBuffer[i].TakeDamage(10f);
+            hitBuffer[i].TakeDamage(damageContext);
             hitCount++;
 
             if (hitCount >= projectilePenetration)

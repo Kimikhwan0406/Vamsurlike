@@ -7,7 +7,7 @@ public class ProjectileWeaponPattern : IWeaponPattern
         for (int i = 0; i < data.ProjectileCount; i++)
         {
             var proejectile = GameManager.Pool.GetObject(PoolType.Projectile, context.OwnerTransform);
-            proejectile.GetComponent<Projectile>().Init(data.ProjectilePenetration);
+            proejectile.GetComponent<Projectile>().Init(data);
 
             float t = 0;
             while (true)

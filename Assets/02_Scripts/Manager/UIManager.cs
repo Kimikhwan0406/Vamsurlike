@@ -51,7 +51,6 @@ public class UIManager
             }
             presenters[viewType] = _presenter;
             presenters[viewType].Init(_model, newOB.GetComponent<IView>());
-
         }
 
         presenters[viewType].Open();

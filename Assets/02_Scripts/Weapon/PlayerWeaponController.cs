@@ -24,6 +24,7 @@ public class PlayerWeaponController
     }
 
     public List<string> GetMaxLevelWeapons() => maxLevelWeapons;
+    public List<WeaponObject> GetWeaponList() => weaponList;
 
     public bool HasWeapon(string weaponId) => weaponList.Exists(w => w.WeaponId == weaponId);
     public int GetWeaponLevel(string weaponId)
@@ -49,6 +50,7 @@ public class PlayerWeaponController
         }
 
         var weapon = new WeaponObject(weaponId);
+        GameManager.CombatRecorder.RegisterCombatStat(weaponId);
 
         GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddHUDWeaponSlot(weaponId);
         weaponList.Add(weapon);
