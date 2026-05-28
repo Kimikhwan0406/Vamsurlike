@@ -10,6 +10,7 @@ public class CharacterSelectView : MonoBehaviour, IView
 
     [SerializeField] TextMeshProUGUI selectedCharacterName;
     [SerializeField] Image selectedCharacterIcon;
+    [SerializeField] Image baseWeaponIcon;
     [SerializeField] TextMeshProUGUI selectedCharacterDescription;
 
     bool notSelectedYet = true;
@@ -23,6 +24,7 @@ public class CharacterSelectView : MonoBehaviour, IView
         StartGameButton.gameObject.SetActive(false);
         selectedCharacterName.gameObject.SetActive(false);
         selectedCharacterIcon.gameObject.SetActive(false);
+        baseWeaponIcon.gameObject.SetActive(false);
         selectedCharacterDescription.gameObject.SetActive(false);
     }
 
@@ -35,12 +37,14 @@ public class CharacterSelectView : MonoBehaviour, IView
             StartGameButton.gameObject.SetActive(true);
             selectedCharacterName.gameObject.SetActive(true);
             selectedCharacterIcon.gameObject.SetActive(true);
+            baseWeaponIcon.gameObject.SetActive(true);
             selectedCharacterDescription.gameObject.SetActive(true);
             notSelectedYet = false;
         }
 
         selectedCharacterName.text = data.Name;
         selectedCharacterIcon.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/PlayerSprite/{characterId}");
+        baseWeaponIcon.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Weapon/{data.DefaultWeapon}");
         selectedCharacterDescription.text = data.Description;
     }
 

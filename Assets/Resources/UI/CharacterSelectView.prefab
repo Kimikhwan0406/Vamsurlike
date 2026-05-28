@@ -114,7 +114,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 750, y: 1000}
+  m_SizeDelta: {x: 900, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3500823062345184714
 CanvasRenderer:
@@ -462,7 +462,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 730, y: 180}
+  m_SizeDelta: {x: 850, y: 180}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7701303999443716221
 CanvasRenderer:
@@ -622,6 +622,7 @@ MonoBehaviour:
   StartGameButton: {fileID: 6611563317676012079}
   selectedCharacterName: {fileID: 4422917553097506937}
   selectedCharacterIcon: {fileID: 807844925492872449}
+  baseWeaponIcon: {fileID: 1584321109478387119}
   selectedCharacterDescription: {fileID: 3984419713493699523}
 --- !u!1 &3325963532833978158
 GameObject:
@@ -1222,7 +1223,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 700, y: 600}
+  m_SizeDelta: {x: 850, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996523394747020009
 MonoBehaviour:
@@ -1244,7 +1245,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 150, y: 150}
+  m_CellSize: {x: 190, y: 190}
   m_Spacing: {x: 30, y: 30}
   m_Constraint: 1
   m_ConstraintCount: 4
