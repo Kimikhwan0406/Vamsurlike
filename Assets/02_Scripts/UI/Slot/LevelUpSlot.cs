@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,7 +38,6 @@ public class LevelUpSlot : MonoBehaviour
             skilLevel.text = $"level: {level}";
 
             Color color;
-            // 16진수 색상 코드 입력 (알파값 포함 가능)
             if (UnityEngine.ColorUtility.TryParseHtmlString("#DBCDAC", out color))
             {
                 skilLevel.color = color;
@@ -56,6 +56,11 @@ public class LevelUpSlot : MonoBehaviour
             GameManager.WeaponController.AddWeapon(itemId);
         }
         
-        GameManager.UI.CloseUI();
+        GameManager.UI.CloseUI<LevelUpPresenter>();
+    }
+
+    public void DestroySlot()
+    {
+        Destroy(this.gameObject);
     }
 }

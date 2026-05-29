@@ -28,7 +28,7 @@ public class FieldObject : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddExp(xp);
+            GameManager.UI.GetPresenter<GameHUDPresenter>().AddExp(xp);
             GameManager.Pool.ReturnObject(PoolType.FieldObject, gameObject);
         }
     }

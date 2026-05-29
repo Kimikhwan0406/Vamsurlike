@@ -9,8 +9,8 @@ public interface IView
 
 public interface IPresenter
 {
-    void Init(IModel _model, IView _view);
-    void ResetModel();
+    void Init(IView _view);
+    System.Type GetViewType();
     void Open();
     void Close();
     bool IsOpen { get; }
