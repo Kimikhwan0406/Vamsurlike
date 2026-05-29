@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using Unity.Mathematics;
-using static Unity.Collections.AllocatorManager;
 
 [Serializable]
 public class BaseData
@@ -55,13 +52,13 @@ public class WeaponData : BaseData
     public string Name;
     public int MaxLevel;
     public int ProjectileLimits;
-    public int ProjectileCount;
+    public int ProjectilePenetration;   // 관통 횟수
     public float ProjectileSpeed;
     public int Rarity;
-    public float CoolTIme;        // 공격 간격
-    public float RepeatInterval;  // 한 공격 주기에서 투사체 발사 간격
+    public float CoolTIme;              // 공격 간격
+    public float RepeatInterval;        // 한 공격 주기에서 투사체 발사 간격
     public float BaseDamage;
-    public float Range;
+    public float Range;                 // 공격 범위
     public int Knockback;
     public float Duration;
     public string Evolution;
@@ -74,8 +71,9 @@ public class WeaponData : BaseData
 [Serializable]
 public class WeaponLevelData : BaseData
 {
+    public string WeaponId;
     public int Level;
     public List<string> EffectName;
-    public List<string> EffectValue;
+    public List<float> EffectValue;
     public string Description;
 }

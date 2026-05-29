@@ -10,6 +10,7 @@ public interface IView
 public interface IPresenter
 {
     void Init(IModel _model, IView _view);
+    void ResetModel();
     void Open();
     void Close();
     bool IsOpen { get; }

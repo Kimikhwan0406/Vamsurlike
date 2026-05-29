@@ -1,15 +1,9 @@
-using Unity.VisualScripting;
-using UnityEngine;
 
 public class OrbitWeaponPattern : IWeaponPattern
 {
-    public void Excute(WeaponContext context, WeaponData weaponData)
+    public void Excute(WeaponContext context, RunTimeWeaponlData data)
     {
-        // TODO 플레이어 중심으로 원형으로 회전
-        // King Bible: CoolTime마다 소환되어 Duration동안 회전 
-        // 몇개? 반지름 회전 속도
-
-        int count = weaponData.ProjectileCount;
+        int count = data.ProjectileCount;
         if (count <= 0) return;
 
         for (int i = 0; i < count; i++)
@@ -19,15 +13,15 @@ public class OrbitWeaponPattern : IWeaponPattern
             OrbitWeaponObject orbit = GameManager.Pool.GetObject(PoolType.Orbit, context.OwnerTransform)
                 .GetComponent<OrbitWeaponObject>();
 
-            orbit.Init(new OrbitWeaponData
+            orbit.Init(data.WeaponId, new OrbitWeaponData
             {
                 OwnerTransform = context.OwnerTransform,
                 StartAngle = angle,
-                Range = weaponData.Range,
-                Duration = weaponData.Duration,
-                Damage = weaponData.BaseDamage,
-                RotateSpeed = weaponData.ProjectileSpeed,
-                HitInterval = weaponData.RepeatInterval,
+                Range = data.Range,
+                Duration = data.Duration,
+                Damage = data.Damage,
+                RotateSpeed = data.ProjectileSpeed,
+                HitInterval = data.RepeatInterval,
             });
         }
     }

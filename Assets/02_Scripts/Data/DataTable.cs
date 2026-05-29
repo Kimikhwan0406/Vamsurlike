@@ -28,8 +28,8 @@ public class DataTable
         CharacterDataTable = LoadData<CharacterData>("Character");
         EnemyDataTable = LoadData<EnemyData>("Enemy");
         StageDataTable = LoadData<StageData>("BaseStage");
-        WeaponDataTable = LoadData<WeaponData>("Weapon");
-        //WeaponLevelDataTable = LoadData<WeaponLevelData>("WeaponLevel");
+        WeaponDataTable = LoadData<WeaponData>("WeaponMy");
+        WeaponLevelDataTable = LoadData<WeaponLevelData>("WeaponLevelMy");
     }
 
     Dictionary<string, T> LoadData<T>(string tableNmae) where T : BaseData

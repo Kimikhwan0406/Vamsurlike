@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class LevelUpPresenter : IPresenter
@@ -26,11 +25,13 @@ public class LevelUpPresenter : IPresenter
     {
         view.Close();
         DestorySlot();
+        GameManager.Instance.ResumeGame();
     }
 
     public void Open()
     {
         view.Open();
+        GameManager.Instance.PauseGame();
     }
 
     void DestorySlot()
@@ -132,5 +133,10 @@ public class LevelUpPresenter : IPresenter
         {
             Debug.LogError("TryGetComponent Error.");
         }
+    }
+
+    public void ResetModel()
+    {
+        
     }
 }

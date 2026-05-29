@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a84ccbea8a59a647861092d366ef8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  healthBar: {fileID: 6972226597581412335}
   moveSpeed: 5
 --- !u!1 &700227025523507516
 GameObject:
@@ -593,7 +594,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 70, y: 70}
+  m_Size: {x: 120, y: 120}
   m_EdgeRadius: 0
 --- !u!1 &5710950007772196473
 GameObject:

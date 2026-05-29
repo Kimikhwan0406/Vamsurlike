@@ -4,26 +4,56 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    float angle;
-    Vector2 dir;
-    Vector3 prePosition;
+    [SerializeField] SpriteRenderer projectileImage;
+    [SerializeField] float projectileRadius = 1f;
+
     List<EnemyBase> hitBuffer = new();
     List<EnemyBase> alreadyHit = new();
-    [SerializeField] float projectileRadius = 1f;
+
+    Vector2 dir;
+    Vector3 prePosition;
+
+    DamageContext damageContext;
+
+    float angle;
+    int hitCount = 0;
+    int projectilePenetration = 1;
+
 
     void Awake()
     {
         angle = UnityEngine.Random.Range(0f, math.PI * 2f);
         dir = new Vector2(math.cos(angle), math.sin(angle));
-        prePosition = transform.position;
+
+        var randomValue = UnityEngine.Random.Range(-0.5f, 0.5f);
+
+        prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
+
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         prePosition = transform.position;
 
         Move();
 
         CheckHit();
+    }
+
+    public void Init(RunTimeWeaponlData data)
+    {
+        this.projectilePenetration = data.ProjectilePenetration;
+
+        projectileImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+
+        damageContext = new DamageContext
+        {
+            WeaponId = data.WeaponId,
+            Damage = data.Damage,
+        };
+
     }
 
     void Move()
@@ -41,8 +71,17 @@ public class Projectile : MonoBehaviour
                 continue;
 
             alreadyHit.Add(hitBuffer[i]);
-            hitBuffer[i].TakeDamage(10f);
+            hitBuffer[i].TakeDamage(damageContext);
+            hitCount++;
+
+            if (hitCount >= projectilePenetration)
+                Release();
         }
+    }
+
+    void Release()
+    {
+        GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
     }
 
     void OnDrawGizmos()

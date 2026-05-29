@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CharacterSelectPresenter : IPresenter
 {
@@ -18,16 +19,9 @@ public class CharacterSelectPresenter : IPresenter
         SetCharacterSlot();
     }
 
-    public void OnClickCharacterSlot(string characterId)
-    {
-        model.CharacterId = characterId;
-        view.UpdateSelectedCharacterInfo(characterId);
-        Debug.Log($"Selected character: {characterId}");
-    }
-
     public void OnClickEnterStage()
     {
-        GameManager.Instance.SetCharacterId(model.CharacterId);
+        GameManager.Instance.SetCharacterId(model.CharacterId, model.BaseWeaponId);
         GameManager.UI.CloseUI();
         GameManager.Instance.StageEnter();
     }
@@ -54,11 +48,11 @@ public class CharacterSelectPresenter : IPresenter
             var data = dataKV.Value;
             if (null == data) continue;
 
-            CreateCharacterSlot(data.Id);
+            CreateCharacterSlot(data.Id, data.DefaultWeapon);
         }
     }
 
-    void CreateCharacterSlot(string characterId)
+    void CreateCharacterSlot(string characterId, string weaponId)
     {
         GameObject slot = Object.Instantiate(view.CharacterSlotPrefab, view.CharacterSlotGroupParent);
         if (null == slot)
@@ -69,12 +63,32 @@ public class CharacterSelectPresenter : IPresenter
 
         if (slot.TryGetComponent(out CharacterSlot slotComponent))
         {
-            slotComponent.Init(characterId);
+            slotComponent.Init(characterId, weaponId, OnClickCharacterSlot);
             characterSlots.Add(characterId, slotComponent);
         }
         else
         {
             Debug.LogError($"Character slot prefab does not contain CharacterSlot component.");
         }
+    }
+
+    void OnClickCharacterSlot(string characterId, string baseWeaponId)
+    {
+        model.CharacterId = characterId;
+        model.BaseWeaponId = baseWeaponId;
+        view.UpdateSelectedCharacterInfo(characterId);
+
+        foreach (var slotKV in characterSlots)
+        {
+            var slot = slotKV.Value;
+            bool isSelected = slotKV.Key == characterId;
+            slot.ChangeSelectedSlot(isSelected);
+        }
+    }
+
+    public void ResetModel()
+    {
+        model.CharacterId = null;
+        model.BaseWeaponId = null;
     }
 }

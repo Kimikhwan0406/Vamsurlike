@@ -10,11 +10,12 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
     public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
     public static PoolManager Pool { get { return Instance.poolManager; } }
+    public static CombatStatRecorder CombatRecorder { get { return Instance.combatStatRecorder; } }
 
     #region Variables
+
     [SerializeField] Transform enemyPoolTransform;
     [SerializeField] Transform objectPoolTransform;
-
 
     [Header("Managers")]
     UserDataManager userData = new();
@@ -23,6 +24,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     EnemySpawnPoolManager spawnPool = new();
     PoolManager poolManager = new();
     PlayerWeaponController weaponController = new();
+    CombatStatRecorder combatStatRecorder = new();
     CombatQuerySystem combatQuerySystem;
 
     [Header("Caching")]
@@ -31,9 +33,14 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     [Header("InGame")]
     public bool IsPlaying => isPlaying;
+
     GameObject playMap;
+
     bool isPlaying = false;
+
     string selectedCharacterId;
+    string baseWeapinId;
+
     #endregion
 
     protected override void Init()
@@ -61,9 +68,22 @@ public class GameManager : SingletonBehaviour<GameManager>
     public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
 
-    public void SetCharacterId(string characterId)
+    public void PauseGame()
+    {
+        isPlaying = false;
+        Debug.Log("Game Paused");
+    }
+
+    public void ResumeGame()
+    {
+        isPlaying = true;
+        Debug.Log("Game Resumed");
+    }
+
+    public void SetCharacterId(string characterId, string baseWeaponId)
     {
         selectedCharacterId = characterId;
+        this.baseWeapinId = baseWeaponId;
     }
 
     public void StageEnter()
@@ -72,6 +92,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         playMap = Instantiate(Utils.ResourcesLoad<GameObject>("BasicMap"));
 
         inGameCore = new InGameCore(selectedCharacterId);
+
         CreateWeaponContext();
         UI.ShowIngameHUD();
 
@@ -85,17 +106,21 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 
 
+        weaponController.AddWeapon(baseWeapinId);
 
 
         // TEST
-        //weaponController.RegisterWeapon("263080");
-        weaponController.RegisterWeapon("263079");
+        //weaponController.AddWeapon("263080");
+        //weaponController.RegisterWeapon("263079");
     }
 
     public void StageExit()
     {
         isPlaying = false;
 
+        CameraManager.Instance.ClearFollow();
+
+        combatStatRecorder.Release();
         weaponController.Release();
         combatQuerySystem = null;
 
@@ -121,4 +146,6 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CombatQuerySystem = combatQuerySystem
             });
     }
+
+
 }

@@ -3,7 +3,7 @@
     "Id": "267001",
     "Name": "Antonio",
     "MaxHealth": 100,
-    "DefaultWeapon": "채찍",
+    "DefaultWeapon": "263158",
     "Ability": [
       "damage"
     ],
@@ -21,13 +21,13 @@
     ],
     "UnlockCondition": "None",
     "UnlockValue": 0,
-    "Description": "267001 캐릭터입니다."
+    "Description": "Damage +10% every 10 levels (max +50%)"
   },
   {
     "Id": "267002",
     "Name": "Imelad",
     "MaxHealth": 100,
-    "DefaultWeapon": "마법 지팡이",
+    "DefaultWeapon": "263079",
     "Ability": [
       "exp"
     ],
@@ -45,13 +45,13 @@
     ],
     "UnlockCondition": "Gold",
     "UnlockValue": 10,
-    "Description": "267002 캐릭터입니다."
+    "Description": "Growth +10% every 5 levels (max +30%)"
   },
   {
     "Id": "267003",
     "Name": "Pasqualina",
     "MaxHealth": 100,
-    "DefaultWeapon": "룬 트레이서",
+    "DefaultWeapon": "263161",
     "Ability": [
       "투사체속도"
     ],
@@ -69,13 +69,13 @@
     ],
     "UnlockCondition": "Gold",
     "UnlockValue": 110,
-    "Description": "267003 캐릭터입니다."
+    "Description": "Projectile speed +10% every 5 levels (max +30%)"
   },
   {
     "Id": "267004",
     "Name": "Gennaro",
     "MaxHealth": 120,
-    "DefaultWeapon": "단검",
+    "DefaultWeapon": "263080",
     "Ability": [
       "투사체 수"
     ],
@@ -93,13 +93,13 @@
     ],
     "UnlockCondition": "Level",
     "UnlockValue": 50,
-    "Description": "267004 캐릭터입니다."
+    "Description": "Projectile count +1"
   },
   {
     "Id": "267005",
     "Name": "Arca",
     "MaxHealth": 100,
-    "DefaultWeapon": "불의 지팡이",
+    "DefaultWeapon": "263159",
     "Ability": [
       "피해량",
       "쿨타임"
@@ -120,13 +120,13 @@
     ],
     "UnlockCondition": "Level",
     "UnlockValue": 50,
-    "Description": "267005 캐릭터입니다."
+    "Description": "Damage +10%, Cooldown -5% every 10 levels (max -15%)"
   },
   {
     "Id": "267006",
     "Name": "Porta",
     "MaxHealth": 100,
-    "DefaultWeapon": "번개 반지",
+    "DefaultWeapon": "263084",
     "Ability": [
       "공격 범위"
     ],
@@ -144,13 +144,13 @@
     ],
     "UnlockCondition": "Level",
     "UnlockValue": 50,
-    "Description": "267006 캐릭터입니다."
+    "Description": "Attack range +30%"
   },
   {
     "Id": "267007",
     "Name": "Poe",
     "MaxHealth": 70,
-    "DefaultWeapon": "마늘",
+    "DefaultWeapon": "263052",
     "Ability": [
       "자석"
     ],
@@ -168,6 +168,6 @@
     ],
     "UnlockCondition": "Level",
     "UnlockValue": 50,
-    "Description": "267007 캐릭터입니다."
+    "Description": "Magnet +25%"
   }
 ]

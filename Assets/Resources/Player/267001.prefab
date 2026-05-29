@@ -253,7 +253,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 70, y: 70}
+  m_Size: {x: 120, y: 120}
   m_EdgeRadius: 0
 --- !u!1 &4878364528150249118
 GameObject:
@@ -847,4 +847,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a84ccbea8a59a647861092d366ef8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  healthBar: {fileID: 7648992825509006878}
   moveSpeed: 5

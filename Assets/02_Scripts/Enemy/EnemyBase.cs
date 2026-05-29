@@ -55,9 +55,20 @@ public class EnemyBase : MonoBehaviour
         hitPositionOffset.x *= -1f;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageContext context)
     {
-        health -= damage;
+        if(health <= 0)
+        {
+            return;
+        }
+
+        float befoeHp = health;
+
+        health -= context.Damage;
+
+        float takeDamage = Mathf.Min(befoeHp, context.Damage);
+        GameManager.CombatRecorder.AddDamage(context.WeaponId, takeDamage);
+
         if (health <= 0)
         {
             Die();

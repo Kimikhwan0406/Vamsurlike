@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerWeaponController
 {
@@ -27,6 +24,7 @@ public class PlayerWeaponController
     }
 
     public List<string> GetMaxLevelWeapons() => maxLevelWeapons;
+    public List<WeaponObject> GetWeaponList() => weaponList;
 
     public bool HasWeapon(string weaponId) => weaponList.Exists(w => w.WeaponId == weaponId);
     public int GetWeaponLevel(string weaponId)
@@ -43,7 +41,7 @@ public class PlayerWeaponController
         }
     }
 
-    public void RegisterWeapon(string weaponId)
+    public void AddWeapon(string weaponId)
     {
         if (weaponList.Exists(w => w.WeaponId == weaponId))
         {
@@ -52,11 +50,13 @@ public class PlayerWeaponController
         }
 
         var weapon = new WeaponObject(weaponId);
+        GameManager.CombatRecorder.RegisterCombatStat(weaponId);
 
+        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddHUDWeaponSlot(weaponId);
         weaponList.Add(weapon);
     }
 
-    public void UnregisterWeapon(string weaponId)
+    public void RemoveWeapon(string weaponId)
     {
         if (!weaponList.Exists(w => w.WeaponId == weaponId))
         {
@@ -69,6 +69,7 @@ public class PlayerWeaponController
             if (weapon.WeaponId == weaponId)
             {
                 weaponList.Remove(weapon);
+                GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().RemoveHUDWeaponSlot(weaponId);
                 break;
             }
         }
@@ -79,7 +80,7 @@ public class PlayerWeaponController
         var weapon = weaponList.Find(w => w.WeaponId == weaponId);
         if (weapon == null)
         {
-            Debug.Log($"{GetType()}: 무기가 존재하지 않음");
+            Debug.LogError($"{GetType()}: 무기가 존재하지 않음");
             return;
         }
 

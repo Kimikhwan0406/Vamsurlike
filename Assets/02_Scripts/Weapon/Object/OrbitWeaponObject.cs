@@ -31,6 +31,7 @@ public class OrbitWeaponObject : MonoBehaviour
     List<EnemyHitCooldown> hitCooldowns = new(64);
 
     OrbitWeaponData data;
+    DamageContext damageContext;
 
     float durationTimer;
     float angle;
@@ -45,7 +46,7 @@ public class OrbitWeaponObject : MonoBehaviour
     [SerializeField] float baseSpeed = 10f;
     float totalRotateSpeed;
 
-    public void Init(OrbitWeaponData data)
+    public void Init(string weaponId, OrbitWeaponData data)
     {
         queryResults.Clear();
         hitCooldowns.Clear();
@@ -59,10 +60,19 @@ public class OrbitWeaponObject : MonoBehaviour
 
         transform.SetParent(data.OwnerTransform);
         transform.localPosition = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * totalDistance;
+
+        damageContext = new DamageContext
+        {
+            WeaponId = weaponId,
+            Damage = data.Damage,
+        };
     }
 
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         float deltaTime = Time.deltaTime;
         durationTimer -= deltaTime;
 
@@ -96,7 +106,7 @@ public class OrbitWeaponObject : MonoBehaviour
 
             if (IsHitCooldown(enemy)) continue;
 
-            enemy.TakeDamage(data.Damage);
+            enemy.TakeDamage(damageContext);
             hitCooldowns.Add(new EnemyHitCooldown(enemy, data.HitInterval));
         }
     }
