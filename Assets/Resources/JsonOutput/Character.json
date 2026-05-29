@@ -3,7 +3,7 @@
     "Id": "267001",
     "Name": "Antonio",
     "MaxHealth": 100,
-    "DefaultWeapon": "263160",
+    "DefaultWeapon": "263158",
     "Ability": [
       "damage"
     ],

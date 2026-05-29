@@ -148,7 +148,7 @@
     "Name": "Axe",
     "MaxLevel": 8,
     "ProjectileLimits": 70,
-    "ProjectilePenetration": 1,
+    "ProjectilePenetration": 3,
     "ProjectileSpeed": 1,
     "Rarity": 100,
     "CoolTIme": 4,
