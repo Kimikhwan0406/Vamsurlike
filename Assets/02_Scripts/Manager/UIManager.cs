@@ -18,6 +18,11 @@ public class UIManager
         lobbyHUD.SetActive(false);
     }
 
+    /// <summary>
+    /// </summary>
+    /// <typeparam name="T"> : view </typeparam>
+    /// <param name="_model"></param>
+    /// <param name="_presenter"></param>
     public void OpenUI<T>(IModel _model, IPresenter _presenter) where T : IView
     {
         Type viewType = typeof(T);
@@ -46,7 +51,6 @@ public class UIManager
             }
             presenters[viewType] = _presenter;
             presenters[viewType].Init(_model, newOB.GetComponent<IView>());
-
         }
 
         presenters[viewType].Open();

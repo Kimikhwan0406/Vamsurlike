@@ -1,19 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayerInputHandler inputHandler;
+    PlayerInputHandler inputHandler;
+    [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
 
     float currentHealth;
+    float maxHealth;
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
-    
 
-    public void Init(float _currentHealth)
+    void Awake()
     {
-        currentHealth = _currentHealth;
+        inputHandler = GetComponent<PlayerInputHandler>();
+    }
+
+    public void Init(string characterId)
+    {
+        CharacterData characterData = GameManager.DataTable.GetCharacterData(characterId);
+        healthBar.fillAmount = 1f;
+        maxHealth = characterData.MaxHealth;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -30,25 +40,23 @@ public class Player : MonoBehaviour
         isInvincible = true;
         currentHealth -= damage;
 
-        if(currentHealth <= 0f)
+        healthBar.fillAmount = currentHealth / maxHealth;
+
+        if (currentHealth <= 0f)
         {
             Debug.Log("Player is dead.");
         }
     }
     void Update()
     {
-        Move();
-        OnAutoSkill();
+        if (GameManager.Instance.IsPlaying)
+        {
+            Move();
+        }
     }
 
     void Move()
     {
         transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
-    }
-
-    // TODO: 여기에 스킬 추가
-    void OnAutoSkill()
-    {
-
     }
 }

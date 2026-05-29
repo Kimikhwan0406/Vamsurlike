@@ -6,7 +6,9 @@ public class EnemyBase : MonoBehaviour
     public int ManagerIndex => managerIndex;
     public string EnemyId => enemyId;
     public float Power => power;
+    public Vector3 HitPosition => transform.position + hitPositionOffset;
     public float HitRadius => hitRadius;
+    public bool IsDead => isDead;
 
 
     string enemyId;
@@ -16,7 +18,8 @@ public class EnemyBase : MonoBehaviour
     float moveSpeed;
     int managerIndex = -1;
     bool isDead = false;
-    [SerializeField] float hitRadius = 0.5f;
+    [SerializeField] Vector3 hitPositionOffset;
+    [SerializeField] float hitRadius;
 
 
     public void SetManagerIndex(int _managerIndex)
@@ -34,11 +37,38 @@ public class EnemyBase : MonoBehaviour
         health = enemyData.MaxHealth;
         power = enemyData.Power;
         xp = enemyData.XP;
+        //hitPositionOffset = new Vector3(enemyData.PositionOffset[0], enemyData.PositionOffset[1], 0f);
+        //hitRadius = enemyData.Radius;
     }
 
-    public void TakeDamage(float damage)
+    public void Flip()
     {
-        health -= damage;
+        if(transform.localRotation.y == 0)
+        {
+            transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+
+        hitPositionOffset.x *= -1f;
+    }
+
+    public void TakeDamage(DamageContext context)
+    {
+        if(health <= 0)
+        {
+            return;
+        }
+
+        float befoeHp = health;
+
+        health -= context.Damage;
+
+        float takeDamage = Mathf.Min(befoeHp, context.Damage);
+        GameManager.CombatRecorder.AddDamage(context.WeaponId, takeDamage);
+
         if (health <= 0)
         {
             Die();
@@ -47,14 +77,18 @@ public class EnemyBase : MonoBehaviour
 
     void Die()
     {
+        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddEnemyCount(1);
+
+        var e = GameManager.Pool.GetObject(PoolType.FieldObject, gameObject.transform);
+        e.GetComponent<FieldObject>().Init(xp);
+
         GameManager.EnemySpawnPool.DespawnEnemy(this);
         isDead = true;
     }
 
-
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = isDead ? Color.blue : Color.red;
-        Gizmos.DrawWireSphere(transform.position, hitRadius);
+        Gizmos.DrawWireSphere(HitPosition, hitRadius);
     }
 }

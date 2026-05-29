@@ -8,15 +8,23 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static UserDataManager UserData { get { return Instance.userData; } }
     public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
+    public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
+    public static PoolManager Pool { get { return Instance.poolManager; } }
+    public static CombatStatRecorder CombatRecorder { get { return Instance.combatStatRecorder; } }
 
     #region Variables
-    [SerializeField] Transform poolTransform;
+
+    [SerializeField] Transform enemyPoolTransform;
+    [SerializeField] Transform objectPoolTransform;
 
     [Header("Managers")]
     UserDataManager userData = new();
     DataTable dataTable = new();
     UIManager ui = new();
     EnemySpawnPoolManager spawnPool = new();
+    PoolManager poolManager = new();
+    PlayerWeaponController weaponController = new();
+    CombatStatRecorder combatStatRecorder = new();
     CombatQuerySystem combatQuerySystem;
 
     [Header("Caching")]
@@ -24,9 +32,15 @@ public class GameManager : SingletonBehaviour<GameManager>
     GameObject enemyManager;
 
     [Header("InGame")]
-    GameObject playMap;
-    bool isPlaying = false;
     public bool IsPlaying => isPlaying;
+
+    GameObject playMap;
+
+    bool isPlaying = false;
+
+    string selectedCharacterId;
+    string baseWeapinId;
+
     #endregion
 
     protected override void Init()
@@ -37,7 +51,8 @@ public class GameManager : SingletonBehaviour<GameManager>
         dataTable.LoadAllData();
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
 
-        spawnPool.Init(poolTransform);
+        spawnPool.Init(enemyPoolTransform);
+        poolManager.Init(objectPoolTransform);
     }
 
     void Update()
@@ -46,35 +61,73 @@ public class GameManager : SingletonBehaviour<GameManager>
         {
             inGameCore.Update();
             spawnPool.Update();
+            weaponController.Update();
         }
     }
 
     public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
 
+    public void PauseGame()
+    {
+        isPlaying = false;
+        Debug.Log("Game Paused");
+    }
+
+    public void ResumeGame()
+    {
+        isPlaying = true;
+        Debug.Log("Game Resumed");
+    }
+
+    public void SetCharacterId(string characterId, string baseWeaponId)
+    {
+        selectedCharacterId = characterId;
+        this.baseWeapinId = baseWeaponId;
+    }
+
     public void StageEnter()
     {
         // TODO : 맵 추가시 로직 변경
         playMap = Instantiate(Utils.ResourcesLoad<GameObject>("BasicMap"));
 
-        inGameCore = new InGameCore();
+        inGameCore = new InGameCore(selectedCharacterId);
+
+        CreateWeaponContext();
         UI.ShowIngameHUD();
-        isPlaying = true;
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
         spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
         combatQuerySystem = new();
+
+
+        isPlaying = true;
+
+
+
+
+        weaponController.AddWeapon(baseWeapinId);
+
+
+        // TEST
+        //weaponController.AddWeapon("263080");
+        //weaponController.RegisterWeapon("263079");
     }
 
     public void StageExit()
     {
+        isPlaying = false;
+
+        CameraManager.Instance.ClearFollow();
+
+        combatStatRecorder.Release();
+        weaponController.Release();
         combatQuerySystem = null;
 
         spawnPool.ReleaseEnemyManager();
         Destroy(enemyManager);
         enemyManager = null;
 
-        isPlaying = false;
         UI.ShowLobbyHUD();
         inGameCore.Release();
         inGameCore = null;
@@ -82,4 +135,17 @@ public class GameManager : SingletonBehaviour<GameManager>
         Destroy(playMap);
         playMap = null;
     }
+
+    void CreateWeaponContext()
+    {
+        weaponController.CreateWeaponContext(
+            new WeaponContext
+            {
+                Owner = GetPlayer().gameObject,
+                OwnerTransform = GetPlayer().transform,
+                CombatQuerySystem = combatQuerySystem
+            });
+    }
+
+
 }

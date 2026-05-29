@@ -12,32 +12,44 @@ public class GameHUDPresenter : IPresenter
         model = _model as GameHUDModel;
         view = _view as GameHUDView;
 
-        if(model == null || view == null)
+        if (model == null || view == null)
         {
             Debug.LogError("InGameHUDPresenter Init Failed");
             return;
         }
+
+        ResetModel();
     }
 
     public void Open()
     {
         view.Open();
     }
-    
+
     public void Close()
     {
         view.Close();
+        view = null;
+        model = null;
     }
 
     public float GetPlayTime() => model.Time;
+    public int GetGold() => model.Gold;
+    public int GetLevel() => model.Level;
+    public int GetEnemyCount() => model.EnemyCount;
 
-    #region Handler
 
     public void AddExp(float exp)
     {
         model.Exp += exp;
-        view.UpdateExp(model.Exp);
-        // TODO: 레벨업 체크, 레벨업시 SetLevel호출
+        view.UpdateExp(model.Exp / model.MaxExp);
+
+        if (model.Exp >= model.MaxExp)
+        {
+            model.Exp -= model.MaxExp;
+            SetLevel(model.Level + 1);
+            view.UpdateExp(model.Exp / model.MaxExp);
+        }
     }
 
     public void AddTime(float time)
@@ -58,12 +70,67 @@ public class GameHUDPresenter : IPresenter
         view.UpdateEnemyCount(model.EnemyCount);
     }
 
+    public void AddHUDWeaponSlot(string weaponId)
+    {
+        var slot = CreateHUDWeaponSlot(weaponId);
+
+        model.HudWeaponSlots.Add(weaponId, slot);
+        view.AddHUDWeaponSlot(slot);
+    }
+
+    public void RemoveHUDWeaponSlot(string weaponId)
+    {
+        if (model.HudWeaponSlots.TryGetValue(weaponId, out var slot))
+        {
+            view.RemoveHUDWeaponSlot(slot);
+            model.HudWeaponSlots.Remove(weaponId);
+        }
+    }
+
+    GameObject CreateHUDWeaponSlot(string weaponId)
+    {
+        GameObject slot = Object.Instantiate(Utils.ResourcesLoad<GameObject>("UI/HudWeaponSlot"));
+
+        if (slot.TryGetComponent(out HudWeaponSlot slotComponent))
+        {
+            slotComponent.Init(weaponId);
+        }
+        else
+        {
+            Debug.LogError("HudWeaponSlot component not found.");
+        }
+
+        return slot;
+    }
 
     void SetLevel(int level)
     {
         model.Level = level;
         view.UpdateLevel(model.Level);
+
+        SetMaxExp();
+
+        GameManager.UI.OpenUI<LevelUpView>(new LevelUpModel(), new LevelUpPresenter());
     }
 
-    #endregion
+    void SetMaxExp()
+    {
+        if (model.Level >= 2)
+            model.MaxExp += 10;
+        else if (model.Level >= 21)
+            model.MaxExp += 13;
+        else if (model.Level >= 41)
+            model.MaxExp += 16;
+    }
+
+    public void ResetModel()
+    {
+        model.Exp = 0;
+        model.Time = 0;
+        model.EnemyCount = 0;
+        model.Gold = 0;
+
+        model.Level = 1;
+        model.MaxExp = 5f;
+    }
 }

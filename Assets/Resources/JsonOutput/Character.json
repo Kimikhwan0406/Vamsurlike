@@ -3,7 +3,7 @@
     "Id": "267001",
     "Name": "Antonio",
     "MaxHealth": 100,
-    "DefaultWeapon": "채찍",
+    "DefaultWeapon": "263158",
     "Ability": [
       "damage"
     ],
@@ -20,13 +20,14 @@
       "P"
     ],
     "UnlockCondition": "None",
-    "UnlockConditionGold": 0
+    "UnlockValue": 0,
+    "Description": "Damage +10% every 10 levels (max +50%)"
   },
   {
     "Id": "267002",
     "Name": "Imelad",
     "MaxHealth": 100,
-    "DefaultWeapon": "마법 지팡이",
+    "DefaultWeapon": "263079",
     "Ability": [
       "exp"
     ],
@@ -43,15 +44,16 @@
       "P"
     ],
     "UnlockCondition": "Gold",
-    "UnlockConditionGold": 10
+    "UnlockValue": 10,
+    "Description": "Growth +10% every 5 levels (max +30%)"
   },
   {
     "Id": "267003",
     "Name": "Pasqualina",
     "MaxHealth": 100,
-    "DefaultWeapon": "룬 트레이서",
+    "DefaultWeapon": "263161",
     "Ability": [
-      "투사체가속"
+      "투사체속도"
     ],
     "AbilityCondition": [
       "5"
@@ -66,58 +68,106 @@
       "P"
     ],
     "UnlockCondition": "Gold",
-    "UnlockConditionGold": 110
+    "UnlockValue": 110,
+    "Description": "Projectile speed +10% every 5 levels (max +30%)"
   },
   {
     "Id": "267004",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Gennaro",
+    "MaxHealth": 120,
+    "DefaultWeapon": "263080",
+    "Ability": [
+      "투사체 수"
+    ],
+    "AbilityCondition": [
+      "0"
+    ],
+    "AbilityMargin": [
+      "0"
+    ],
+    "AbilityValue": [
+      "1"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "Projectile count +1"
   },
   {
     "Id": "267005",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Arca",
+    "MaxHealth": 100,
+    "DefaultWeapon": "263159",
+    "Ability": [
+      "피해량",
+      "쿨타임"
+    ],
+    "AbilityCondition": [
+      "0",
+      "10"
+    ],
+    "AbilityMargin": [
+      "0",
+      "15"
+    ],
+    "AbilityValue": [
+      "0.05"
+    ],
+    "PN": [
+      "N"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "Damage +10%, Cooldown -5% every 10 levels (max -15%)"
   },
   {
     "Id": "267006",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Porta",
+    "MaxHealth": 100,
+    "DefaultWeapon": "263084",
+    "Ability": [
+      "공격 범위"
+    ],
+    "AbilityCondition": [
+      "0"
+    ],
+    "AbilityMargin": [
+      "0"
+    ],
+    "AbilityValue": [
+      "0.3"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "Attack range +30%"
   },
   {
     "Id": "267007",
-    "Name": null,
-    "MaxHealth": null,
-    "DefaultWeapon": null,
-    "Ability": null,
-    "AbilityCondition": null,
-    "AbilityMargin": null,
-    "AbilityValue": null,
-    "PN": null,
-    "UnlockCondition": null,
-    "UnlockConditionGold": null
+    "Name": "Poe",
+    "MaxHealth": 70,
+    "DefaultWeapon": "263052",
+    "Ability": [
+      "자석"
+    ],
+    "AbilityCondition": [
+      "0"
+    ],
+    "AbilityMargin": [
+      "0"
+    ],
+    "AbilityValue": [
+      "0.25"
+    ],
+    "PN": [
+      "P"
+    ],
+    "UnlockCondition": "Level",
+    "UnlockValue": 50,
+    "Description": "Magnet +25%"
   }
 ]

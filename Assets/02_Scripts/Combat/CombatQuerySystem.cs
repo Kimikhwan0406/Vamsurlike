@@ -1,17 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// 주의점!
+// 몬스터 위치 그대로 넘기는 것이 아닌, HiPosition과 HitRadius를 밀어 넣는다.
+
 public class CombatQuerySystem
 {
-    private readonly List<EnemyBase> resultBuffer = new();
-
-    public List<EnemyBase> QueryCircle(Vector2 center, float radius)
+    public List<EnemyBase> QueryCircle(Vector2 center, float radius, List<EnemyBase> resultBuffer)
     {
         resultBuffer.Clear();
 
         foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
         {
-            if (HitSerach.Circle(center, radius, enemy.transform.position, enemy.HitRadius))
+            if (EnemySearch.FindCircleSearch(center, radius, enemy.HitPosition, enemy.HitRadius))
             {
                 resultBuffer.Add(enemy);
             }
@@ -20,21 +22,26 @@ public class CombatQuerySystem
         return resultBuffer;
     }
 
-    public static bool SegmentCircle( Vector2 start, Vector2 end, Vector2 circleCenter, float radius)
+    public void QuerySegment(Vector2 start, Vector2 end, float projectileRadius, List<EnemyBase> resultBuffer)
     {
-        Vector2 segment = end - start;
-        float segmentLengthSqr = segment.sqrMagnitude;
+        resultBuffer.Clear();
 
-        if (segmentLengthSqr <= 0.00001f)
+        foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
         {
-            return (circleCenter - start).sqrMagnitude <= radius * radius;
+            if (!IsValidEnemy(enemy))
+                continue;
+
+            float dadius = enemy.HitRadius + projectileRadius;
+
+            if(EnemySearch.QuerySegmentSerach(start, end, enemy.HitPosition, dadius))
+            {
+                resultBuffer.Add(enemy);
+            }
         }
+    }
 
-        float t = Vector2.Dot(circleCenter - start, segment) / segmentLengthSqr;
-        t = Mathf.Clamp01(t);
-
-        Vector2 closestPoint = start + segment * t;
-
-        return (circleCenter - closestPoint).sqrMagnitude <= radius * radius;
+    static bool IsValidEnemy(EnemyBase enemy)
+    {
+        return !enemy.IsDead;
     }
 }

@@ -34,6 +34,9 @@ public class EnemyManager : MonoBehaviour
     {
         moveJobHandle.Complete();
 
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         if(enemyTransforms.length <= 0)
             return;
 
@@ -91,7 +94,6 @@ public class EnemyManager : MonoBehaviour
 
         if (totalDamage > 0f)
         {
-            Debug.Log($"{GetType()}: totalDamage = {totalDamage}");
             GameManager.Instance.GetPlayer().TakeDamage(totalDamage);
         }
     }
