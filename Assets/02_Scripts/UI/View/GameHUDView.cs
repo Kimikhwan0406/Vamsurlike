@@ -15,17 +15,15 @@ public class GameHUDView : MonoBehaviour, IView
 
     public bool IsOpen => this.gameObject.activeSelf;
 
-   
-
-    public void Close()
-    {
-        this.gameObject.SetActive(false);
-    }
-
     public void Open()
     {
         this.gameObject.SetActive(true);
         Init();
+    }
+
+    public void Close()
+    {
+        this.gameObject.SetActive(false);
     }
 
     #region Update View

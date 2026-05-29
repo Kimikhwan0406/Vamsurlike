@@ -4,7 +4,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class InGameCore
 {
     public Player Player => player;
-    public float GetPlayTime() => GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().GetPlayTime();
+    public float GetPlayTime() => GameManager.UI.GetPresenter<GameHUDPresenter>().GetPlayTime();
 
 
     Player player;
@@ -25,7 +25,7 @@ public class InGameCore
 
     public void Update()
     {
-        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddTime(Time.deltaTime);
+        GameManager.UI.GetPresenter<GameHUDPresenter>().AddTime(Time.deltaTime);
     }
 
     void PlayerSpawn()

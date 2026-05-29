@@ -8,8 +8,7 @@ public class UIManager
     Transform UIRoot;
     GameObject lobbyHUD;
 
-    Dictionary<Type, IPresenter> presenters = new();
-    Stack<Type> viewStack = new();
+    Dictionary<Type, IPresenter> presenterDic = new();
 
     public void Init(Transform uiRoot)
     {
@@ -23,58 +22,54 @@ public class UIManager
     /// <typeparam name="T"> : view </typeparam>
     /// <param name="_model"></param>
     /// <param name="_presenter"></param>
-    public void OpenUI<T>(IModel _model, IPresenter _presenter) where T : IView
+    public void OpenUI<T>() where T : IPresenter, new()
     {
-        Type viewType = typeof(T);
+        Type presenterType = typeof(T);
 
-        if (null == viewType)
+        if (presenterDic.ContainsKey(presenterType))
         {
-            Debug.LogError($"{viewType} is null");
-            return;
-        }
-
-        if (presenters.ContainsKey(viewType))
-        {
-            if (presenters[viewType].IsOpen)
+            if (presenterDic[presenterType].IsOpen)
             {
-                Debug.Log($"{viewType} is already open");
+                Debug.Log($"{presenterType} is already open");
                 return;
             }
         }
         else
         {
-            GameObject newOB = UnityEngine.Object.Instantiate(Utils.ResourcesLoad<GameObject>($"UI/{viewType}"), UIRoot);
+            var newPresenter = new T();
+            GameObject newOB = UnityEngine.Object.Instantiate(
+                Utils.ResourcesLoad<GameObject>($"UI/{newPresenter.GetViewType()}"), UIRoot);
+
             if (null == newOB)
             {
-                Debug.LogError($"Failed to load {viewType}");
+                Debug.LogError($"Failed to load {newPresenter.GetViewType()}");
                 return;
             }
-            presenters[viewType] = _presenter;
-            presenters[viewType].Init(_model, newOB.GetComponent<IView>());
+            presenterDic[presenterType] = newPresenter;
+            presenterDic[presenterType].Init(newOB.GetComponent<IView>());
         }
 
-        presenters[viewType].Open();
-        viewStack.Push(viewType);
+        presenterDic[presenterType].Open();
     }
 
-    public void CloseUI()
+    public void CloseUI<T>() where T : IPresenter
     {
-        if (viewStack.Count == 0)
+        if (presenterDic.Count == 0)
         {
             Debug.Log("No UI to close");
             return;
         }
 
-        presenters[viewStack.Pop()].Close();
+        presenterDic[typeof(T)].Close();
     }
 
-    public P GetPresenter<P, V>() where P : class, IPresenter where V : IView
+    public T GetPresenter<T>() where T : class, IPresenter
     {
-        Type viewType = typeof(V);
+        Type viewType = typeof(T);
 
-        if (presenters.ContainsKey(viewType))
+        if (presenterDic.TryGetValue(viewType, out var presenter))
         {
-            return presenters[viewType] as P;
+            return presenter as T;
         }
 
         Debug.Log($"{viewType} is not exist");
@@ -89,24 +84,16 @@ public class UIManager
 
     public void ShowIngameHUD()
     {
-        OpenUI<GameHUDView>(new GameHUDModel(), new GameHUDPresenter());
+        OpenUI<GameHUDPresenter>();
         lobbyHUD.SetActive(false);
     }
 
-    public bool ExistOpenUI()
-    {
-        if (viewStack.Count <= 0) Debug.Log("No open UI exists.");
-
-        return viewStack.Count > 0;
-    }
-
-    public Type GetCurrentFrontUIType() => viewStack.Count > 0 ? viewStack.Peek() : null;
-
     public void CloseAllOepnUI()
     {
-        while (viewStack.Count > 0)
+        foreach(var presenter in presenterDic.Values)
         {
-            CloseUI();
+            if (presenter.IsOpen)
+                presenter.Close();
         }
     }
 }

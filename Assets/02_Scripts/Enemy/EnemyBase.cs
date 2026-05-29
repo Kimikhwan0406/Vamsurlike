@@ -77,7 +77,7 @@ public class EnemyBase : MonoBehaviour
 
     void Die()
     {
-        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddEnemyCount(1);
+        GameManager.UI.GetPresenter<GameHUDPresenter>().AddEnemyCount(1);
 
         var e = GameManager.Pool.GetObject(PoolType.FieldObject, gameObject.transform);
         e.GetComponent<FieldObject>().Init(xp);

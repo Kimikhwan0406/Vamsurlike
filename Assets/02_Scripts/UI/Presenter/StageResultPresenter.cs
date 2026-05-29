@@ -7,36 +7,36 @@ public class StageResultPresenter : IPresenter
 
     public bool IsOpen => view.IsOpen;
 
-    public void Init(IModel _model, IView _view)
+    public void Init(IView _view)
     {
-        model = _model as StageResultModel;
+        model = new();
         view = _view as StageResultView;
 
-        ResetModel();
         CreateWeaponInfo();
     }
 
     void CreateWeaponInfo()
     {
         var weaponList = GameManager.WeaponController.GetWeaponList();
+        float endTime = Time.time;
+
         for(int i = 0; i < weaponList.Count; i++)
         {
-            CreateResultWeaponTextSlot(weaponList[i]);
+            CreateResultWeaponTextSlot(weaponList[i], endTime);
         }
     }
 
-    void CreateResultWeaponTextSlot(WeaponObject weapon)
+    void CreateResultWeaponTextSlot(WeaponObject weapon, float endTime)
     {
         CombatStat stat = GameManager.CombatRecorder.GetCombatStat(weapon.WeaponId);
 
         var slot = Object.Instantiate(Utils.ResourcesLoad<GameObject>("UI/ResultWeaponTextSlot"));
         if(slot.TryGetComponent(out ResultWeaponTextSlot slotComponent))
         {
-            slotComponent.Init(stat, weapon.WeaponLevel, Time.time - weapon.OwnedStartTime);
+            slotComponent.Init(stat, weapon.WeaponLevel, endTime - weapon.OwnedStartTime);
         }
 
         view.SetSlotParent(slot);
-
     }
 
     public void Open()
@@ -49,8 +49,8 @@ public class StageResultPresenter : IPresenter
         view.Close();
     }
 
-    public void ResetModel()
+    public System.Type GetViewType()
     {
-        
+        return typeof(StageResultView);
     }
 }

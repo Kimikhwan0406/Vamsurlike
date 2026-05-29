@@ -16,6 +16,31 @@ public class StageResultView : MonoBehaviour, IView
     [SerializeField] Transform weaponLayout;
 
     public bool IsOpen => gameObject.activeSelf;
+    public void Open()
+    {
+        gameObject.SetActive(true);
+        SetTopInfo();
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void SetSlotParent(GameObject slotObj)
+    {
+        slotObj.transform.SetParent(weaponLayout);
+    }
+    
+    void SetTopInfo()
+    {
+        var hudPresenter = GameManager.UI.GetPresenter<GameHUDPresenter>();
+
+        survivedText.text = (Mathf.Floor(hudPresenter.GetPlayTime() / 60)).ToString() + ":" + (hudPresenter.GetPlayTime() % 60).ToString();
+        goldText.text = hudPresenter.GetGold().ToString();
+        levelText.text = hudPresenter.GetLevel().ToString();
+        enemyText.text = hudPresenter.GetEnemyCount().ToString();
+    }
 
     public void OnClickGameOverQuitButton()
     {
@@ -26,30 +51,5 @@ public class StageResultView : MonoBehaviour, IView
     public void OnClickResultOKButton()
     {
         GameManager.Instance.StageExit();
-    }
-
-    public void SetSlotParent(GameObject slotObj)
-    {
-        slotObj.transform.SetParent(weaponLayout);
-    }
-    
-    public void SetTopInfo()
-    {
-        var hudPresenter = GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>();
-
-        survivedText.text = (Mathf.Floor(hudPresenter.GetPlayTime() / 60)).ToString() + ":" + (hudPresenter.GetPlayTime() % 60).ToString();
-        goldText.text = hudPresenter.GetGold().ToString();
-        levelText.text = hudPresenter.GetLevel().ToString();
-        enemyText.text = hudPresenter.GetEnemyCount().ToString();
-    }
-
-    public void Open()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void Close()
-    {
-        gameObject.SetActive(false);
     }
 }

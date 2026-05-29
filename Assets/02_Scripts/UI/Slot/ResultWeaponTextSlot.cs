@@ -20,7 +20,6 @@ public class ResultWeaponTextSlot : MonoBehaviour
         weaponLevelText.text = weaponLevel.ToString();
         weaponOwnedTimeText.text = ownedTime.ToString();
 
-        // 데미지랑 DPS는 ###.# 로 표현하며 네 자리수가 넘어간다면 K, M, B로 표시
         weaponTotalDamageText.text = NumberFormat(stat.TotalDamage);
         dpsText.text = NumberFormat(stat.TotalDamage / ownedTime);
     }
@@ -30,7 +29,7 @@ public class ResultWeaponTextSlot : MonoBehaviour
     {
         float absValue = Mathf.Abs(value);
 
-        string[] suffixes = { "", "K", "M", "B", "T" };
+        string[] suffixes = { "", "K", "M", "B", "P" };
         float[] thresholds =
         {
         1f,
