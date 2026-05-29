@@ -32,6 +32,9 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         prePosition = transform.position;
 
         Move();

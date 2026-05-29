@@ -25,11 +25,13 @@ public class LevelUpPresenter : IPresenter
     {
         view.Close();
         DestorySlot();
+        GameManager.Instance.ResumeGame();
     }
 
     public void Open()
     {
         view.Open();
+        GameManager.Instance.PauseGame();
     }
 
     void DestorySlot()

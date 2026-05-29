@@ -49,7 +49,10 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Move();
+        if (GameManager.Instance.IsPlaying)
+        {
+            Move();
+        }
     }
 
     void Move()

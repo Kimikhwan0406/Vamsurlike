@@ -70,6 +70,9 @@ public class OrbitWeaponObject : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         float deltaTime = Time.deltaTime;
         durationTimer -= deltaTime;
 
