@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RePosition : MonoBehaviour
 {
-    const int mapSizeOffSet = 35;
+    const int mapSizeOffSet = 60;
 
     void OnTriggerExit2D(Collider2D collision)
     {

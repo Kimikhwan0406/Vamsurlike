@@ -140,7 +140,7 @@
     "Knockback": 1,
     "Duration": 3,
     "Evolution": null,
-    "PatternType": "Orbit",
+    "PatternType": "OrbitN",
     "열1": "King Bible과 같지만 반대 방향으로 회전"
   },
   {

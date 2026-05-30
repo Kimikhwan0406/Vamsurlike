@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -31,9 +32,29 @@ public class CombatQuerySystem
             if (!IsValidEnemy(enemy))
                 continue;
 
-            float dadius = enemy.HitRadius + projectileRadius;
+            float radius = enemy.HitRadius + projectileRadius;
 
-            if(EnemySearch.QuerySegmentSerach(start, end, enemy.HitPosition, dadius))
+            if(EnemySearch.FindSegmentSerach(start, end, enemy.HitPosition, radius))
+            {
+                resultBuffer.Add(enemy);
+            }
+        }
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="center"> 타원 중심 </param>
+    public void QueryEllipse(Vector2 center, float radiusX, float radiusY, List<EnemyBase> resultBuffer)
+    {
+        resultBuffer.Clear();
+
+        foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
+        {
+            if (!IsValidEnemy(enemy))
+                continue;
+
+            if (EnemySearch.FindEllipse(enemy.HitPosition, center, radiusX, radiusY, enemy.HitRadius))
             {
                 resultBuffer.Add(enemy);
             }

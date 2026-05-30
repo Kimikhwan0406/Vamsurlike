@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf7da170ae451c46a86f5a24ad6ed3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrbitWeaponObject
+  weaponImage: {fileID: 8918431235525706119}
   baseDistance: 5
   radius: 0.6
   baseSpeed: 100

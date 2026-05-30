@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer projectileImage;
+    [SerializeField] SpriteRenderer weaponImage;
     [SerializeField] float projectileRadius = 1f;
 
     List<EnemyBase> hitBuffer = new();
@@ -19,9 +20,13 @@ public class Projectile : MonoBehaviour
     int hitCount = 0;
     int projectilePenetration = 1;
 
+    bool initialized = false;
+
 
     void Awake()
     {
+        initialized = false;
+
         angle = UnityEngine.Random.Range(0f, math.PI * 2f);
         dir = new Vector2(math.cos(angle), math.sin(angle));
 
@@ -46,7 +51,7 @@ public class Projectile : MonoBehaviour
     {
         this.projectilePenetration = data.ProjectilePenetration;
 
-        projectileImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+        weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
 
         damageContext = new DamageContext
         {
@@ -54,6 +59,7 @@ public class Projectile : MonoBehaviour
             Damage = data.Damage,
         };
 
+        initialized = true;
     }
 
     void Move()
@@ -63,6 +69,8 @@ public class Projectile : MonoBehaviour
 
     void CheckHit()
     {
+        if (!initialized) return;
+
         GameManager.CombatQuery.QuerySegment(prePosition, transform.position, projectileRadius, hitBuffer);
 
         for(int i = 0; i < hitBuffer.Count; i++)
@@ -81,6 +89,9 @@ public class Projectile : MonoBehaviour
 
     void Release()
     {
+        hitBuffer.Clear();
+        alreadyHit.Clear();
+        initialized = false;
         GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
     }
 
