@@ -95,6 +95,8 @@ public class LevelUpPresenter : IPresenter
 
     void BuildCandidateWeapons()
     {
+        candidateWeapons.Clear();
+
         var weaponTable = GameManager.DataTable.GetWeaponDataTable();
 
         // TODO foreach와 List의 Contains 때문에 O(n^2)인데 최적화 어케 하지?

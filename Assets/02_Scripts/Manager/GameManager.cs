@@ -91,12 +91,13 @@ public class GameManager : SingletonBehaviour<GameManager>
 
         inGameCore = new InGameCore(selectedCharacterId);
 
-        CreateWeaponContext();
         UI.ShowIngameHUD();
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
         spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
+
         combatQuerySystem = new();
+        CreateWeaponContext();
 
         isPlaying = true;
 
@@ -110,6 +111,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         CameraManager.Instance.ClearFollow();
 
         combatStatRecorder.Release();
+
         weaponController.Release();
         combatQuerySystem = null;
 

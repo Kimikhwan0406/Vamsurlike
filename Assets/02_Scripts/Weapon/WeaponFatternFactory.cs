@@ -8,7 +8,7 @@ public static class WeaponFatternFactory
         {
             "Projectile" => new ProjectileWeaponPattern(),
             "Swing" => new SwingWeaponPattern(),
-            //WeaponPatternType.AreaPulse => new AreaPulseWeaponPattern(),
+            "Area" => new AreaWeaponPattern(),
             //WeaponPatternType.ChainLightning => new ChainLightningWeaponPattern(),
             "Orbit" => new OrbitWeaponPattern(),
             "OrbitN" => new OrbitWeaponPattern(-1),
