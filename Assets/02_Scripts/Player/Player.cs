@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public int GetPlayerDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
+
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
@@ -58,5 +60,12 @@ public class Player : MonoBehaviour
     void Move()
     {
         transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
+    }
+
+    // RandomDropWeaponPattern의 범위 10f
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 10f);
     }
 }

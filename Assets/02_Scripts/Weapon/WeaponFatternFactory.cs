@@ -9,9 +9,10 @@ public static class WeaponFatternFactory
             "Projectile" => new ProjectileWeaponPattern(),
             "Swing" => new SwingWeaponPattern(),
             "Area" => new AreaWeaponPattern(),
-            //WeaponPatternType.ChainLightning => new ChainLightningWeaponPattern(),
+            "RandomDrop" => new RandomDropWeaponPattern(),
             "Orbit" => new OrbitWeaponPattern(),
             "OrbitN" => new OrbitWeaponPattern(-1),
+            "Axe" => new AxeWeaponPattern(),
             _ => throw new System.Exception($"Unknown weapon pattern type: {type}")
         };
     }

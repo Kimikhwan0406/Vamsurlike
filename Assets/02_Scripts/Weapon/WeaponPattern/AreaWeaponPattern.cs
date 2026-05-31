@@ -10,10 +10,11 @@ public class AreaWeaponPattern : IWeaponPattern
 
     DamageContext damageContext;
 
+    float preRange;
     bool initialized = false;
 
-    [Header("Debug")]
-    public Vector3 drawCenter;
+    [Header("추후 풀링 사용해서 삭제")]
+    GameObject effect;
 
     public void Excute(WeaponContext context, RunTimeWeaponlData data)
     {
@@ -25,13 +26,20 @@ public class AreaWeaponPattern : IWeaponPattern
                 Damage = data.Damage,
             };
 
-            drawCenter = context.OwnerTransform.position;
+            preRange = data.Range;
+
+            effect = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Effect/Garlic"), context.OwnerTransform);
+            if (effect.TryGetComponent<AreaEffect>(out var areaEffect))
+            {
+                areaEffect.SetRange(areaRadius * data.Range);
+            }
 
             initialized = true;
         }
 
         float deltaTime = Time.deltaTime;
 
+        UpdateEffect(context.OwnerTransform, preRange, data.Range);
         UpdateHitCooldown(deltaTime);
         CheckHit(context, data);
     }
@@ -78,5 +86,19 @@ public class AreaWeaponPattern : IWeaponPattern
         }
 
         return false;
+    }
+
+    void UpdateEffect(Transform playerPosition, float preRange, float currentRange)
+    {
+        // TODO 추후 Pooling 사용
+        if (preRange != currentRange)
+        {
+            Object.Destroy(effect);
+            effect = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Effect/Garlic"), playerPosition);
+            if(effect.TryGetComponent<AreaEffect>(out var areaEffect))
+            {
+                areaEffect.SetRange(areaRadius * currentRange);
+            }
+        }
     }
 }

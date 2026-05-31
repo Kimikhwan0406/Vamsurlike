@@ -62,10 +62,7 @@ public class WeaponData : BaseData
     public int Knockback;
     public float Duration;
     public string Evolution;
-
     public string PatternType;
-    //public TargetingType TargetingType;
-    //public int PenetrationCount;
 }
 
 [Serializable]

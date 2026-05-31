@@ -4,6 +4,7 @@ using UnityEngine;
 // Resources.LoadAll로 가져오다 보니 밑의 변수는 사전 순의로 정렬해서 선언해야함.
 public enum PoolType
 {
+    Axe,
     FieldObject,
     Orbit,
     Projectile,
