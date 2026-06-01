@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class StageResultPresenter : IPresenter
@@ -6,7 +7,7 @@ public class StageResultPresenter : IPresenter
     StageResultModel model;
     StageResultView view;
 
-    SortedList<float, GameObject> slots = new();
+    List<KeyValuePair<float, GameObject>> slots = new();
 
     public bool IsOpen => view.IsOpen;
 
@@ -26,11 +27,11 @@ public class StageResultPresenter : IPresenter
             CreateResultWeaponTextSlot(weaponList[i], endTime);
         }
 
-        int index = 0;
-        for(int i = slots.Count - 1; i >= 0; i--)
+        slots.Sort((a, b) => b.Key.CompareTo(a.Key));
+
+        for(int i = 0; i < slots.Count; i++)
         {
-            slots.Values[i].transform.SetSiblingIndex(index);
-            index++;
+            slots[i].Value.transform.SetSiblingIndex(i);
         }
     }
 
@@ -47,7 +48,7 @@ public class StageResultPresenter : IPresenter
         }
 
         float dps = stat.TotalDamage / ownerTime;
-        slots.Add(dps, slot);
+        slots.Add(new (dps, slot));
 
         view.SetSlotParent(slot);
     }
@@ -56,18 +57,22 @@ public class StageResultPresenter : IPresenter
     {
         CreateWeaponInfo();
         view.Open();
+
+        view.OnClose += Close;
     }
 
     public void Close()
     {
         view.Close();
 
-        foreach(var slot in slots.Values)
+        foreach(var slotKV in slots)
         {
-            Object.Destroy(slot);
+            Object.Destroy(slotKV.Value.gameObject);
         }
 
         slots.Clear();
+
+        view.OnClose -= Close;
     }
 
     public System.Type GetViewType()

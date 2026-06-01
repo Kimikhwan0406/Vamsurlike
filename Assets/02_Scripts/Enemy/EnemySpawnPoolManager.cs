@@ -41,6 +41,7 @@ public class EnemySpawnPoolManager// : SingletonBehaviour<EnemySpawnPoolManager>
     public void RegisterEnemyManager(EnemyManager _enemyManager)
     {
         enemyManager = _enemyManager;
+        stop = false;
     }
 
     public void ReleaseEnemyManager()

@@ -122,6 +122,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         weaponController.Release();
         combatQuerySystem = null;
 
+        spawnPool.AllDespawnEnemy();
         spawnPool.ReleaseEnemyManager();
         Destroy(enemyManager);
         enemyManager = null;

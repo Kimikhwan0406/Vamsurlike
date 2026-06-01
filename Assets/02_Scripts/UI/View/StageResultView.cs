@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +17,10 @@ public class StageResultView : MonoBehaviour, IView
     [SerializeField] Transform weaponLayout;
 
     public bool IsOpen => gameObject.activeSelf;
+
+    public event Action OnClose;
+
+
     public void Open()
     {
         gameObject.SetActive(true);
@@ -54,7 +59,7 @@ public class StageResultView : MonoBehaviour, IView
 
     public void OnClickResultOKButton()
     {
-        Close();
+        OnClose?.Invoke();
         GameManager.Instance.StageExit();
     }
 }
