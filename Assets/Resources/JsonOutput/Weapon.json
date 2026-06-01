@@ -122,7 +122,7 @@
     "Knockback": 1,
     "Duration": null,
     "Evolution": null,
-    "PatternType": "Projectile",
+    "PatternType": "FireWand",
     "열1": null
   },
   {

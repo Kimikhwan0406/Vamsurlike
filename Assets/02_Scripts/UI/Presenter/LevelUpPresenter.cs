@@ -18,12 +18,12 @@ public class LevelUpPresenter : IPresenter
     {
         view = _view as LevelUpView;
         model = new();
-
-        SetLevelUpSlot();
     }
 
     public void Open()
     {
+        SetLevelUpSlot();
+
         view.Open();
         GameManager.Instance.PauseGame();
     }

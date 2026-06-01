@@ -13,6 +13,7 @@ public static class WeaponFatternFactory
             "Orbit" => new OrbitWeaponPattern(),
             "OrbitN" => new OrbitWeaponPattern(-1),
             "Axe" => new AxeWeaponPattern(),
+            "FireWand" => new FireWandWeaponPattern(),
             _ => throw new System.Exception($"Unknown weapon pattern type: {type}")
         };
     }

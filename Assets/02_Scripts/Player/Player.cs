@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int GetPlayerDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
+    public int GetPlayerXDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
+    public Vector2 GetPlayerDir => inputHandler.MoveInput.normalized;
 
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;

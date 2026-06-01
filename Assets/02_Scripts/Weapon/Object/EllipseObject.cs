@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EllipseObject : MonoBehaviour
 {
@@ -18,8 +19,10 @@ public class EllipseObject : MonoBehaviour
 
     bool initialized = false;
 
-    public void Init(RunTimeWeaponlData data)
+    public void Init(RunTimeWeaponlData data, float angle)
     {
+        transform.localRotation = Quaternion.Euler(0, 0, angle);
+
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,

@@ -6,6 +6,7 @@ public enum PoolType
 {
     Axe,
     FieldObject,
+    FireBall,
     Orbit,
     Projectile,
     COUNT

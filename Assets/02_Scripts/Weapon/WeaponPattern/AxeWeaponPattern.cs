@@ -41,7 +41,7 @@ public class AxeWeaponPattern : IWeaponPattern
 
         Vector2 startPos = context.OwnerTransform.position + Vector3.up * 0.5f;
 
-        float horizontalSpeed = index * 2f * GameManager.Instance.GetPlayer().GetPlayerDir;
+        float horizontalSpeed = index * 2f * GameManager.Instance.GetPlayer().GetPlayerXDir;
         float upwardSpeed = 7f + index * 0.4f;
 
         Vector2 initialVelocity = new Vector2(horizontalSpeed, upwardSpeed);

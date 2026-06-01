@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
@@ -27,11 +26,8 @@ public class Projectile : MonoBehaviour
     {
         initialized = false;
 
-        angle = UnityEngine.Random.Range(0f, math.PI * 2f);
-        dir = new Vector2(math.cos(angle), math.sin(angle));
 
         var randomValue = UnityEngine.Random.Range(-0.5f, 0.5f);
-
         prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
 
@@ -47,11 +43,16 @@ public class Projectile : MonoBehaviour
         CheckHit();
     }
 
-    public void Init(RunTimeWeaponlData data)
+    public void Init(RunTimeWeaponlData data, Vector2 direction)
     {
         this.projectilePenetration = data.ProjectilePenetration;
 
         weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+
+        dir = direction.normalized;
+
+        float angle =  Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 45f);
 
         damageContext = new DamageContext
         {
@@ -64,7 +65,7 @@ public class Projectile : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(dir * Time.deltaTime * 5f);
+        transform.position += (Vector3)dir * Time.deltaTime * 10f;
     }
 
     void CheckHit()
