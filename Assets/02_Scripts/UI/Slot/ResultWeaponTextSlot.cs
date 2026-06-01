@@ -18,7 +18,10 @@ public class ResultWeaponTextSlot : MonoBehaviour
 
         weaponNameText.text = GameManager.DataTable.GetWeaponData(stat.WeaponId).Name;
         weaponLevelText.text = weaponLevel.ToString();
-        weaponOwnedTimeText.text = ownedTime.ToString();
+        weaponOwnedTimeText.text = (Mathf.Floor(ownedTime / 60)).ToString()
+            + ":" + (ownedTime % 60).ToString("F0");
+
+
 
         weaponTotalDamageText.text = NumberFormat(stat.TotalDamage);
         dpsText.text = NumberFormat(stat.TotalDamage / ownedTime);

@@ -14,7 +14,6 @@ public class CharacterSelectPresenter : IPresenter
     {
         model = new();
         view = _view as CharacterSelectView;
-
         SetCharacterSlot();
     }
 

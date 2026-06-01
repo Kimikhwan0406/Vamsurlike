@@ -19,6 +19,8 @@ public class StageResultView : MonoBehaviour, IView
     public void Open()
     {
         gameObject.SetActive(true);
+        gameOverGO.SetActive(true);
+        resultGO.SetActive(false);
         SetTopInfo();
     }
 
@@ -31,12 +33,14 @@ public class StageResultView : MonoBehaviour, IView
     {
         slotObj.transform.SetParent(weaponLayout);
     }
-    
+
     void SetTopInfo()
     {
         var hudPresenter = GameManager.UI.GetPresenter<GameHUDPresenter>();
 
-        survivedText.text = (Mathf.Floor(hudPresenter.GetPlayTime() / 60)).ToString() + ":" + (hudPresenter.GetPlayTime() % 60).ToString();
+        survivedText.text = (Mathf.Floor(hudPresenter.GetPlayTime() / 60)).ToString()
+            + ":" + (hudPresenter.GetPlayTime() % 60).ToString("F0");
+
         goldText.text = hudPresenter.GetGold().ToString();
         levelText.text = hudPresenter.GetLevel().ToString();
         enemyText.text = hudPresenter.GetEnemyCount().ToString();
@@ -50,6 +54,7 @@ public class StageResultView : MonoBehaviour, IView
 
     public void OnClickResultOKButton()
     {
+        Close();
         GameManager.Instance.StageExit();
     }
 }

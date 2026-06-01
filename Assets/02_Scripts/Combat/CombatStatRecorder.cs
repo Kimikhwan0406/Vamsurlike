@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public struct CombatStat
 {
@@ -33,6 +34,7 @@ public class CombatStatRecorder
         if (combatStats.TryGetValue(weaponId, out var stat))
         {
             stat.TotalDamage += damage;
+            combatStats[weaponId] = stat;
         }
     }
 
@@ -42,6 +44,8 @@ public class CombatStatRecorder
         {
             return stat;
         }
+
+        Debug.LogError($"CombatStat not found for weaponId: {weaponId}");
         return default;
     }
 

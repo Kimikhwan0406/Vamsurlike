@@ -66,6 +66,13 @@ public class GameManager : SingletonBehaviour<GameManager>
     public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
 
+    public void GameOver()
+    {
+        PauseGame();
+
+        UI.OpenUI<StageResultPresenter>();
+    }
+
     public void PauseGame()
     {
         isPlaying = false;
