@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer projectileImage;
+    [SerializeField] SpriteRenderer weaponImage;
     [SerializeField] float projectileRadius = 1f;
 
     List<EnemyBase> hitBuffer = new();
@@ -19,14 +19,15 @@ public class Projectile : MonoBehaviour
     int hitCount = 0;
     int projectilePenetration = 1;
 
+    bool initialized = false;
+
 
     void Awake()
     {
-        angle = UnityEngine.Random.Range(0f, math.PI * 2f);
-        dir = new Vector2(math.cos(angle), math.sin(angle));
+        initialized = false;
+
 
         var randomValue = UnityEngine.Random.Range(-0.5f, 0.5f);
-
         prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
 
@@ -42,11 +43,16 @@ public class Projectile : MonoBehaviour
         CheckHit();
     }
 
-    public void Init(RunTimeWeaponlData data)
+    public void Init(RunTimeWeaponlData data, Vector2 direction)
     {
         this.projectilePenetration = data.ProjectilePenetration;
 
-        projectileImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+        weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+
+        dir = direction.normalized;
+
+        float angle =  Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 45f);
 
         damageContext = new DamageContext
         {
@@ -54,15 +60,18 @@ public class Projectile : MonoBehaviour
             Damage = data.Damage,
         };
 
+        initialized = true;
     }
 
     void Move()
     {
-        transform.Translate(dir * Time.deltaTime * 5f);
+        transform.position += (Vector3)dir * Time.deltaTime * 10f;
     }
 
     void CheckHit()
     {
+        if (!initialized) return;
+
         GameManager.CombatQuery.QuerySegment(prePosition, transform.position, projectileRadius, hitBuffer);
 
         for(int i = 0; i < hitBuffer.Count; i++)
@@ -81,6 +90,9 @@ public class Projectile : MonoBehaviour
 
     void Release()
     {
+        hitBuffer.Clear();
+        alreadyHit.Clear();
+        initialized = false;
         GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
     }
 

@@ -84,6 +84,7 @@ public class UIManager
 
     public void ShowIngameHUD()
     {
+        CloseAllOepnUI();
         OpenUI<GameHUDPresenter>();
         lobbyHUD.SetActive(false);
     }

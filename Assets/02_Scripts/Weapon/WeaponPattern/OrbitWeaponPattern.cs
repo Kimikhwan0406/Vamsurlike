@@ -1,6 +1,13 @@
 
 public class OrbitWeaponPattern : IWeaponPattern
 {
+    int direction;
+
+    public OrbitWeaponPattern(int direction = 1)
+    {
+        this.direction = direction;
+    }
+
     public void Excute(WeaponContext context, RunTimeWeaponlData data)
     {
         int count = data.ProjectileCount;
@@ -13,7 +20,7 @@ public class OrbitWeaponPattern : IWeaponPattern
             OrbitWeaponObject orbit = GameManager.Pool.GetObject(PoolType.Orbit, context.OwnerTransform)
                 .GetComponent<OrbitWeaponObject>();
 
-            orbit.Init(data.WeaponId, new OrbitWeaponData
+            orbit.Init(direction, data.WeaponId, new OrbitWeaponData
             {
                 OwnerTransform = context.OwnerTransform,
                 StartAngle = angle,

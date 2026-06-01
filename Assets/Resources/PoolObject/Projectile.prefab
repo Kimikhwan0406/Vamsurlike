@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b03cee492437846a2e8014e34a0403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  projectileImage: {fileID: 5048182258782965353}
+  weaponImage: {fileID: 5048182258782965353}
   projectileRadius: 1

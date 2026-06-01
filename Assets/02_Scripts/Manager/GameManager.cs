@@ -30,12 +30,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     [Header("Caching")]
     InGameCore inGameCore;
     GameObject enemyManager;
+    GameObject playMap;
 
     [Header("InGame")]
     public bool IsPlaying => isPlaying;
-
-    GameObject playMap;
-
     bool isPlaying = false;
 
     string selectedCharacterId;
@@ -93,25 +91,17 @@ public class GameManager : SingletonBehaviour<GameManager>
 
         inGameCore = new InGameCore(selectedCharacterId);
 
-        CreateWeaponContext();
         UI.ShowIngameHUD();
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
         spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
-        combatQuerySystem = new();
 
+        combatQuerySystem = new();
+        CreateWeaponContext();
 
         isPlaying = true;
 
-
-
-
         weaponController.AddWeapon(baseWeapinId);
-
-
-        // TEST
-        //weaponController.AddWeapon("263080");
-        //weaponController.RegisterWeapon("263079");
     }
 
     public void StageExit()
@@ -121,6 +111,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         CameraManager.Instance.ClearFollow();
 
         combatStatRecorder.Release();
+
         weaponController.Release();
         combatQuerySystem = null;
 
@@ -146,6 +137,4 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CombatQuerySystem = combatQuerySystem
             });
     }
-
-
 }

@@ -7,9 +7,13 @@ public static class WeaponFatternFactory
         return type switch
         {
             "Projectile" => new ProjectileWeaponPattern(),
-            //WeaponPatternType.AreaPulse => new AreaPulseWeaponPattern(),
-            //WeaponPatternType.ChainLightning => new ChainLightningWeaponPattern(),
+            "Swing" => new SwingWeaponPattern(),
+            "Area" => new AreaWeaponPattern(),
+            "RandomDrop" => new RandomDropWeaponPattern(),
             "Orbit" => new OrbitWeaponPattern(),
+            "OrbitN" => new OrbitWeaponPattern(-1),
+            "Axe" => new AxeWeaponPattern(),
+            "FireWand" => new FireWandWeaponPattern(),
             _ => throw new System.Exception($"Unknown weapon pattern type: {type}")
         };
     }
