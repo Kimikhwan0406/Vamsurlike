@@ -89,8 +89,7 @@ public class OrbitWeaponObject : MonoBehaviour
 
         if (durationTimer <= 0f)
         {
-            transform.SetParent(null);
-            gameObject.SetActive(false);
+            Release();
             return;
         }
 
@@ -154,16 +153,13 @@ public class OrbitWeaponObject : MonoBehaviour
         return false;
     }
 
-    void OnDisable()
-    {
-        Release();
-    }
-
     void Release()
     {
         hitCooldowns.Clear();
         queryResults.Clear();
         initialized = false;
+
+        transform.SetParent(null);
         PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 

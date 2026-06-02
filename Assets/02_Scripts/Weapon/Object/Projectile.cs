@@ -84,13 +84,8 @@ public class Projectile : MonoBehaviour
             hitCount++;
 
             if (hitCount >= projectilePenetration)
-                gameObject.SetActive(false);
+                Release();
         }
-    }
-
-    void OnDisable()
-    {
-        Release();
     }
 
     void Release()

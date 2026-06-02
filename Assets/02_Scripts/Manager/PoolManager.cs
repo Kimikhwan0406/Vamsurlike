@@ -19,13 +19,9 @@ public class PoolManager : SingletonBehaviour<PoolManager>
     Dictionary<string, Queue<GameObject>> poolDictionary = new();
     Dictionary<string, List<GameObject>> activedObjects = new();
 
-    bool initializing = false;
-
 
     void Start()
     {
-        initializing = true;
-
         // 미리 생성
         foreach (Pool pool in pools)
         {
@@ -41,8 +37,6 @@ public class PoolManager : SingletonBehaviour<PoolManager>
             else if (poolDictionary[pool.poolId].Count != pool.size)
                 Debug.LogError($"{pool.poolId}에 ReturnToPool이 중복됩니다");
         }
-
-        initializing = false;
     }
 
     public void SpawnFromPool(string poolId, Vector3 position)
@@ -70,9 +64,9 @@ public class PoolManager : SingletonBehaviour<PoolManager>
     public void DespawnToPool(GameObject obj)
     {
         poolDictionary[obj.name].Enqueue(obj);
+        activedObjects[obj.name].Remove(obj);
 
-        if(!initializing)
-            activedObjects[obj.name].Remove(obj);
+        obj.SetActive(false);
     }
 
     public void AllDespawnToPool()
@@ -81,7 +75,7 @@ public class PoolManager : SingletonBehaviour<PoolManager>
         {
             for(int i = activedList.Count - 1; i >= 0; i--)
             {
-                activedList[i].SetActive(false);
+                DespawnToPool(activedList[i]);
             }
         }
 
@@ -119,7 +113,9 @@ public class PoolManager : SingletonBehaviour<PoolManager>
     {
         var obj = Instantiate(prefab);
         obj.name = poolId;
+        poolDictionary[poolId].Enqueue(obj);
         obj.SetActive(false);
+
         return obj;
     }
 }

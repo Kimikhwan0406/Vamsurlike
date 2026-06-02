@@ -83,11 +83,6 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
         e.Init(xp);
 
         isDead = true;
-        gameObject.SetActive(false);
-    }
-
-    void OnDisable()
-    {
         Release();
     }
 

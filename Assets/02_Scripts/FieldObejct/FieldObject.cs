@@ -29,13 +29,8 @@ public class FieldObject : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GameManager.UI.GetPresenter<GameHUDPresenter>().AddExp(xp);
-            gameObject.SetActive(false);
+            Release();
         }
-    }
-
-    void OnDisable()
-    {
-        Release();
     }
 
     void Release()
