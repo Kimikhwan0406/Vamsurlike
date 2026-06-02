@@ -37,7 +37,7 @@ public class EnemyManager : MonoBehaviour
         if (!GameManager.Instance.IsPlaying)
             return;
 
-        if(enemyTransforms.length <= 0)
+        if (enemyTransforms.length <= 0)
             return;
 
         var job = new EnemyMoveJob
@@ -80,6 +80,14 @@ public class EnemyManager : MonoBehaviour
 
         enemyPowers.RemoveAtSwapBack(removeIndex);
         damageBuffer.RemoveAtSwapBack(removeIndex);
+    }
+
+    public void Release()
+    {
+        enemyTransforms.Dispose();
+        enemySpeeds.Dispose();
+        enemyPowers.Dispose();
+        damageBuffer.Dispose();
     }
 
     void LateUpdate()

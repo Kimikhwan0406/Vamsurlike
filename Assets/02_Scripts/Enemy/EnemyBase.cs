@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour//, IPoolObject
 {
     public float MoveSpeed => moveSpeed;
     public int ManagerIndex => managerIndex;
@@ -79,11 +79,21 @@ public class EnemyBase : MonoBehaviour
     {
         GameManager.UI.GetPresenter<GameHUDPresenter>().AddEnemyCount(1);
 
-        var e = GameManager.Pool.GetObject(PoolType.FieldObject, gameObject.transform);
-        e.GetComponent<FieldObject>().Init(xp);
+        var e = PoolManager.Instance.SpawnFromPool<FieldObject>("FieldObject", gameObject.transform.position);
+        e.Init(xp);
 
-        GameManager.EnemySpawnPool.DespawnEnemy(this);
         isDead = true;
+        gameObject.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        Release();
+    }
+
+    void Release()
+    {
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 
     void OnDrawGizmos()

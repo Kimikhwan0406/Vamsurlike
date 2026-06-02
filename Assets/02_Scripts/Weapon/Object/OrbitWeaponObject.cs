@@ -1,4 +1,3 @@
-using NSubstitute.Core;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -90,7 +89,8 @@ public class OrbitWeaponObject : MonoBehaviour
 
         if (durationTimer <= 0f)
         {
-            Release();
+            transform.SetParent(null);
+            gameObject.SetActive(false);
             return;
         }
 
@@ -154,12 +154,17 @@ public class OrbitWeaponObject : MonoBehaviour
         return false;
     }
 
+    void OnDisable()
+    {
+        Release();
+    }
+
     void Release()
     {
         hitCooldowns.Clear();
         queryResults.Clear();
         initialized = false;
-        GameManager.Pool.ReturnObject(PoolType.Orbit, gameObject);
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 
     void OnDrawGizmos()

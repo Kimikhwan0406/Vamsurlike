@@ -6,10 +6,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static UIManager UI { get { return Instance.ui; } }
     public static DataTable DataTable { get { return Instance.dataTable; } }
     public static UserDataManager UserData { get { return Instance.userData; } }
-    public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
+    public static EnemySystemHandler EnemySystemHandler { get { return Instance.enemySystemHandler; } }
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
     public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
-    public static PoolManager Pool { get { return Instance.poolManager; } }
+    //public static PoolManager Pool { get { return Instance.poolManager; } }
     public static CombatStatRecorder CombatRecorder { get { return Instance.combatStatRecorder; } }
 
     #region Variables
@@ -21,8 +21,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     UserDataManager userData = new();
     DataTable dataTable = new();
     UIManager ui = new();
-    EnemySpawnPoolManager spawnPool = new();
-    PoolManager poolManager = new();
+    EnemySystemHandler enemySystemHandler = new();
+    //PoolManager poolManager = new();
     PlayerWeaponController weaponController = new();
     CombatStatRecorder combatStatRecorder = new();
     CombatQuerySystem combatQuerySystem;
@@ -49,8 +49,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         dataTable.LoadAllData();
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
 
-        spawnPool.Init(enemyPoolTransform);
-        poolManager.Init(objectPoolTransform);
+        //poolManager.Init(objectPoolTransform);
     }
 
     void Update()
@@ -58,7 +57,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         if (isPlaying)
         {
             inGameCore.Update();
-            spawnPool.Update();
+            enemySystemHandler.Update();
             weaponController.Update();
         }
     }
@@ -101,7 +100,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         UI.ShowIngameHUD();
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
-        spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
+        enemySystemHandler.RegisterEnemySystemHandler(enemyManager.GetComponent<EnemyManager>());
 
         combatQuerySystem = new();
         CreateWeaponContext();
@@ -122,8 +121,8 @@ public class GameManager : SingletonBehaviour<GameManager>
         weaponController.Release();
         combatQuerySystem = null;
 
-        spawnPool.AllDespawnEnemy();
-        spawnPool.ReleaseEnemyManager();
+        PoolManager.Instance.AllDespawnToPool();
+        enemySystemHandler.ReleaseEnemySystemHandler();
         Destroy(enemyManager);
         enemyManager = null;
 

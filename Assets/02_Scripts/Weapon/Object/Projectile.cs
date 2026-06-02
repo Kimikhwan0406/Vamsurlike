@@ -84,8 +84,13 @@ public class Projectile : MonoBehaviour
             hitCount++;
 
             if (hitCount >= projectilePenetration)
-                Release();
+                gameObject.SetActive(false);
         }
+    }
+
+    void OnDisable()
+    {
+        Release();
     }
 
     void Release()
@@ -93,7 +98,7 @@ public class Projectile : MonoBehaviour
         hitBuffer.Clear();
         alreadyHit.Clear();
         initialized = false;
-        GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 
     void OnDrawGizmos()

@@ -8,8 +8,8 @@ public class ProjectileWeaponPattern : IWeaponPattern
         {
             var direction = GameManager.Instance.GetPlayer().GetPlayerDir;
 
-            var proejectile = GameManager.Pool.GetObject(PoolType.Projectile, context.OwnerTransform);
-            proejectile.GetComponent<Projectile>().Init(data, direction);
+            var proejectile = PoolManager.Instance.SpawnFromPool<Projectile>(data.WeaponId, context.OwnerTransform.position);
+            proejectile.Init(data, direction);
         }
     }
 }

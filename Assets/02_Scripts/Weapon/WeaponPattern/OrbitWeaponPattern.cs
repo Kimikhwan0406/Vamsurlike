@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class OrbitWeaponPattern : IWeaponPattern
 {
     int direction;
@@ -17,8 +19,9 @@ public class OrbitWeaponPattern : IWeaponPattern
         {
             float angle = 360f / count * i;
 
-            OrbitWeaponObject orbit = GameManager.Pool.GetObject(PoolType.Orbit, context.OwnerTransform)
-                .GetComponent<OrbitWeaponObject>();
+            var orbit 
+                = PoolManager.Instance.SpawnFromPool<OrbitWeaponObject>(data.WeaponId, context.OwnerTransform.position);
+
 
             orbit.Init(direction, data.WeaponId, new OrbitWeaponData
             {
@@ -30,6 +33,7 @@ public class OrbitWeaponPattern : IWeaponPattern
                 RotateSpeed = data.ProjectileSpeed,
                 HitInterval = data.RepeatInterval,
             });
+
         }
     }
 }
