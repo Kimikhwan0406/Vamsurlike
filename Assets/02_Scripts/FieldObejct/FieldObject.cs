@@ -29,7 +29,12 @@ public class FieldObject : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GameManager.UI.GetPresenter<GameHUDPresenter>().AddExp(xp);
-            GameManager.Pool.ReturnObject(PoolType.FieldObject, gameObject);
+            Release();
         }
+    }
+
+    void Release()
+    {
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 }

@@ -12,7 +12,7 @@ public class CombatQuerySystem
     {
         resultBuffer.Clear();
 
-        foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
+        foreach (var enemy in GameManager.EnemySystemHandler.ActivatedEnemys)
         {
             if (EnemySearch.FindCircleSearch(center, radius, enemy.HitPosition, enemy.HitRadius))
             {
@@ -27,7 +27,7 @@ public class CombatQuerySystem
     {
         resultBuffer.Clear();
 
-        foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
+        foreach (var enemy in GameManager.EnemySystemHandler.ActivatedEnemys)
         {
             if (!IsValidEnemy(enemy))
                 continue;
@@ -49,7 +49,7 @@ public class CombatQuerySystem
     {
         resultBuffer.Clear();
 
-        foreach (var enemy in GameManager.EnemySpawnPool.ActivatedEnemys)
+        foreach (var enemy in GameManager.EnemySystemHandler.ActivatedEnemys)
         {
             if (!IsValidEnemy(enemy))
                 continue;

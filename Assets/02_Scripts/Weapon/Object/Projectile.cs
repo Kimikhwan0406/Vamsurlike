@@ -93,7 +93,7 @@ public class Projectile : MonoBehaviour
         hitBuffer.Clear();
         alreadyHit.Clear();
         initialized = false;
-        GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 
     void OnDrawGizmos()

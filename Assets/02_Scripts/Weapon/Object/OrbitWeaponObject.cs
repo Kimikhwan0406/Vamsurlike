@@ -1,4 +1,3 @@
-using NSubstitute.Core;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -159,7 +158,9 @@ public class OrbitWeaponObject : MonoBehaviour
         hitCooldowns.Clear();
         queryResults.Clear();
         initialized = false;
-        GameManager.Pool.ReturnObject(PoolType.Orbit, gameObject);
+
+        transform.SetParent(null);
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 
     void OnDrawGizmos()

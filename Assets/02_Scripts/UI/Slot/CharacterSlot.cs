@@ -16,6 +16,11 @@ public class CharacterSlot : MonoBehaviour
     string characterId;
     string baseWeaponId;
 
+    void OnEnable()
+    {
+        frameImage.color = Color.white;
+    }
+
     public void Init(string characterId, string weaponId, Action<string, string> onClickCallback)
     {
         this.characterId = characterId;

@@ -37,7 +37,7 @@ public class InGameCore
 
     public void Release()
     {
-        Object.Destroy(player);
+        Object.Destroy(player.gameObject);
         player = null;
     }
 }

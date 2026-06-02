@@ -24,13 +24,16 @@ public class GameHUDPresenter : IPresenter
 
     public void Open()
     {
+        if (null == model)
+            model = new();
+
         view.Open();
     }
 
     public void Close()
     {
         view.Close();
-        view = null;
+        ClearHUDWeaponSlot();
         model = null;
     }
 
@@ -86,6 +89,17 @@ public class GameHUDPresenter : IPresenter
             view.RemoveHUDWeaponSlot(slot);
             HudWeaponSlots.Remove(weaponId);
         }
+    }
+    
+    void ClearHUDWeaponSlot()
+    {
+        foreach(var slotKV in HudWeaponSlots)
+        {
+            GameObject slotObject = slotKV.Value;
+            Object.Destroy(slotObject);
+        }
+
+        HudWeaponSlots.Clear();
     }
 
     GameObject CreateHUDWeaponSlot(string weaponId)

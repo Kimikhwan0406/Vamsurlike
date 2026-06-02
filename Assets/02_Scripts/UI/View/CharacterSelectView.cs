@@ -64,6 +64,7 @@ public class CharacterSelectView : MonoBehaviour, IView
     public void Close()
     {
         this.gameObject.SetActive(false);
+        notSelectedYet = true;
     }
 
     void Init()
