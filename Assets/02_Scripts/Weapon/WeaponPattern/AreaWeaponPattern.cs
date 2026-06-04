@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AreaWeaponPattern : IWeaponPattern
 {
-    const float areaRadius = 3f;
+    const float areaRadius = 5f;
 
     List<EnemyBase> queryResults = new(32);
     List<EnemyHitCooldown> hitCooldowns = new(64);

@@ -13,7 +13,7 @@ public class CharacterData : BaseData
     public string Name;
     public int MaxHealth;
     public string DefaultWeapon;
-    public string Ability;
+    public List<string> Ability;
     public List<string> AbilityCondition;
     public List<string> AbilityMargin;
     public List<string> AbilityValue;

@@ -5,11 +5,11 @@ public class RandomDropWeaponPattern : IWeaponPattern
 {
     List<EnemyBase> queryResults = new(32);
     List<EnemyBase> attackResults = new(32);
-    List<Transform> randomTransform = new(32);
+    List<Vector3> randomDropPosition = new(32);
 
     DamageContext damageContext;
 
-    float searchRadius = 10f;
+    const float searchRadius = 15f;
     bool initialized = false;
 
     public void Excute(WeaponContext context, RunTimeWeaponlData data)
@@ -31,39 +31,42 @@ public class RandomDropWeaponPattern : IWeaponPattern
     void CheckHit(WeaponContext context, RunTimeWeaponlData data)
     {
         context.CombatQuerySystem.QueryCircle(context.OwnerTransform.position, searchRadius, queryResults);
-        randomTransform.Clear();
-
-        int totalWieght = queryResults.Count;
+        randomDropPosition.Clear();
 
         if (queryResults.Count <= 0) return;
 
-        while (randomTransform.Count < data.ProjectileCount)
+        int selectCount = Mathf.Min(data.ProjectileCount, queryResults.Count);
+
+        // O(n)으로 개선 완료
+        for(int i = 0; i < selectCount; i++)
         {
-            int randomValue = Random.Range(0, totalWieght) + 1;
+            int randomIndex = Random.Range(i, queryResults.Count);
 
-            int currentWeight = 1;
+            (queryResults[i], queryResults[randomIndex]) = (queryResults[randomIndex], queryResults[i]);
 
-            if (currentWeight <= randomValue)
-            {
-                if (null == queryResults[currentWeight - 1]) continue;
+            EnemyBase enemy = queryResults[i];
 
-                randomTransform.Add(queryResults[currentWeight - 1].transform);
-            }
+            if (null == enemy) continue;
+
+            randomDropPosition.Add(enemy.HitPosition);
         }
 
         // O(n^2) 개선 필요
-        for (int i = 0; i < randomTransform.Count; i++)
+        for (int i = 0; i < randomDropPosition.Count; i++)
         {
-            attackResults.Clear();
+            Vector3 target = randomDropPosition[i];
 
-            context.CombatQuerySystem.QueryCircle(randomTransform[i].position, 1f * data.Range, attackResults);
+            if(null == target) continue;
 
-            // TODO: 추후에는 weaponID에 맞는 이펙트 실행 및 Pooling 사용
-            Object.Instantiate(Utils.ResourcesLoad<GameObject>("Effect/Lightning"), randomTransform[i].position, Quaternion.identity);
+            // TODO 1f의 범위는 Default 공격 범위 -> 무기에 따라 변경하게 만들기
+            context.CombatQuerySystem.QueryCircle(randomDropPosition[i], 1f * data.Range, attackResults);
+
+            PoolManager.Instance.SpawnFromPool(data.WeaponId, randomDropPosition[i]);
 
             foreach (var enemy in attackResults)
             {
                 if (null == enemy) continue;
+
                 enemy.TakeDamage(damageContext);
             }
         }

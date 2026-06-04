@@ -102,7 +102,7 @@ public class OrbitWeaponObject : MonoBehaviour
 
     void Roation(float deltaTime)
     {
-        angle += deltaTime * totalRotateSpeed * -direction; //* data.RotateSpeed;
+        angle += deltaTime * totalRotateSpeed * -direction;
 
         float radian = angle * Mathf.Deg2Rad;
 

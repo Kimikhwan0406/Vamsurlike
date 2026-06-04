@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        return;
+
         if (isInvincible)
         {
             if (invincibilityDuration + lastDamageTime <= GameManager.Instance.GetPlayTime())
@@ -61,10 +63,19 @@ public class Player : MonoBehaviour
             Move();
         }
 
+        SmoothDirection();
+    }
+
+    void Move()
+    {
+        transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
+    }
+
+    void SmoothDirection()
+    {
         var moveinput = inputHandler.MoveInput;
 
-
-        if(moveinput.sqrMagnitude > 0.001f)
+        if (moveinput.sqrMagnitude > 0.001f)
         {
             var targetDir = moveinput.normalized;
 
@@ -78,15 +89,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Move()
-    {
-        transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
-    }
-
     // RandomDropWeaponPattern의 범위 10f
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 10f);
+        Gizmos.DrawWireSphere(transform.position, 15f);
     }
 }
