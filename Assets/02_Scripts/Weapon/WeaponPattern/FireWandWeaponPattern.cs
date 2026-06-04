@@ -25,15 +25,7 @@ public class FireWandWeaponPattern : IWeaponPattern
 
         var direction = enemyPosition - context.OwnerTransform.position;
 
-        GameObject fireBallObj = Object.Instantiate(
-            Utils.ResourcesLoad<GameObject>("PoolObject/FireBall"),
-            context.OwnerTransform.position,
-            Quaternion.identity
-        );
-
-        if (fireBallObj.TryGetComponent(out FireBall fireBall))
-        {
-            fireBall.Init(context.CombatQuerySystem, data, direction.normalized);
-        }
+        var fireBall = PoolManager.Instance.SpawnFromPool<FireBall>(data.WeaponId, context.OwnerTransform.position);
+        fireBall.Init(context.CombatQuerySystem, data, direction.normalized);
     }
 }

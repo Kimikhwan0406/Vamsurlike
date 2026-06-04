@@ -485,9 +485,9 @@ MonoBehaviour:
   - poolId: FieldObject
     prefab: {fileID: 3858351492225346587, guid: 49722be74ad0d7a49b00c88632238615, type: 3}
     size: 10
-  - poolId: 263080
+  - poolId: Projectile
     prefab: {fileID: 5351431055002558821, guid: 81dce7d4e0c0b2d4e9238c079f44b6aa, type: 3}
-    size: 5
+    size: 10
   - poolId: 263079
     prefab: {fileID: 2072272677020098874, guid: cd276d9265bcec74b89fc238317043e0, type: 3}
     size: 2
@@ -566,6 +566,12 @@ MonoBehaviour:
   - poolId: 260220
     prefab: {fileID: 8882859838650897302, guid: 301d043a9a2a7bb44906eb2fdefa87d9, type: 3}
     size: 60
+  - poolId: 263161
+    prefab: {fileID: 3031208509057414414, guid: 0d6001a5fa726bb49b11b2c44a6afc7e, type: 3}
+    size: 4
+  - poolId: 263159
+    prefab: {fileID: 7608310902566181564, guid: 53a82c9946bc5cf499dc2041c4d386a5, type: 3}
+    size: 10
 --- !u!4 &1179144886
 Transform:
   m_ObjectHideFlags: 0

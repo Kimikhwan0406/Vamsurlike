@@ -15,7 +15,9 @@
     "Duration": null,
     "Evolution": null,
     "PatternType": "Area",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263059",
@@ -29,11 +31,13 @@
     "RepeatInterval": 0.2,
     "BaseDamage": 10,
     "Range": 1,
-    "Knockback": 0,
+    "Knockback": 0.1,
     "Duration": 0.1,
     "Evolution": null,
     "PatternType": "GreatestJubilee",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263079",
@@ -51,7 +55,9 @@
     "Duration": 3,
     "Evolution": null,
     "PatternType": "Orbit",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263080",
@@ -65,11 +71,16 @@
     "RepeatInterval": 0.1,
     "BaseDamage": 6.5,
     "Range": 1,
-    "Knockback": 0,
+    "Knockback": 0.5,
     "Duration": null,
     "Evolution": null,
     "PatternType": "Projectile",
-    "열1": null
+    "ProjectileRadius": 0.25,
+    "ProjectileOffset": [
+      0.3,
+      0.3
+    ],
+    "SpriteAngle": -45
   },
   {
     "Id": "263084",
@@ -87,7 +98,9 @@
     "Duration": null,
     "Evolution": null,
     "PatternType": "RandomDrop",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263158",
@@ -105,7 +118,9 @@
     "Duration": null,
     "Evolution": null,
     "PatternType": "Swing",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263159",
@@ -123,7 +138,9 @@
     "Duration": null,
     "Evolution": null,
     "PatternType": "FireWand",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263160",
@@ -141,7 +158,9 @@
     "Duration": 3,
     "Evolution": null,
     "PatternType": "OrbitN",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   },
   {
     "Id": "263161",
@@ -159,6 +178,8 @@
     "Duration": null,
     "Evolution": null,
     "PatternType": "Axe",
-    "열1": null
+    "ProjectileRadius": null,
+    "ProjectileOffset": null,
+    "SpriteAngle": null
   }
 ]

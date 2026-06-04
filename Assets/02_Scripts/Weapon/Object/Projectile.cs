@@ -1,17 +1,18 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] SpriteRenderer weaponImage;
     [SerializeField] float projectileRadius = 1f;
+    [SerializeField] Vector3 positionOffset;
 
     List<EnemyBase> hitBuffer = new();
     List<EnemyBase> alreadyHit = new();
 
     Vector2 dir;
     Vector3 prePosition;
+    Vector3 rotatedOffset;
 
     DamageContext damageContext;
 
@@ -51,8 +52,13 @@ public class Projectile : MonoBehaviour
 
         dir = direction.normalized;
 
+        var weaponData = GameManager.DataTable.GetWeaponData(data.WeaponId);
+        positionOffset = new Vector3(weaponData.ProjectileOffset[0], weaponData.ProjectileOffset[1], 0f);
+        float spriteAngle = weaponData.SpriteAngle;
+        projectileRadius = weaponData.ProjectileRadius;
+
         float angle =  Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 45f);
+        transform.rotation = Quaternion.Euler(0, 0, angle + spriteAngle);
 
         damageContext = new DamageContext
         {
@@ -72,7 +78,14 @@ public class Projectile : MonoBehaviour
     {
         if (!initialized) return;
 
-        GameManager.CombatQuery.QuerySegment(prePosition, transform.position, projectileRadius, hitBuffer);
+        rotatedOffset = transform.root.rotation * positionOffset;
+
+        GameManager.CombatQuery.QuerySegment(
+            prePosition + rotatedOffset, 
+            transform.position + rotatedOffset, 
+            projectileRadius, 
+            hitBuffer
+            );
 
         for(int i = 0; i < hitBuffer.Count; i++)
         {
@@ -99,6 +112,6 @@ public class Projectile : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, projectileRadius);
+        Gizmos.DrawWireSphere(transform.position + rotatedOffset, projectileRadius);
     }
 }

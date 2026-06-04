@@ -59,10 +59,13 @@ public class WeaponData : BaseData
     public float RepeatInterval;        // 한 공격 주기에서 투사체 발사 간격
     public float BaseDamage;
     public float Range;                 // 공격 범위
-    public int Knockback;
+    public float Knockback;
     public float Duration;
     public string Evolution;
     public string PatternType;
+    public float ProjectileRadius;
+    public List<float> ProjectileOffset;
+    public float SpriteAngle;
 }
 
 [Serializable]
