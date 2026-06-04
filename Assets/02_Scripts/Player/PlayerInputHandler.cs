@@ -5,7 +5,6 @@ public class PlayerInputHandler : MonoBehaviour, InputActions.IPlayerActions
 {
     InputActions inputSystem;
     public Vector3 MoveInput { get; private set; }
-    public Vector3 PreInput { get; private set; } = Vector3.right;
 
     void Awake()
     {
@@ -26,10 +25,5 @@ public class PlayerInputHandler : MonoBehaviour, InputActions.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<Vector2>();
-
-        if(context.started)
-        {
-            PreInput = context.ReadValue<Vector2>();
-        }
     }
 }

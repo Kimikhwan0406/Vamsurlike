@@ -27,7 +27,7 @@ public class ProjectileWeaponPattern : IWeaponPattern
 
     void Spawn(WeaponContext context, RunTimeWeaponlData data)
     {
-        var direction = GameManager.Instance.GetPlayer().GetPlayerDir;
+        var direction = GameManager.Instance.GetPlayer().CureentDirection;
 
         float randomValue = Random.Range(-0.5f, 0.5f);
         Vector3 randomOffset = new Vector3(randomValue, randomValue, 0f);
