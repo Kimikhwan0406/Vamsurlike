@@ -21,7 +21,6 @@ public class AutoDespawnObject : MonoBehaviour
     {
         CancelToken();
         PoolManager.Instance.DespawnToPool(this.gameObject);
-        Debug.Log("5초 뒤 자동 삭제");
     }
 
 

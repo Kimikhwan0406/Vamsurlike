@@ -39,6 +39,8 @@ public class FireBall : AutoDespawnObject
 
     protected override void Update()
     {
+        base.Update();
+
         if (!isInit || !GameManager.Instance.IsPlaying) return;
 
         CheckHit();
