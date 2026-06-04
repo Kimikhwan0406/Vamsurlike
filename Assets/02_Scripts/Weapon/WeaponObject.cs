@@ -11,7 +11,7 @@ public struct RunTimeWeaponlData
     public float RepeatInterval;        // 한 공격 주기에서 투사체 발사 간격
     public float Damage;
     public float Range;                 // 공격 범위
-    public int Knockback;
+    public float Knockback;
     public float Duration;
 }
 
