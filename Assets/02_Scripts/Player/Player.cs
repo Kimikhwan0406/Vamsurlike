@@ -35,8 +35,6 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        return;
-
         if (isInvincible)
         {
             if (invincibilityDuration + lastDamageTime <= GameManager.Instance.GetPlayTime())

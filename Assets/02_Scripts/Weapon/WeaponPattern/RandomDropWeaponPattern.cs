@@ -8,6 +8,7 @@ public class RandomDropWeaponPattern : IWeaponPattern
     List<Vector3> randomDropPosition = new(32);
 
     DamageContext damageContext;
+    WeaponData weaponData;
 
     const float searchRadius = 15f;
     bool initialized = false;
@@ -21,6 +22,8 @@ public class RandomDropWeaponPattern : IWeaponPattern
                 WeaponId = data.WeaponId,
                 Damage = data.Damage,
             };
+
+            weaponData = GameManager.DataTable.GetWeaponData(data.WeaponId);
 
             initialized = true;
         }
@@ -58,8 +61,11 @@ public class RandomDropWeaponPattern : IWeaponPattern
 
             if(null == target) continue;
 
-            // TODO 1f의 범위는 Default 공격 범위 -> 무기에 따라 변경하게 만들기
-            context.CombatQuerySystem.QueryCircle(randomDropPosition[i], 1f * data.Range, attackResults);
+
+            context.CombatQuerySystem.QueryCircle(randomDropPosition[i] + 
+                new Vector3(weaponData.ProjectileOffset[0], weaponData.ProjectileOffset[1], 0), 
+                weaponData.ProjectileRadius * data.Range, 
+                attackResults);
 
             PoolManager.Instance.SpawnFromPool(data.WeaponId, randomDropPosition[i]);
 
