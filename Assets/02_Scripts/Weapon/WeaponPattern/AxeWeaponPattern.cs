@@ -46,15 +46,8 @@ public class AxeWeaponPattern : IWeaponPattern
 
         Vector2 initialVelocity = new Vector2(horizontalSpeed, upwardSpeed);
 
-        GameObject axeObj = UnityEngine.Object.Instantiate(
-            Utils.ResourcesLoad<GameObject>("PoolObject/Axe"),
-            startPos,
-            Quaternion.identity
-        );
 
-        if (axeObj.TryGetComponent(out Axe axe))
-        {
-            axe.Init(initialVelocity, 10f, context.CombatQuerySystem, data);
-        }
+        var axeObj = PoolManager.Instance.SpawnFromPool<Axe>(data.WeaponId, startPos);
+        axeObj.Init(initialVelocity, 10f, context.CombatQuerySystem, data);
     }
 }
