@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBall : AutoDespawnObject
 {
     [SerializeField] float hitRadius = 1f;
     [SerializeField] Vector3 offset;
@@ -37,7 +37,7 @@ public class FireBall : MonoBehaviour
     }
 
 
-    void Update()
+    protected override void Update()
     {
         if (!isInit || !GameManager.Instance.IsPlaying) return;
 
@@ -65,14 +65,6 @@ public class FireBall : MonoBehaviour
                 return;
             }
         }
-    }
-
-
-
-    void Release()
-    {
-        // TODO: 풀링에 반환
-        Destroy(gameObject);
     }
 
     void OnDrawGizmos()
