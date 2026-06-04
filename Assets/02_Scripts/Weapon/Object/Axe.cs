@@ -30,7 +30,7 @@ public class Axe : AutoDespawnObject
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         isInit = true;

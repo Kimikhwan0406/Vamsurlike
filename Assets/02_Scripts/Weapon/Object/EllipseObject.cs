@@ -34,7 +34,7 @@ public class EllipseObject : MonoBehaviour
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         CheckHit();

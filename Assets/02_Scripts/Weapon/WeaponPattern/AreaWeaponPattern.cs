@@ -23,7 +23,7 @@ public class AreaWeaponPattern : IWeaponPattern
             damageContext = new DamageContext
             {
                 WeaponId = data.WeaponId,
-                Damage = data.Damage,
+                Damage = data.BaseDamage,
             };
 
             preRange = data.Range;

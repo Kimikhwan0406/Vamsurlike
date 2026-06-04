@@ -33,7 +33,7 @@ public class FireBall : AutoDespawnObject
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         isInit = true;

@@ -20,7 +20,7 @@ public class RandomDropWeaponPattern : IWeaponPattern
             damageContext = new DamageContext
             {
                 WeaponId = data.WeaponId,
-                Damage = data.Damage,
+                Damage = data.BaseDamage,
             };
 
             weaponData = GameManager.DataTable.GetWeaponData(data.WeaponId);

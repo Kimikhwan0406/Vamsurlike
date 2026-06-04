@@ -65,7 +65,7 @@ public class Projectile : AutoDespawnObject
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         initialized = true;

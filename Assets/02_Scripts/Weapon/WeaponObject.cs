@@ -30,7 +30,7 @@ public class WeaponObject
             ProjectileSpeed = weaponData.ProjectileSpeed,
             CoolTime = weaponData.CoolTIme,
             RepeatInterval = weaponData.RepeatInterval,
-            Damage = weaponData.BaseDamage,
+            BaseDamage = weaponData.BaseDamage,
             Range = weaponData.Range,
             Knockback = weaponData.Knockback,
             Duration = weaponData.Duration
@@ -71,8 +71,8 @@ public class WeaponObject
 
             switch (data.EffectName[i])
             {
-                case "Damage":
-                    runtimeWeaponData.Damage += data.EffectValue[i];
+                case "BaseDamage":
+                    runtimeWeaponData.BaseDamage += data.EffectValue[i];
                     break;
                 case "ProjectileCount":
                     runtimeWeaponData.ProjectileCount += (int)data.EffectValue[i];
