@@ -9,7 +9,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "Damage +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "362159",
@@ -23,7 +23,7 @@
       10,
       20
     ],
-    "Description": "Damage +10, Projectile Speed +20%"
+    "Description": "Base Damage up by 10, Speed up by 20%"
   },
   {
     "Id": "462159",
@@ -35,7 +35,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "Damage +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "562159",
@@ -49,7 +49,7 @@
       10,
       20
     ],
-    "Description": "Damage +10, Projectile Speed +20%"
+    "Description": "Base Damage up by 10, Speed up by 20%"
   },
   {
     "Id": "662159",
@@ -61,7 +61,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "Damage +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "762159",
@@ -75,7 +75,7 @@
       10,
       20
     ],
-    "Description": "Damage +10, Projectile Speed +20%"
+    "Description": "Base Damage up by 10, Speed up by 20%"
   },
   {
     "Id": "862159",
@@ -87,7 +87,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "Damage +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "262052",
@@ -101,7 +101,7 @@
       40,
       2
     ],
-    "Description": "Attack Range +40%, Damage +2"
+    "Description": "Attack Range +40%, Base Damage up by 2"
   },
   {
     "Id": "362052",
@@ -115,7 +115,7 @@
       0.1,
       1
     ],
-    "Description": "CoolTime -0.1, Damage +1"
+    "Description": "CoolTime reduced by 0.1 secons, Base Damage up by 1"
   },
   {
     "Id": "462052",
@@ -129,7 +129,7 @@
       20,
       1
     ],
-    "Description": "Attack Range +20%, Damage +1"
+    "Description": "Attack Range +20%, Base Damage up by 1"
   },
   {
     "Id": "562052",
@@ -143,7 +143,7 @@
       0.1,
       2
     ],
-    "Description": "CoolTime -0.1, Damage +2"
+    "Description": "CoolTime reduced by 0.1 secons, Base Damage up by 2"
   },
   {
     "Id": "662052",
@@ -157,7 +157,7 @@
       20,
       1
     ],
-    "Description": "Attack Range +20%, Damage +1"
+    "Description": "Attack Range +20%, Base Damage up by 1"
   },
   {
     "Id": "762052",
@@ -171,7 +171,7 @@
       0.1,
       1
     ],
-    "Description": "CoolTime -0.1, Damage +1"
+    "Description": "CoolTime reduced by 0.1 secons, Base Damage up by 1"
   },
   {
     "Id": "862052",
@@ -185,7 +185,7 @@
       20,
       2
     ],
-    "Description": "Attack Range +20%, Damage +2"
+    "Description": "Attack Range +20%, Base Damage up by 2"
   },
   {
     "Id": "262059",
@@ -197,7 +197,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362059",
@@ -211,7 +211,7 @@
       10,
       0.5
     ],
-    "Description": "Damage +10, CoolTime -0.5"
+    "Description": "Base Damage up by 10, CoolTime reduced by 0.5 secons"
   },
   {
     "Id": "462059",
@@ -223,7 +223,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "562059",
@@ -237,7 +237,7 @@
       10,
       25
     ],
-    "Description": "Damage+10, Attack Range +25%"
+    "Description": "Base Damage up by 10, Attack Area up by 25%"
   },
   {
     "Id": "662059",
@@ -249,7 +249,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "762059",
@@ -263,7 +263,7 @@
       25,
       0.5
     ],
-    "Description": "Attack Range +25%, CoolTime -0.5"
+    "Description": "Attack Area up by 25%, CoolTime reduced by 0.5 secons"
   },
   {
     "Id": "862059",
@@ -275,7 +275,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262079",
@@ -287,7 +287,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362079",
@@ -301,7 +301,7 @@
       30,
       25
     ],
-    "Description": "Projectile Speed +30%, Attack Range +25%"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "462079",
@@ -315,7 +315,7 @@
       0.5,
       10
     ],
-    "Description": "Duration +0.5, Damage +10"
+    "Description": "Effect lasts 0.5 seconds longer., Damage up by 10"
   },
   {
     "Id": "562079",
@@ -327,7 +327,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "662079",
@@ -341,7 +341,7 @@
       30,
       25
     ],
-    "Description": "Projectile Speed +30%, Attack Range +25%"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "762079",
@@ -355,7 +355,7 @@
       0.5,
       10
     ],
-    "Description": "Duration +0.5, Damage +10"
+    "Description": "Effect lasts 0.5 seconds longer., Damage up by 10"
   },
   {
     "Id": "862079",
@@ -367,7 +367,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262080",
@@ -379,89 +379,87 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362080",
     "WeaponId": "263080",
     "Level": 3,
     "EffectName": [
-      "ProjectileCount",
-      "Damage"
+      "ProjectileSpeed",
+      "Range"
     ],
     "EffectValue": [
-      1,
-      5
+      30,
+      25
     ],
-    "Description": "Projectile Count +1, Damage +5"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "462080",
     "WeaponId": "263080",
     "Level": 4,
     "EffectName": [
-      "ProjectileCount",
-      "RepeatInterval"
+      "Duration",
+      "Damage"
     ],
     "EffectValue": [
-      1,
-      0.02
+      0.5,
+      10
     ],
-    "Description": "Projectile Count +1, RepeatInterval -0.02"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
     "Id": "562080",
     "WeaponId": "263080",
     "Level": 5,
     "EffectName": [
-      "ProjectilePenetration"
+      "ProjectileCount"
     ],
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Penetration +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "662080",
     "WeaponId": "263080",
     "Level": 6,
     "EffectName": [
-      "ProjectileCount",
-      "RepeatInterval"
+      "ProjectileSpeed",
+      "Range"
     ],
     "EffectValue": [
-      1,
-      0.02
+      30,
+      25
     ],
-    "Description": "Projectile Count +1, RepeatInterval -0.02"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "762080",
     "WeaponId": "263080",
     "Level": 7,
     "EffectName": [
-      "ProjectileCount",
+      "Duration",
       "Damage"
     ],
     "EffectValue": [
-      1,
-      5
+      0.5,
+      10
     ],
-    "Description": "Projectile Coun +1, Damage +5"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
     "Id": "862080",
     "WeaponId": "263080",
     "Level": 8,
     "EffectName": [
-      "ProjectilePenetration",
-      "RepeatInterval"
+      "ProjectileCount"
     ],
     "EffectValue": [
-      1,
-      0.02
+      1
     ],
-    "Description": "Projectile Count +1, RepeatInterval -0.02"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262084",
@@ -473,7 +471,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362084",
@@ -487,7 +485,7 @@
       100,
       10
     ],
-    "Description": "Attack Range +100%, Damage +10"
+    "Description": "Attack Range +100%, Base Damage up by 10"
   },
   {
     "Id": "462084",
@@ -499,7 +497,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "562084",
@@ -513,7 +511,7 @@
       100,
       20
     ],
-    "Description": "Attack Range +100%, Damage +20\""
+    "Description": "Attack Range +100%, Base Damage up by 20"
   },
   {
     "Id": "662084",
@@ -525,7 +523,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "762084",
@@ -539,7 +537,7 @@
       100,
       20
     ],
-    "Description": "Attack Range +100%, Damage +20\""
+    "Description": "Attack Range +100%, Base Damage up by 20"
   },
   {
     "Id": "862084",
@@ -551,7 +549,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262160",
@@ -563,7 +561,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362160",
@@ -577,7 +575,7 @@
       30,
       25
     ],
-    "Description": "Projectile Speed +30%, Attack Range +25%"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "462160",
@@ -591,7 +589,7 @@
       0.5,
       10
     ],
-    "Description": "Duration +0.5, Damage +10"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
     "Id": "562160",
@@ -603,7 +601,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "662160",
@@ -617,7 +615,7 @@
       30,
       25
     ],
-    "Description": "Projectile Speed +30%, Attack Range +25%"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "762160",
@@ -631,7 +629,7 @@
       0.5,
       10
     ],
-    "Description": "Duration +0.5, Damage +10"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
     "Id": "862160",
@@ -643,7 +641,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262158",
@@ -655,7 +653,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362158",
@@ -667,7 +665,7 @@
     "EffectValue": [
       5
     ],
-    "Description": "Damage +5"
+    "Description": "Base Damage up by 5"
   },
   {
     "Id": "462158",
@@ -681,7 +679,7 @@
       5,
       10
     ],
-    "Description": "Damage +5, Attack Range +10%"
+    "Description": "Base Damage up by 5, Attack Area up by 10%"
   },
   {
     "Id": "562158",
@@ -693,7 +691,7 @@
     "EffectValue": [
       5
     ],
-    "Description": "Damage +5"
+    "Description": "Base Damage up by 5"
   },
   {
     "Id": "662158",
@@ -707,7 +705,7 @@
       5,
       10
     ],
-    "Description": "Damage +5, Attack Range +10%"
+    "Description": "Base Damage up by 5, Attack Area up by 10%"
   },
   {
     "Id": "762158",
@@ -719,7 +717,7 @@
     "EffectValue": [
       5
     ],
-    "Description": "Damage +5"
+    "Description": "Base Damage up by 5"
   },
   {
     "Id": "862158",
@@ -731,7 +729,7 @@
     "EffectValue": [
       5
     ],
-    "Description": "Damage +5"
+    "Description": "Base Damage up by 5"
   },
   {
     "Id": "262161",
@@ -743,7 +741,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362161",
@@ -755,7 +753,7 @@
     "EffectValue": [
       20
     ],
-    "Description": "Damage +20"
+    "Description": "Base Damage up by 20"
   },
   {
     "Id": "462161",
@@ -767,7 +765,7 @@
     "EffectValue": [
       2
     ],
-    "Description": "Projectile Penetration +2"
+    "Description": "Passes through 2 more enemy."
   },
   {
     "Id": "562161",
@@ -779,7 +777,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "Projectile Count + 1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "662161",
@@ -791,7 +789,7 @@
     "EffectValue": [
       20
     ],
-    "Description": "Damage +20"
+    "Description": "Base Damage up by 20"
   },
   {
     "Id": "762161",
@@ -803,7 +801,7 @@
     "EffectValue": [
       2
     ],
-    "Description": "Projectile Penetration +2"
+    "Description": "Passes through 2 more enemy."
   },
   {
     "Id": "862161",
@@ -815,6 +813,6 @@
     "EffectValue": [
       20
     ],
-    "Description": "Damage +20"
+    "Description": "Base Damage up by 20"
   }
 ]

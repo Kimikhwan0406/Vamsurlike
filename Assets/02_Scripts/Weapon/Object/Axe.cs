@@ -2,11 +2,8 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Axe : MonoBehaviour
+public class Axe : AutoDespawnObject
 {
-    // TODO: 관통 횟수 체크
-    // TODO: 일정 거리 이동 시 삭제
-
     [SerializeField] float hitRadius = 1f;
     [SerializeField] float rotateSpeed = 360f;
 
@@ -33,15 +30,17 @@ public class Axe : MonoBehaviour
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         isInit = true;
     }
 
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (!isInit || !GameManager.Instance.IsPlaying) return;
 
         float deltaTime = Time.deltaTime;
@@ -70,12 +69,6 @@ public class Axe : MonoBehaviour
                 return;
             }
         }
-    }
-    
-    void Release()
-    {
-        // TODO: 풀링에 반환
-        Destroy(gameObject);
     }
 
     void OnDrawGizmos()

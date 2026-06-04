@@ -1,21 +1,5 @@
 using UnityEngine;
 
-public struct RunTimeWeaponlData
-{
-    public string WeaponId;
-    public int ProjectileCount;
-    public int ProjectileLimits;
-    public int ProjectilePenetration;   // 관통 횟수
-    public float ProjectileSpeed;
-    public float CoolTime;              // 공격 간격
-    public float RepeatInterval;        // 한 공격 주기에서 투사체 발사 간격
-    public float Damage;
-    public float Range;                 // 공격 범위
-    public float Knockback;
-    public float Duration;
-}
-
-
 public class WeaponObject
 {
     IWeaponPattern pattern;
@@ -46,7 +30,7 @@ public class WeaponObject
             ProjectileSpeed = weaponData.ProjectileSpeed,
             CoolTime = weaponData.CoolTIme,
             RepeatInterval = weaponData.RepeatInterval,
-            Damage = weaponData.BaseDamage,
+            BaseDamage = weaponData.BaseDamage,
             Range = weaponData.Range,
             Knockback = weaponData.Knockback,
             Duration = weaponData.Duration
@@ -73,10 +57,10 @@ public class WeaponObject
     public void UpgradeWeapon()
     {
         level++;
-        
+
         string weaponLevelId = level.ToString() + "62" + weaponId.Substring(3);
         var data = GameManager.DataTable.GetWeaponLevelData(weaponLevelId);
-        if(null == data)
+        if (null == data)
         {
             Debug.Log($"WeaponLevelId : {weaponLevelId} null");
             return;
@@ -87,8 +71,8 @@ public class WeaponObject
 
             switch (data.EffectName[i])
             {
-                case "Damage":
-                    runtimeWeaponData.Damage += data.EffectValue[i];
+                case "BaseDamage":
+                    runtimeWeaponData.BaseDamage += data.EffectValue[i];
                     break;
                 case "ProjectileCount":
                     runtimeWeaponData.ProjectileCount += (int)data.EffectValue[i];
@@ -103,13 +87,13 @@ public class WeaponObject
                     runtimeWeaponData.RepeatInterval -= data.EffectValue[i];
                     break;
                 case "Range":
-                    runtimeWeaponData.Range += runtimeWeaponData.Range * data.EffectValue[i] / 100;
+                    runtimeWeaponData.Range += data.EffectValue[i] / 100;
                     break;
                 case "Duration":
                     runtimeWeaponData.Duration += data.EffectValue[i];
                     break;
                 case "ProjectileSpeed":
-                    runtimeWeaponData.ProjectileSpeed += runtimeWeaponData.ProjectileSpeed * data.EffectValue[i];
+                    runtimeWeaponData.ProjectileSpeed += runtimeWeaponData.ProjectileSpeed * data.EffectValue[i] / 100;
                     break;
             }
         }

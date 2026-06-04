@@ -14,6 +14,9 @@ public class CombatQuerySystem
 
         foreach (var enemy in GameManager.EnemySystemHandler.ActivatedEnemys)
         {
+            if (!IsValidEnemy(enemy))
+                continue;
+
             if (EnemySearch.FindCircleSearch(center, radius, enemy.HitPosition, enemy.HitRadius))
             {
                 resultBuffer.Add(enemy);

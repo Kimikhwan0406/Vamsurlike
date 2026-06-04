@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : AutoDespawnObject
 {
     [SerializeField] SpriteRenderer weaponImage;
     [SerializeField] float projectileRadius = 1f;
@@ -32,8 +32,10 @@ public class Projectile : MonoBehaviour
         prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (!GameManager.Instance.IsPlaying)
             return;
 
@@ -63,7 +65,7 @@ public class Projectile : MonoBehaviour
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         initialized = true;
@@ -101,12 +103,13 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void Release()
+    protected override void Release()
     {
         hitBuffer.Clear();
         alreadyHit.Clear();
         initialized = false;
-        PoolManager.Instance.DespawnToPool(this.gameObject);
+
+        base.Release();
     }
 
     void OnDrawGizmos()

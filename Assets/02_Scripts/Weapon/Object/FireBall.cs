@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBall : AutoDespawnObject
 {
     [SerializeField] float hitRadius = 1f;
     [SerializeField] Vector3 offset;
@@ -14,6 +14,7 @@ public class FireBall : MonoBehaviour
     Vector3 direction;
 
     float hitCount;
+    float projectileSpeed;
     bool isInit = false;
 
     public void Init(CombatQuerySystem combatQuerySystem, RunTimeWeaponlData data, Vector3 direction)
@@ -21,6 +22,8 @@ public class FireBall : MonoBehaviour
         this.combatQuerySystem = combatQuerySystem;
 
         this.direction = direction;
+
+        projectileSpeed = data.ProjectileSpeed;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
@@ -30,15 +33,17 @@ public class FireBall : MonoBehaviour
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
         isInit = true;
     }
 
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (!isInit || !GameManager.Instance.IsPlaying) return;
 
         CheckHit();
@@ -47,7 +52,7 @@ public class FireBall : MonoBehaviour
 
     void Move()
     {
-        transform.position += direction * Time.deltaTime * 5f;
+        transform.position += direction * Time.deltaTime * 5f * projectileSpeed;
     }
 
     void CheckHit()
@@ -65,14 +70,6 @@ public class FireBall : MonoBehaviour
                 return;
             }
         }
-    }
-
-
-
-    void Release()
-    {
-        // TODO: 풀링에 반환
-        Destroy(gameObject);
     }
 
     void OnDrawGizmos()

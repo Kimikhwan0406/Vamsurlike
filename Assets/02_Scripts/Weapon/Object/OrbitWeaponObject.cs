@@ -1,29 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct OrbitWeaponData
-{
-    public Transform OwnerTransform;
-    public float StartAngle;
-    public float Range;
 
-    public float Duration;
-    public float Damage;
-    public float RotateSpeed;
-    public float HitInterval;
-}
-
-public struct EnemyHitCooldown
-{
-    public EnemyBase Enemy;
-    public float CooldownTimer;
-
-    public EnemyHitCooldown(EnemyBase enemy, float cooldown)
-    {
-        Enemy = enemy;
-        CooldownTimer = cooldown;
-    }
-}
 
 public class OrbitWeaponObject : MonoBehaviour
 {
@@ -102,7 +80,7 @@ public class OrbitWeaponObject : MonoBehaviour
 
     void Roation(float deltaTime)
     {
-        angle += deltaTime * totalRotateSpeed * -direction; //* data.RotateSpeed;
+        angle += deltaTime * totalRotateSpeed * -direction;
 
         float radian = angle * Mathf.Deg2Rad;
 

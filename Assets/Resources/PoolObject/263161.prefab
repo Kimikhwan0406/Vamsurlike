@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e184f5b43eed23543b28a867b999505d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Axe
-  hitRadius: 0.5
+  hitRadius: 0.4
   rotateSpeed: 360

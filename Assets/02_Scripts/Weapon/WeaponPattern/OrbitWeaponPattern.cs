@@ -29,7 +29,7 @@ public class OrbitWeaponPattern : IWeaponPattern
                 StartAngle = angle,
                 Range = data.Range,
                 Duration = data.Duration,
-                Damage = data.Damage,
+                Damage = data.BaseDamage,
                 RotateSpeed = data.ProjectileSpeed,
                 HitInterval = data.RepeatInterval,
             });
