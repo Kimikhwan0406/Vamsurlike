@@ -14,6 +14,7 @@ public class FireBall : AutoDespawnObject
     Vector3 direction;
 
     float hitCount;
+    float projectileSpeed;
     bool isInit = false;
 
     public void Init(CombatQuerySystem combatQuerySystem, RunTimeWeaponlData data, Vector3 direction)
@@ -21,6 +22,8 @@ public class FireBall : AutoDespawnObject
         this.combatQuerySystem = combatQuerySystem;
 
         this.direction = direction;
+
+        projectileSpeed = data.ProjectileSpeed;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
@@ -49,7 +52,7 @@ public class FireBall : AutoDespawnObject
 
     void Move()
     {
-        transform.position += direction * Time.deltaTime * 5f;
+        transform.position += direction * Time.deltaTime * 5f * projectileSpeed;
     }
 
     void CheckHit()

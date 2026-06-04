@@ -73,10 +73,10 @@ public class WeaponObject
     public void UpgradeWeapon()
     {
         level++;
-        
+
         string weaponLevelId = level.ToString() + "62" + weaponId.Substring(3);
         var data = GameManager.DataTable.GetWeaponLevelData(weaponLevelId);
-        if(null == data)
+        if (null == data)
         {
             Debug.Log($"WeaponLevelId : {weaponLevelId} null");
             return;
@@ -103,13 +103,13 @@ public class WeaponObject
                     runtimeWeaponData.RepeatInterval -= data.EffectValue[i];
                     break;
                 case "Range":
-                    runtimeWeaponData.Range += runtimeWeaponData.Range * data.EffectValue[i] / 100;
+                    runtimeWeaponData.Range += data.EffectValue[i] / 100;
                     break;
                 case "Duration":
                     runtimeWeaponData.Duration += data.EffectValue[i];
                     break;
                 case "ProjectileSpeed":
-                    runtimeWeaponData.ProjectileSpeed += runtimeWeaponData.ProjectileSpeed * data.EffectValue[i];
+                    runtimeWeaponData.ProjectileSpeed += runtimeWeaponData.ProjectileSpeed * data.EffectValue[i] / 100;
                     break;
             }
         }

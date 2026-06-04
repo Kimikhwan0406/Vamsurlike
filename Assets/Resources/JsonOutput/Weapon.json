@@ -113,7 +113,7 @@
     "CoolTIme": 1.35,
     "RepeatInterval": 0.1,
     "BaseDamage": 10,
-    "Range": 1,
+    "Range": 0,
     "Knockback": 1,
     "Duration": null,
     "Evolution": null,
