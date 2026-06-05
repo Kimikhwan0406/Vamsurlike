@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int GetPlayerXDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
     public Vector2 MoveInput => inputHandler.MoveInput;
     public Vector2 CureentDirection { get => currentDirectionVector; }
-    public int CurrentFacingDir => currentFacingDir;
+    public int CurrentFacingDir => currentFacingDir == 0 ? preFacingDir : currentFacingDir;
 
     [SerializeField] Transform playerModel;
 
