@@ -23,8 +23,11 @@ public class EllipseObject : MonoBehaviour
 
     public void Init(RunTimeWeaponlData data, float angle)
     {
+        transform.localRotation = Quaternion.identity;
         transform.localRotation = Quaternion.Euler(0, 0, angle);
+
         transform.localScale = Vector3.one * (1 + data.Range);
+
         radiusX += radiusX * data.Range;
         radiusY += radiusY * data.Range;
 

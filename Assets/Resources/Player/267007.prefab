@@ -78,6 +78,40 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 120, y: 120}
   m_EdgeRadius: 0
+--- !u!1 &5786957748301272249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3325321185165939905}
+  m_Layer: 0
+  m_Name: PlayerModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3325321185165939905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786957748301272249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8422276863966101265}
+  - {fileID: 8422276862820669849}
+  - {fileID: 8422276864114123489}
+  m_Father: {fileID: 8422276864327897533}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6176586095029094568
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8422276864327897533}
+  m_Father: {fileID: 3325321185165939905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8422276862820669848
 SpriteRenderer:
@@ -485,7 +519,7 @@ Transform:
   m_Children:
   - {fileID: 8422276863007938755}
   - {fileID: 8422276863936576945}
-  m_Father: {fileID: 8422276864327897533}
+  m_Father: {fileID: 3325321185165939905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.289}
 --- !u!212 &8422276863966101264
 SpriteRenderer:
@@ -576,7 +610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8422276864327897533}
+  m_Father: {fileID: 3325321185165939905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8422276864114123488
 SpriteRenderer:
@@ -673,9 +707,7 @@ Transform:
   m_Children:
   - {fileID: 665117167283165515}
   - {fileID: 538697723520649873}
-  - {fileID: 8422276863966101265}
-  - {fileID: 8422276862820669849}
-  - {fileID: 8422276864114123489}
+  - {fileID: 3325321185165939905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1950720097101948379
@@ -788,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a84ccbea8a59a647861092d366ef8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  playerModel: {fileID: 3325321185165939905}
   healthBar: {fileID: 183083765570066093}
   moveSpeed: 5
 --- !u!1 &8598104710787673465
