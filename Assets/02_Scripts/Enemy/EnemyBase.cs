@@ -37,8 +37,8 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
         health = enemyData.MaxHealth;
         power = enemyData.Power;
         xp = enemyData.XP;
-        //hitPositionOffset = new Vector3(enemyData.PositionOffset[0], enemyData.PositionOffset[1], 0f);
-        //hitRadius = enemyData.Radius;
+
+        isDead = false;
     }
 
     public void Flip()
@@ -57,7 +57,7 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
 
     public void TakeDamage(DamageContext context)
     {
-        if(health <= 0)
+        if(isDead)
         {
             return;
         }
@@ -88,7 +88,7 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
 
     void Release()
     {
-        PoolManager.Instance.DespawnToPool(this.gameObject);
+        GameManager.EnemySystemHandler.DespawnEnemy(this);
     }
 
     void OnDrawGizmos()

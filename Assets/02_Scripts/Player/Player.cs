@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public int GetPlayerXDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
+    public Vector2 MoveInput => inputHandler.MoveInput;
     public Vector2 CureentDirection { get => currentDir; }
 
     PlayerInputHandler inputHandler;
