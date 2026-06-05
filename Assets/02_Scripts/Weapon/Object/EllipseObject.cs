@@ -82,7 +82,6 @@ public class EllipseObject : MonoBehaviour
     {
         Gizmos.color = Color.green;
 
-        positionOffset = offset;
         Vector3 center = transform.position + positionOffset;
 
         Vector3 prevPoint = center + new Vector3(Mathf.Cos(0f) * radiusX, Mathf.Sin(0f) * radiusY, 0f);
