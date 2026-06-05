@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EllipseObject : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class EllipseObject : MonoBehaviour
     [Range(10, 100)]
     [SerializeField] int segments = 50;
 
+    Vector3 positionOffset;
+
     List<EnemyBase> hitBuffer = new();
 
     DamageContext damageContext;
@@ -21,27 +24,25 @@ public class EllipseObject : MonoBehaviour
 
     bool initializedParent = false;
 
-    public void Init(RunTimeWeaponlData data, float angle)
+    public void Init(RunTimeWeaponlData data, int facingDir)
     {
-        transform.localRotation = Quaternion.identity;
-        transform.localRotation = Quaternion.Euler(0, 0, angle);
-
         transform.localScale = Vector3.one * (1 + data.Range);
+        transform.localScale = new Vector3(transform.localScale.x * facingDir, transform.localScale.y, transform.localScale.z);
 
         radiusX += radiusX * data.Range;
         radiusY += radiusY * data.Range;
 
-        if(!initializedParent)
+        if (!initializedParent)
         {
             gameObject.transform.SetParent(GameManager.Instance.GetPlayer().transform);
 
             initializedParent = true;
         }
 
-        if (angle != 0)
-        {
-            offset *= -1f;
-        }
+        if (facingDir == -1)
+            positionOffset = offset * -1f;
+        else
+            positionOffset = offset;
 
         damageContext = new DamageContext
         {
@@ -56,7 +57,7 @@ public class EllipseObject : MonoBehaviour
 
     void CheckHit()
     {
-        GameManager.CombatQuery.QueryEllipse(transform.position + offset, radiusX, radiusY, hitBuffer);
+        GameManager.CombatQuery.QueryEllipse(transform.position + positionOffset, radiusX, radiusY, hitBuffer);
 
         for (int i = 0; i < hitBuffer.Count; i++)
         {
@@ -69,7 +70,6 @@ public class EllipseObject : MonoBehaviour
     async UniTask ReleaseObject(CancellationToken token)
     {
         await UniTask.WaitUntil(() => !particle.IsAlive(), cancellationToken: token);
-        Debug.Log("파티클 릴리즈");
         Release();
     }
 
@@ -82,7 +82,8 @@ public class EllipseObject : MonoBehaviour
     {
         Gizmos.color = Color.green;
 
-        Vector3 center = transform.position + offset;
+        positionOffset = offset;
+        Vector3 center = transform.position + positionOffset;
 
         Vector3 prevPoint = center + new Vector3(Mathf.Cos(0f) * radiusX, Mathf.Sin(0f) * radiusY, 0f);
 

@@ -6,10 +6,11 @@ public class SwingWeaponPattern : IWeaponPattern
     {
         for (int i = 0; i < data.ProjectileCount; i++)
         {
-            float angle = 180f * (i + 1);
+            var facingDir = GameManager.Instance.GetPlayer().CurrentFacingDir;
+            facingDir = facingDir * (i % 2 == 0 ? 1 : -1);
 
             var effect = PoolManager.Instance.SpawnFromPool<EllipseObject>(data.WeaponId, context.OwnerTransform.position);
-            effect.GetComponent<EllipseObject>().Init(data, angle);
+            effect.GetComponent<EllipseObject>().Init(data, facingDir);
         }
     }
 }
