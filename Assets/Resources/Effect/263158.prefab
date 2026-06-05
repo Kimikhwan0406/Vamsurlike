@@ -14589,7 +14589,7 @@ GameObject:
   - component: {fileID: 754123884049223993}
   - component: {fileID: 1909719055045759070}
   m_Layer: 0
-  m_Name: Whip
+  m_Name: 263158
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

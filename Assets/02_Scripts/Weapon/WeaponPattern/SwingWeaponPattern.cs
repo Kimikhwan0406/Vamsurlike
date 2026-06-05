@@ -8,14 +8,8 @@ public class SwingWeaponPattern : IWeaponPattern
         {
             float angle = (360f / data.ProjectileCount) * i;
 
-            var effect = Object.Instantiate(Utils.ResourcesLoad<GameObject>("Effect/Whip"), context.OwnerTransform);
-            if(null == effect)
-            {
-                Debug.Log("SwingWeaponPattern : Effect/Whip null");
-                return;
-            }
+            var effect = PoolManager.Instance.SpawnFromPool<EllipseObject>(data.WeaponId, context.OwnerTransform.position);
             effect.GetComponent<EllipseObject>().Init(data, angle);
-
         }
     }
 }

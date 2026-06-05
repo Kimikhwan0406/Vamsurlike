@@ -28,6 +28,8 @@ public class OrbitWeaponObject : MonoBehaviour
     int direction;
 
     bool initialized = false;
+    bool initializedParent = false;
+
 
     public void Init(int direction, string weaponId, OrbitWeaponData data)
     {
@@ -45,7 +47,12 @@ public class OrbitWeaponObject : MonoBehaviour
         totalDistance = baseDistance * data.Range;
         totalRotateSpeed = baseSpeed * data.RotateSpeed;
 
-        transform.SetParent(data.OwnerTransform);
+        if(!initializedParent)
+        {
+            transform.SetParent(data.OwnerTransform);
+
+            initializedParent = true;
+        }
         transform.localPosition = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * totalDistance;
 
         damageContext = new DamageContext
