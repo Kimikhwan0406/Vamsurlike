@@ -5,7 +5,11 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public int GetPlayerXDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
-    public Vector2 CureentDirection { get => currentDir; }
+    public Vector2 MoveInput => inputHandler.MoveInput;
+    public Vector2 CureentDirection { get => currentDirectionVector; }
+    public int CurrentFacingDir => currentFacingDir;
+
+    [SerializeField] Transform playerModel;
 
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
@@ -17,8 +21,11 @@ public class Player : MonoBehaviour
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
 
-    Vector2 currentDir;
+    Vector2 currentDirectionVector;
     float currentAngle;
+
+    int preFacingDir = -1;
+    int currentFacingDir = -1;
 
     void Awake()
     {
@@ -59,14 +66,16 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.IsPlaying)
         {
             Move();
+            SmoothDirection();
+            Flip();
         }
 
-        SmoothDirection();
     }
 
     void Move()
     {
         transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
+        currentFacingDir = GetPlayerXDir;
     }
 
     void SmoothDirection()
@@ -83,11 +92,21 @@ public class Player : MonoBehaviour
 
             float radian = currentAngle * Mathf.Deg2Rad;
 
-            currentDir = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
+            currentDirectionVector = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
         }
     }
 
-    // RandomDropWeaponPattern의 범위 10f
+    void Flip()
+    {
+        if(preFacingDir != currentFacingDir && currentFacingDir != 0)
+        {
+            playerModel.localScale = new Vector3(playerModel.localScale.x * -1f, playerModel.localScale.y, playerModel .localScale.z);
+
+            preFacingDir = currentFacingDir;
+        }
+    }
+
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

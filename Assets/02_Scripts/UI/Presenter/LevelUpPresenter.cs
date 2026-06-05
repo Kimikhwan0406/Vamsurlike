@@ -62,9 +62,13 @@ public class LevelUpPresenter : IPresenter
         }
 
         resultWeapons.Clear();
-        // O(n^2)인데 최적화 못하나?
+
+
         while (resultWeapons.Count < 3)
         {
+            if (GameManager.WeaponController.GetWeaponCount() >= 6)
+                break;
+
             var randomValue = UnityEngine.Random.Range(0, total);
 
             int currentWeight = 0;
@@ -91,6 +95,12 @@ public class LevelUpPresenter : IPresenter
                 }
             }
         }
+
+        if(resultWeapons.Count < 3)
+        {
+            // 후보 무기가 3개 미만인 경우, 남은 슬롯을 어떤 슬롯으로 채워하는데
+            // 현재 임시로 그냥 생성 X
+        }
     }
 
     void BuildCandidateWeapons()
@@ -99,7 +109,7 @@ public class LevelUpPresenter : IPresenter
 
         var weaponTable = GameManager.DataTable.GetWeaponDataTable();
 
-        // TODO foreach와 List의 Contains 때문에 O(n^2)인데 최적화 어케 하지?
+
         var maxLevellist = GameManager.WeaponController.GetMaxLevelWeapons();
         foreach (var dataKV in weaponTable)
         {

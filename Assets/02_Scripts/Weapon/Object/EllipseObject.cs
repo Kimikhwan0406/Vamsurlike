@@ -1,6 +1,7 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EllipseObject : MonoBehaviour
 {
@@ -9,24 +10,35 @@ public class EllipseObject : MonoBehaviour
     [Header("타원 설정")]
     [SerializeField] Vector3 offset;
     [SerializeField] float radiusX = 1f;
-    [SerializeField] float radiusY = 1f; 
+    [SerializeField] float radiusY = 1f;
     [Range(10, 100)]
     [SerializeField] int segments = 50;
 
     List<EnemyBase> hitBuffer = new();
 
     DamageContext damageContext;
+    CancellationToken token;
 
-    bool initialized = false;
+    bool initializedParent = false;
 
     public void Init(RunTimeWeaponlData data, float angle)
     {
+        transform.localRotation = Quaternion.identity;
         transform.localRotation = Quaternion.Euler(0, 0, angle);
+
         transform.localScale = Vector3.one * (1 + data.Range);
+
         radiusX += radiusX * data.Range;
         radiusY += radiusY * data.Range;
 
-        if(angle != 0)
+        if(!initializedParent)
+        {
+            gameObject.transform.SetParent(GameManager.Instance.GetPlayer().transform);
+
+            initializedParent = true;
+        }
+
+        if (angle != 0)
         {
             offset *= -1f;
         }
@@ -36,6 +48,8 @@ public class EllipseObject : MonoBehaviour
             WeaponId = data.WeaponId,
             Damage = data.BaseDamage,
         };
+
+        token = transform.GetCancellationTokenOnDestroy();
 
         CheckHit();
     }
@@ -49,16 +63,20 @@ public class EllipseObject : MonoBehaviour
             hitBuffer[i].TakeDamage(damageContext);
         }
 
-        //if(particle.IsAlive())
-        //{
-        //    Destroy(gameObject);
-        //}
+        ReleaseObject(token).Forget();
     }
 
-    //void Release()
-    //{
-    //    GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
-    //}
+    async UniTask ReleaseObject(CancellationToken token)
+    {
+        await UniTask.WaitUntil(() => !particle.IsAlive(), cancellationToken: token);
+        Debug.Log("파티클 릴리즈");
+        Release();
+    }
+
+    void Release()
+    {
+        PoolManager.Instance.DespawnToPool(this.gameObject);
+    }
 
     void OnDrawGizmos()
     {

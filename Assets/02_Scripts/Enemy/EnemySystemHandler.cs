@@ -52,11 +52,9 @@ public class EnemySystemHandler
 
     void SpawnEnemy(List<string> enemyIds)
     {
-        EnemyBase enemyObj = null;
-
         for (int i = 0; i < enemyIds.Count; i++)
         {
-            enemyObj = PoolManager.Instance.SpawnFromPool<EnemyBase>(enemyIds[i], GetRandomPosition());
+            EnemyBase enemyObj = PoolManager.Instance.SpawnFromPool<EnemyBase>(enemyIds[i], GetRandomPosition());
             enemyObj.Init(enemyIds[i]);
 
             activatedEnemys.Add(enemyObj);
@@ -80,7 +78,10 @@ public class EnemySystemHandler
 
         EnemyBase lastEnemy = activatedEnemys[lastIndex];
 
-        enemyManager.UnregisterEnemy(removeIndex);
+        if (!enemyManager.UnregisterEnemy(removeIndex))
+        {
+            return;
+        }
 
         activatedEnemys[removeIndex] = lastEnemy;
         activatedEnemys.RemoveAt(lastIndex);

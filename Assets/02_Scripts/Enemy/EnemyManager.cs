@@ -61,6 +61,14 @@ public class EnemyManager : MonoBehaviour
     {
         moveJobHandle.Complete();
 
+        int expectCheckIndex = enemyTransforms.length;
+
+        if (expectCheckIndex != enemy.ManagerIndex)
+        {
+            Debug.LogError("Enemy index mismatch.");
+            return;
+        }
+
         enemyTransforms.Add(enemy.transform);
         enemySpeeds.Add(enemy.MoveSpeed);
 
@@ -68,31 +76,51 @@ public class EnemyManager : MonoBehaviour
         damageBuffer.Add(0f);
     }
 
-    public void UnregisterEnemy(int removeIndex)
+    public bool UnregisterEnemy(int removeIndex)
     {
         moveJobHandle.Complete();
 
         if (removeIndex < 0 || removeIndex >= enemyTransforms.length)
-            return;
+        {
+            Debug.Log($"{GetType()}: UnregisterEnemy return false");
+            return false;
+        }
 
         enemyTransforms.RemoveAtSwapBack(removeIndex);
         enemySpeeds.RemoveAtSwapBack(removeIndex);
 
         enemyPowers.RemoveAtSwapBack(removeIndex);
         damageBuffer.RemoveAtSwapBack(removeIndex);
+
+        return true;
     }
 
     public void Release()
     {
-        enemyTransforms.Dispose();
-        enemySpeeds.Dispose();
-        enemyPowers.Dispose();
-        damageBuffer.Dispose();
+        moveJobHandle.Complete();
+
+        if (enemyTransforms.isCreated)
+            enemyTransforms.Dispose();
+
+        if (enemySpeeds.IsCreated)
+            enemySpeeds.Dispose();
+
+        if (enemyPowers.IsCreated)
+            enemyPowers.Dispose();
+
+        if (damageBuffer.IsCreated)
+            damageBuffer.Dispose();
     }
 
     void LateUpdate()
     {
         moveJobHandle.Complete();
+
+        if(!GameManager.Instance.IsPlaying)
+            return;
+
+        if(enemyTransforms.length <= 0)
+            return;
 
         float totalDamage = 0f;
         foreach (var damage in damageBuffer)
@@ -108,13 +136,7 @@ public class EnemyManager : MonoBehaviour
 
     void OnDestroy()
     {
-        moveJobHandle.Complete();
-
-        if (enemyTransforms.isCreated)
-            enemyTransforms.Dispose();
-
-        if (enemySpeeds.IsCreated)
-            enemySpeeds.Dispose();
+        Release();
     }
 }
 
@@ -138,17 +160,17 @@ public struct EnemyMoveJob : IJobParallelForTransform
         direction.z = 0f;
 
         float distanceSq = math.lengthsq(direction);
-        direction = math.normalizesafe(direction);
 
-        currentEnemyPosition += direction * EnemySpeeds[index] * DeltaTime;
-
-        transform.position = currentEnemyPosition;
-
-        // TODO 콜라이더를 사용한다면 삭제
         DamageBuffer[index] = 0f;
+
         if (distanceSq <= AttackRange * AttackRange)
         {
             DamageBuffer[index] = EnemyPowers[index];
+            return;
         }
+
+        direction = math.normalizesafe(direction);
+        currentEnemyPosition += direction * EnemySpeeds[index] * DeltaTime;
+        transform.position = currentEnemyPosition;
     }
 }

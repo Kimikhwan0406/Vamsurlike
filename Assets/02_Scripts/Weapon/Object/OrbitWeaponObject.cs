@@ -29,6 +29,7 @@ public class OrbitWeaponObject : MonoBehaviour
 
     bool initialized = false;
 
+
     public void Init(int direction, string weaponId, OrbitWeaponData data)
     {
         this.direction = direction;

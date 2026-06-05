@@ -23,6 +23,7 @@ public class PlayerWeaponController
         }
     }
 
+    public int GetWeaponCount() => weaponList.Count;
     public List<string> GetMaxLevelWeapons() => maxLevelWeapons;
     public List<WeaponObject> GetWeaponList() => weaponList;
 

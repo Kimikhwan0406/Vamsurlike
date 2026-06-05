@@ -30,12 +30,6 @@ public class PoolManager : SingletonBehaviour<PoolManager>
             {
                 var obj = CreateNewObject(pool.poolId, pool.prefab);
             }
-
-            // OnDisable에 ReturnToPool 구현여부와 중복구현 검사
-            if (poolDictionary[pool.poolId].Count <= 0)
-                Debug.LogError($"{pool.poolId} PoolObject의 OnDisable에 ReturnToPool이 구현되지 않았습니다");
-            else if (poolDictionary[pool.poolId].Count != pool.size)
-                Debug.LogError($"{pool.poolId}에 ReturnToPool이 중복됩니다");
         }
     }
 
