@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour//, IPoolObject
 {
     public float MoveSpeed => moveSpeed;
     public int ManagerIndex => managerIndex;
@@ -37,8 +37,8 @@ public class EnemyBase : MonoBehaviour
         health = enemyData.MaxHealth;
         power = enemyData.Power;
         xp = enemyData.XP;
-        //hitPositionOffset = new Vector3(enemyData.PositionOffset[0], enemyData.PositionOffset[1], 0f);
-        //hitRadius = enemyData.Radius;
+
+        isDead = false;
     }
 
     public void Flip()
@@ -57,7 +57,7 @@ public class EnemyBase : MonoBehaviour
 
     public void TakeDamage(DamageContext context)
     {
-        if(health <= 0)
+        if(isDead)
         {
             return;
         }
@@ -77,13 +77,18 @@ public class EnemyBase : MonoBehaviour
 
     void Die()
     {
-        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddEnemyCount(1);
+        GameManager.UI.GetPresenter<GameHUDPresenter>().AddEnemyCount(1);
 
-        var e = GameManager.Pool.GetObject(PoolType.FieldObject, gameObject.transform);
-        e.GetComponent<FieldObject>().Init(xp);
+        var e = PoolManager.Instance.SpawnFromPool<FieldObject>("FieldObject", gameObject.transform.position);
+        e.Init(xp);
 
-        GameManager.EnemySpawnPool.DespawnEnemy(this);
         isDead = true;
+        Release();
+    }
+
+    void Release()
+    {
+        GameManager.EnemySystemHandler.DespawnEnemy(this);
     }
 
     void OnDrawGizmos()

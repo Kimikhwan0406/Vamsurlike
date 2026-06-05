@@ -13,7 +13,7 @@ public class CharacterData : BaseData
     public string Name;
     public int MaxHealth;
     public string DefaultWeapon;
-    public string Ability;
+    public List<string> Ability;
     public List<string> AbilityCondition;
     public List<string> AbilityMargin;
     public List<string> AbilityValue;
@@ -59,13 +59,13 @@ public class WeaponData : BaseData
     public float RepeatInterval;        // 한 공격 주기에서 투사체 발사 간격
     public float BaseDamage;
     public float Range;                 // 공격 범위
-    public int Knockback;
+    public float Knockback;
     public float Duration;
     public string Evolution;
-
     public string PatternType;
-    //public TargetingType TargetingType;
-    //public int PenetrationCount;
+    public float ProjectileRadius;
+    public List<float> ProjectileOffset;
+    public float SpriteAngle;
 }
 
 [Serializable]

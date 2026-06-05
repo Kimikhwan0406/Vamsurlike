@@ -2,34 +2,29 @@ using UnityEngine;
 
 public class RePosition : MonoBehaviour
 {
-    const int mapSizeOffSet = 35;
+    const int mapSizeOffSet = 60;
 
     void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Area")) return;
 
         Vector3 playerPos = collision.gameObject.transform.position;
+        Vector3 myPos = transform.position;
 
-        float diffX = playerPos.x - transform.position.x;
-        float diffY = playerPos.y - transform.position.y;
+        float diffX = playerPos.x - myPos.x;
+        float diffY = playerPos.y - myPos.y;
 
         int dirX = diffX > 0 ? 1 : -1;
         int dirY = diffY > 0 ? 1 : -1;
 
-        diffX = Mathf.Abs(diffX);
-        diffY = Mathf.Abs(diffY);
+        float absDiffX = Mathf.Abs(diffX);
+        float absDiffY = Mathf.Abs(diffY);
 
-        if (diffX > diffY)
-        {
-            transform.Translate(Vector3.right * dirX * mapSizeOffSet * 2);
-        }
-        else if (diffX < diffY)
-        {
-            transform.Translate(Vector3.up * dirY * mapSizeOffSet * 2);
-        }
-        else
-        {
-            transform.Translate(new Vector3(dirX, dirY, 0) * mapSizeOffSet * 2);
-        }
+        float threshold = mapSizeOffSet * 0.5f;
+
+        float moveX = absDiffX > threshold ? dirX * mapSizeOffSet * 2 : 0;
+        float moveY = absDiffY > threshold ? dirY * mapSizeOffSet * 2 : 0;
+
+        transform.Translate(new Vector3(moveX, moveY, 0));
     }
 }

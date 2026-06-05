@@ -1,17 +1,18 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : AutoDespawnObject
 {
-    [SerializeField] SpriteRenderer projectileImage;
+    [SerializeField] SpriteRenderer weaponImage;
     [SerializeField] float projectileRadius = 1f;
+    [SerializeField] Vector3 positionOffset;
 
     List<EnemyBase> hitBuffer = new();
     List<EnemyBase> alreadyHit = new();
 
     Vector2 dir;
     Vector3 prePosition;
+    Vector3 rotatedOffset;
 
     DamageContext damageContext;
 
@@ -19,19 +20,21 @@ public class Projectile : MonoBehaviour
     int hitCount = 0;
     int projectilePenetration = 1;
 
+    bool initialized = false;
+
 
     void Awake()
     {
-        angle = UnityEngine.Random.Range(0f, math.PI * 2f);
-        dir = new Vector2(math.cos(angle), math.sin(angle));
+        initialized = false;
 
         var randomValue = UnityEngine.Random.Range(-0.5f, 0.5f);
-
         prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (!GameManager.Instance.IsPlaying)
             return;
 
@@ -42,28 +45,48 @@ public class Projectile : MonoBehaviour
         CheckHit();
     }
 
-    public void Init(RunTimeWeaponlData data)
+    public void Init(RunTimeWeaponlData data, Vector2 direction)
     {
         this.projectilePenetration = data.ProjectilePenetration;
 
-        projectileImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+        weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
+
+        dir = direction == Vector2.zero ? Vector2.right : direction.normalized;
+
+        var weaponData = GameManager.DataTable.GetWeaponData(data.WeaponId);
+        positionOffset = new Vector3(weaponData.ProjectileOffset[0], weaponData.ProjectileOffset[1], 0f);
+        float spriteAngle = weaponData.SpriteAngle;
+        projectileRadius = weaponData.ProjectileRadius;
+
+        float angle =  Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + spriteAngle);
 
         damageContext = new DamageContext
         {
             WeaponId = data.WeaponId,
-            Damage = data.Damage,
+            Damage = data.BaseDamage,
         };
 
+        initialized = true;
     }
 
     void Move()
     {
-        transform.Translate(dir * Time.deltaTime * 5f);
+        transform.position += (Vector3)dir * Time.deltaTime * 10f;
     }
 
     void CheckHit()
     {
-        GameManager.CombatQuery.QuerySegment(prePosition, transform.position, projectileRadius, hitBuffer);
+        if (!initialized) return;
+
+        rotatedOffset = transform.root.rotation * positionOffset;
+
+        GameManager.CombatQuery.QuerySegment(
+            prePosition + rotatedOffset, 
+            transform.position + rotatedOffset, 
+            projectileRadius, 
+            hitBuffer
+            );
 
         for(int i = 0; i < hitBuffer.Count; i++)
         {
@@ -79,14 +102,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void Release()
+    protected override void Release()
     {
-        GameManager.Pool.ReturnObject(PoolType.Projectile, gameObject);
+        hitBuffer.Clear();
+        alreadyHit.Clear();
+        initialized = false;
+
+        base.Release();
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, projectileRadius);
+        Gizmos.DrawWireSphere(transform.position + rotatedOffset, projectileRadius);
     }
 }

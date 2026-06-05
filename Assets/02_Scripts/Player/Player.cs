@@ -1,8 +1,16 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public int GetPlayerXDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
+    public Vector2 MoveInput => inputHandler.MoveInput;
+    public Vector2 CureentDirection { get => currentDirectionVector; }
+    public int CurrentFacingDir => currentFacingDir;
+
+    [SerializeField] Transform playerModel;
+
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
@@ -12,6 +20,12 @@ public class Player : MonoBehaviour
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
+
+    Vector2 currentDirectionVector;
+    float currentAngle;
+
+    int preFacingDir = -1;
+    int currentFacingDir = -1;
 
     void Awake()
     {
@@ -44,7 +58,7 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0f)
         {
-            Debug.Log("Player is dead.");
+            GameManager.Instance.GameOver();
         }
     }
     void Update()
@@ -52,11 +66,50 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.IsPlaying)
         {
             Move();
+            SmoothDirection();
+            Flip();
         }
+
     }
 
     void Move()
     {
         transform.position += inputHandler.MoveInput * Time.deltaTime * moveSpeed;
+        currentFacingDir = GetPlayerXDir;
+    }
+
+    void SmoothDirection()
+    {
+        var moveinput = inputHandler.MoveInput;
+
+        if (moveinput.sqrMagnitude > 0.001f)
+        {
+            var targetDir = moveinput.normalized;
+
+            float targetAngle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, 720f * Time.deltaTime);
+
+            float radian = currentAngle * Mathf.Deg2Rad;
+
+            currentDirectionVector = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
+        }
+    }
+
+    void Flip()
+    {
+        if(preFacingDir != currentFacingDir && currentFacingDir != 0)
+        {
+            playerModel.localScale = new Vector3(playerModel.localScale.x * -1f, playerModel.localScale.y, playerModel .localScale.z);
+
+            preFacingDir = currentFacingDir;
+        }
+    }
+
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 15f);
     }
 }

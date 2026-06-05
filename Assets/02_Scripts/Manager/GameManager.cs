@@ -6,10 +6,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static UIManager UI { get { return Instance.ui; } }
     public static DataTable DataTable { get { return Instance.dataTable; } }
     public static UserDataManager UserData { get { return Instance.userData; } }
-    public static EnemySpawnPoolManager EnemySpawnPool { get { return Instance.spawnPool; } }
+    public static EnemySystemHandler EnemySystemHandler { get { return Instance.enemySystemHandler; } }
     public static CombatQuerySystem CombatQuery { get { return Instance.combatQuerySystem; } }
     public static PlayerWeaponController WeaponController { get { return Instance.weaponController; } }
-    public static PoolManager Pool { get { return Instance.poolManager; } }
+    //public static PoolManager Pool { get { return Instance.poolManager; } }
     public static CombatStatRecorder CombatRecorder { get { return Instance.combatStatRecorder; } }
 
     #region Variables
@@ -21,8 +21,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     UserDataManager userData = new();
     DataTable dataTable = new();
     UIManager ui = new();
-    EnemySpawnPoolManager spawnPool = new();
-    PoolManager poolManager = new();
+    EnemySystemHandler enemySystemHandler = new();
+    //PoolManager poolManager = new();
     PlayerWeaponController weaponController = new();
     CombatStatRecorder combatStatRecorder = new();
     CombatQuerySystem combatQuerySystem;
@@ -30,12 +30,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     [Header("Caching")]
     InGameCore inGameCore;
     GameObject enemyManager;
+    GameObject playMap;
 
     [Header("InGame")]
     public bool IsPlaying => isPlaying;
-
-    GameObject playMap;
-
     bool isPlaying = false;
 
     string selectedCharacterId;
@@ -51,8 +49,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         dataTable.LoadAllData();
         ui.Init(Instantiate(Utils.ResourcesLoad<GameObject>("UI/UIRoot")).transform);
 
-        spawnPool.Init(enemyPoolTransform);
-        poolManager.Init(objectPoolTransform);
+        //poolManager.Init(objectPoolTransform);
     }
 
     void Update()
@@ -60,13 +57,20 @@ public class GameManager : SingletonBehaviour<GameManager>
         if (isPlaying)
         {
             inGameCore.Update();
-            spawnPool.Update();
+            enemySystemHandler.Update();
             weaponController.Update();
         }
     }
 
     public Player GetPlayer() => inGameCore.Player;
     public float GetPlayTime() => inGameCore.GetPlayTime();
+
+    public void GameOver()
+    {
+        PauseGame();
+
+        UI.OpenUI<StageResultPresenter>();
+    }
 
     public void PauseGame()
     {
@@ -93,25 +97,17 @@ public class GameManager : SingletonBehaviour<GameManager>
 
         inGameCore = new InGameCore(selectedCharacterId);
 
-        CreateWeaponContext();
         UI.ShowIngameHUD();
 
         enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
-        spawnPool.RegisterEnemyManager(enemyManager.GetComponent<EnemyManager>());
-        combatQuerySystem = new();
+        enemySystemHandler.RegisterEnemySystemHandler(enemyManager.GetComponent<EnemyManager>());
 
+        combatQuerySystem = new();
+        CreateWeaponContext();
 
         isPlaying = true;
 
-
-
-
         weaponController.AddWeapon(baseWeapinId);
-
-
-        // TEST
-        //weaponController.AddWeapon("263080");
-        //weaponController.RegisterWeapon("263079");
     }
 
     public void StageExit()
@@ -121,10 +117,12 @@ public class GameManager : SingletonBehaviour<GameManager>
         CameraManager.Instance.ClearFollow();
 
         combatStatRecorder.Release();
+
         weaponController.Release();
         combatQuerySystem = null;
 
-        spawnPool.ReleaseEnemyManager();
+        PoolManager.Instance.AllDespawnToPool();
+        enemySystemHandler.ReleaseEnemySystemHandler();
         Destroy(enemyManager);
         enemyManager = null;
 
@@ -146,6 +144,4 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CombatQuerySystem = combatQuerySystem
             });
     }
-
-
 }

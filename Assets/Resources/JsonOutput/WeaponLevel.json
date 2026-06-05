@@ -1,525 +1,5 @@
 [
   {
-    "Id": "262001",
-    "WeaponId": "263001",
-    "Level": 2,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      4
-    ],
-    "Description": "피해량 +4"
-  },
-  {
-    "Id": "362001",
-    "WeaponId": "263001",
-    "Level": 3,
-    "EffectName": [
-      "Damage",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      4,
-      0.1
-    ],
-    "Description": "피해량 +4, 쿨타임 -0.1"
-  },
-  {
-    "Id": "462001",
-    "WeaponId": "263001",
-    "Level": 4,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      4
-    ],
-    "Description": "피해량 +4"
-  },
-  {
-    "Id": "562001",
-    "WeaponId": "263001",
-    "Level": 5,
-    "EffectName": [
-      "Damage",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      4,
-      0.1
-    ],
-    "Description": "피해량 +4, 쿨타임 -0.1"
-  },
-  {
-    "Id": "662001",
-    "WeaponId": "263001",
-    "Level": 6,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      4
-    ],
-    "Description": "피해량 +4"
-  },
-  {
-    "Id": "762001",
-    "WeaponId": "263001",
-    "Level": 7,
-    "EffectName": [
-      "Damage",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      4,
-      0.1
-    ],
-    "Description": "피해량 +4, 쿨타임 -0.1"
-  },
-  {
-    "Id": "862001",
-    "WeaponId": "263001",
-    "Level": 8,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      4
-    ],
-    "Description": "피해량 +4"
-  },
-  {
-    "Id": "262003",
-    "WeaponId": "263003",
-    "Level": 2,
-    "EffectName": [
-      "Range",
-      "Damage"
-    ],
-    "EffectValue": [
-      20,
-      5
-    ],
-    "Description": "공격 범위 +20%, 피해량 +5"
-  },
-  {
-    "Id": "362003",
-    "WeaponId": "263003",
-    "Level": 3,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "462003",
-    "WeaponId": "263003",
-    "Level": 4,
-    "EffectName": [
-      "Range",
-      "Damage"
-    ],
-    "EffectValue": [
-      20,
-      5
-    ],
-    "Description": "공격 범위 +20%, 피해량 +5"
-  },
-  {
-    "Id": "562003",
-    "WeaponId": "263003",
-    "Level": 5,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "662003",
-    "WeaponId": "263003",
-    "Level": 6,
-    "EffectName": [
-      "Range",
-      "Damage"
-    ],
-    "EffectValue": [
-      20,
-      5
-    ],
-    "Description": "공격 범위 +20%, 피해량 +5"
-  },
-  {
-    "Id": "762003",
-    "WeaponId": "263003",
-    "Level": 7,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "862003",
-    "WeaponId": "263003",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "262020",
-    "WeaponId": "263020",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "362020",
-    "WeaponId": "263020",
-    "Level": 3,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "관통 수 +1"
-  },
-  {
-    "Id": "462020",
-    "WeaponId": "263020",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "562020",
-    "WeaponId": "263020",
-    "Level": 5,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "662020",
-    "WeaponId": "263020",
-    "Level": 6,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "762020",
-    "WeaponId": "263020",
-    "Level": 7,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "관통 수 +1"
-  },
-  {
-    "Id": "862020",
-    "WeaponId": "263020",
-    "Level": 8,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "262023",
-    "WeaponId": "263023",
-    "Level": 2,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "지속시간 +1"
-  },
-  {
-    "Id": "362023",
-    "WeaponId": "263023",
-    "Level": 3,
-    "EffectName": [
-      "CoolTime"
-    ],
-    "EffectValue": [
-      0.5
-    ],
-    "Description": "쿨타임 -0.5"
-  },
-  {
-    "Id": "462023",
-    "WeaponId": "263023",
-    "Level": 4,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "지속시간 +1"
-  },
-  {
-    "Id": "562023",
-    "WeaponId": "263023",
-    "Level": 5,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "지속시간 +1"
-  },
-  {
-    "Id": "662023",
-    "WeaponId": "263023",
-    "Level": 6,
-    "EffectName": [
-      "CoolTime"
-    ],
-    "EffectValue": [
-      0.5
-    ],
-    "Description": "쿨타임 -0.5"
-  },
-  {
-    "Id": "762023",
-    "WeaponId": "263023",
-    "Level": 7,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "지속시간 +1"
-  },
-  {
-    "Id": "262036",
-    "WeaponId": "263036",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "362036",
-    "WeaponId": "263036",
-    "Level": 3,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      10
-    ],
-    "Description": "투사체 수 +1, 피해량 +10"
-  },
-  {
-    "Id": "462036",
-    "WeaponId": "263036",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      1,
-      0.25
-    ],
-    "Description": "투사체 수 +1, 쿨타임 -0.25"
-  },
-  {
-    "Id": "562036",
-    "WeaponId": "263036",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "662036",
-    "WeaponId": "263036",
-    "Level": 6,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      10
-    ],
-    "Description": "투사체 수 +1, 피해량 +10"
-  },
-  {
-    "Id": "762036",
-    "WeaponId": "263036",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileCount",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      1,
-      0.25
-    ],
-    "Description": "투사체 수 +1, 쿨타임 -0.25"
-  },
-  {
-    "Id": "862036",
-    "WeaponId": "263036",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "262037",
-    "WeaponId": "263037",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "362037",
-    "WeaponId": "263037",
-    "Level": 3,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "관통 수 +2"
-  },
-  {
-    "Id": "462037",
-    "WeaponId": "263037",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "562037",
-    "WeaponId": "263037",
-    "Level": 5,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      5
-    ],
-    "Description": "피해량 +5"
-  },
-  {
-    "Id": "662037",
-    "WeaponId": "263037",
-    "Level": 6,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "관통 수 +2"
-  },
-  {
-    "Id": "762037",
-    "WeaponId": "263037",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileSpeed",
-      "Damage"
-    ],
-    "EffectValue": [
-      50,
-      5
-    ],
-    "Description": "투사체 속도 +50%, 피해량 +5"
-  },
-  {
-    "Id": "862037",
-    "WeaponId": "263037",
-    "Level": 8,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "관통 수 +2"
-  },
-  {
     "Id": "262159",
     "WeaponId": "263159",
     "Level": 2,
@@ -529,7 +9,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "피해량 +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "362159",
@@ -543,7 +23,7 @@
       10,
       20
     ],
-    "Description": "피해량 +10, 투사체 속도 +20%"
+    "Description": "Base Damage up by 10, Speed up by 20%"
   },
   {
     "Id": "462159",
@@ -555,7 +35,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "피해량 +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "562159",
@@ -569,7 +49,7 @@
       10,
       20
     ],
-    "Description": "피해량 +10, 투사체 속도 +20%"
+    "Description": "Base Damage up by 10, Speed up by 20%"
   },
   {
     "Id": "662159",
@@ -581,7 +61,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "피해량 +10"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "762159",
@@ -595,7 +75,7 @@
       10,
       20
     ],
-    "Description": "피해량 +10, 투사체 속도 +20%"
+    "Description": "Base Damage up by 10, Speed up by 20%"
   },
   {
     "Id": "862159",
@@ -607,281 +87,7 @@
     "EffectValue": [
       10
     ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "262046",
-    "WeaponId": "263046",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      25
-    ],
-    "Description": "투사체 속도 +25%"
-  },
-  {
-    "Id": "362046",
-    "WeaponId": "263046",
-    "Level": 3,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "462046",
-    "WeaponId": "263046",
-    "Level": 4,
-    "EffectName": [
-      "Range",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      50,
-      0.5
-    ],
-    "Description": "공격 범위 +50%, 쿨타임 -0.5"
-  },
-  {
-    "Id": "562046",
-    "WeaponId": "263046",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      25
-    ],
-    "Description": "투사체 속도 +25%"
-  },
-  {
-    "Id": "662046",
-    "WeaponId": "263046",
-    "Level": 6,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 10"
-  },
-  {
-    "Id": "762046",
-    "WeaponId": "263046",
-    "Level": 7,
-    "EffectName": [
-      "Range",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      50,
-      0.5
-    ],
-    "Description": "공격 범위 +50%, 쿨타임 -0.5"
-  },
-  {
-    "Id": "862046",
-    "WeaponId": "263046",
-    "Level": 8,
-    "EffectName": [
-      "CoolTime"
-    ],
-    "EffectValue": [
-      0.5
-    ],
-    "Description": "쿨타임 -0.5"
-  },
-  {
-    "Id": "262047",
-    "WeaponId": "263047",
-    "Level": 2,
-    "EffectName": [
-      "CoolTime",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      0.5,
-      25
-    ],
-    "Description": "쿨타임 -0.5, 투사체 속도 +25%"
-  },
-  {
-    "Id": "362047",
-    "WeaponId": "263047",
-    "Level": 3,
-    "EffectName": [
-      "ProjectilePenetration",
-      "Damage"
-    ],
-    "EffectValue": [
-      7,
-      10
-    ],
-    "Description": "관통 수 +7, 피해량 +10"
-  },
-  {
-    "Id": "462047",
-    "WeaponId": "263047",
-    "Level": 4,
-    "EffectName": [
-      "Range",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      20,
-      0.5
-    ],
-    "Description": "공격 범위 +20%, 쿨타임 -0.5"
-  },
-  {
-    "Id": "562047",
-    "WeaponId": "263047",
-    "Level": 5,
-    "EffectName": [
-      "ProjectilePenetration",
-      "Damage"
-    ],
-    "EffectValue": [
-      7,
-      10
-    ],
-    "Description": "관통 수 +7, 피해량 +10"
-  },
-  {
-    "Id": "662047",
-    "WeaponId": "263047",
-    "Level": 6,
-    "EffectName": [
-      "Range",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      20,
-      0.5
-    ],
-    "Description": "공격 범위 +20%, 쿨타임 -0.5"
-  },
-  {
-    "Id": "762047",
-    "WeaponId": "263047",
-    "Level": 7,
-    "EffectName": [
-      "ProjectilePenetration",
-      "Damage"
-    ],
-    "EffectValue": [
-      7,
-      10
-    ],
-    "Description": "관통 수 +7, 피해량 +10"
-  },
-  {
-    "Id": "862047",
-    "WeaponId": "263047",
-    "Level": 8,
-    "EffectName": [
-      "CoolTime",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      0.5,
-      25
-    ],
-    "Description": "쿨타임 -0.5, 투사체 속도 +25%"
-  },
-  {
-    "Id": "262049",
-    "WeaponId": "263049",
-    "Level": 2,
-    "EffectName": [
-      "Range"
-    ],
-    "EffectValue": [
-      100
-    ],
-    "Description": "공격 범위 +100%"
-  },
-  {
-    "Id": "362049",
-    "WeaponId": "263049",
-    "Level": 3,
-    "EffectName": [
-      "Range"
-    ],
-    "EffectValue": [
-      50
-    ],
-    "Description": "공격 범위 +50%"
-  },
-  {
-    "Id": "462049",
-    "WeaponId": "263049",
-    "Level": 4,
-    "EffectName": [
-      "Range",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      50,
-      0.5
-    ],
-    "Description": "공격 범위 +50%, 쿨타임 +0.5초"
-  },
-  {
-    "Id": "562049",
-    "WeaponId": "263049",
-    "Level": 5,
-    "EffectName": [
-      "Range"
-    ],
-    "EffectValue": [
-      50
-    ],
-    "Description": "공격 범위 +50%"
-  },
-  {
-    "Id": "662049",
-    "WeaponId": "263049",
-    "Level": 6,
-    "EffectName": [
-      "Range"
-    ],
-    "EffectValue": [
-      50
-    ],
-    "Description": "공격 범위 +50%"
-  },
-  {
-    "Id": "762049",
-    "WeaponId": "263049",
-    "Level": 7,
-    "EffectName": [
-      "Range",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      50,
-      0.5
-    ],
-    "Description": "공격 범위 +50%, 쿨타임 +0.5초"
-  },
-  {
-    "Id": "862049",
-    "WeaponId": "263049",
-    "Level": 8,
-    "EffectName": [
-      "Range"
-    ],
-    "EffectValue": [
-      50
-    ],
-    "Description": "공격 범위 +50%"
+    "Description": "Base Damage up by 10"
   },
   {
     "Id": "262052",
@@ -895,7 +101,7 @@
       40,
       2
     ],
-    "Description": "공격 범위 +40%, 피해량 +2"
+    "Description": "Attack Range +40%, Base Damage up by 2"
   },
   {
     "Id": "362052",
@@ -909,7 +115,7 @@
       0.1,
       1
     ],
-    "Description": "쿨타임 -0.1, 피해량 +1"
+    "Description": "CoolTime reduced by 0.1 secons, Base Damage up by 1"
   },
   {
     "Id": "462052",
@@ -923,7 +129,7 @@
       20,
       1
     ],
-    "Description": "공격 범위 +20%, 피해량 +1"
+    "Description": "Attack Range +20%, Base Damage up by 1"
   },
   {
     "Id": "562052",
@@ -937,7 +143,7 @@
       0.1,
       2
     ],
-    "Description": "쿨타임 -0.1, 피해량 +2"
+    "Description": "CoolTime reduced by 0.1 secons, Base Damage up by 2"
   },
   {
     "Id": "662052",
@@ -951,7 +157,7 @@
       20,
       1
     ],
-    "Description": "공격 범위 +20%, 피해량 +1"
+    "Description": "Attack Range +20%, Base Damage up by 1"
   },
   {
     "Id": "762052",
@@ -965,7 +171,7 @@
       0.1,
       1
     ],
-    "Description": "쿨타임 -0.1, 피해량 +1"
+    "Description": "CoolTime reduced by 0.1 secons, Base Damage up by 1"
   },
   {
     "Id": "862052",
@@ -979,183 +185,7 @@
       20,
       2
     ],
-    "Description": "공격 범위 +20%, 피해량 +2"
-  },
-  {
-    "Id": "262053",
-    "WeaponId": "263053",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      20
-    ],
-    "Description": "투사체 속도 +20%"
-  },
-  {
-    "Id": "362053",
-    "WeaponId": "263053",
-    "Level": 3,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      1.5
-    ],
-    "Description": "지속시간 +1.5"
-  },
-  {
-    "Id": "462053",
-    "WeaponId": "263053",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      20
-    ],
-    "Description": "투사체 속도 +20%"
-  },
-  {
-    "Id": "562053",
-    "WeaponId": "263053",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "662053",
-    "WeaponId": "263053",
-    "Level": 6,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      1.5
-    ],
-    "Description": "지속시간 +1.5"
-  },
-  {
-    "Id": "762053",
-    "WeaponId": "263053",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      20
-    ],
-    "Description": "투사체 속도 +20%"
-  },
-  {
-    "Id": "862053",
-    "WeaponId": "263053",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "262056",
-    "WeaponId": "263056",
-    "Level": 2,
-    "EffectName": [
-      "Range",
-      "Damage"
-    ],
-    "EffectValue": [
-      10,
-      2.5
-    ],
-    "Description": "공격 범위 +10%, 피해량 +2.5"
-  },
-  {
-    "Id": "362056",
-    "WeaponId": "263056",
-    "Level": 3,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "462056",
-    "WeaponId": "263056",
-    "Level": 4,
-    "EffectName": [
-      "Range",
-      "Damage"
-    ],
-    "EffectValue": [
-      10,
-      2.5
-    ],
-    "Description": "공격 범위 +10%, 피해량 +2.5"
-  },
-  {
-    "Id": "562056",
-    "WeaponId": "263056",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "662056",
-    "WeaponId": "263056",
-    "Level": 6,
-    "EffectName": [
-      "Range",
-      "Damage"
-    ],
-    "EffectValue": [
-      10,
-      2.5
-    ],
-    "Description": "공격 범위 +10%, 피해량 +2.5"
-  },
-  {
-    "Id": "762056",
-    "WeaponId": "263056",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "862056",
-    "WeaponId": "263056",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      2.5
-    ],
-    "Description": "투사체 수 +1, 피해량 +2.5"
+    "Description": "Attack Range +20%, Base Damage up by 2"
   },
   {
     "Id": "262059",
@@ -1167,7 +197,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362059",
@@ -1181,7 +211,7 @@
       10,
       0.5
     ],
-    "Description": "피해량+10, 쿨타임 -0.5"
+    "Description": "Base Damage up by 10, CoolTime reduced by 0.5 secons"
   },
   {
     "Id": "462059",
@@ -1193,7 +223,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "562059",
@@ -1207,7 +237,7 @@
       10,
       25
     ],
-    "Description": "피해량+10, 공격 범위 +25%"
+    "Description": "Base Damage up by 10, Attack Area up by 25%"
   },
   {
     "Id": "662059",
@@ -1219,7 +249,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "762059",
@@ -1233,7 +263,7 @@
       25,
       0.5
     ],
-    "Description": "공격 범위 +25%, 쿨타임 -0.5"
+    "Description": "Attack Area up by 25%, CoolTime reduced by 0.5 secons"
   },
   {
     "Id": "862059",
@@ -1245,7 +275,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262079",
@@ -1257,7 +287,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362079",
@@ -1271,7 +301,7 @@
       30,
       25
     ],
-    "Description": "투사체 속도 +30%, 공격 범위 +25%"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "462079",
@@ -1285,7 +315,7 @@
       0.5,
       10
     ],
-    "Description": "지속시간 +0.5, 피해량 +10"
+    "Description": "Effect lasts 0.5 seconds longer., Damage up by 10"
   },
   {
     "Id": "562079",
@@ -1297,7 +327,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "662079",
@@ -1311,7 +341,7 @@
       30,
       25
     ],
-    "Description": "투사체 속도 +30%, 공격 범위 +25%"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "762079",
@@ -1325,7 +355,7 @@
       0.5,
       10
     ],
-    "Description": "지속시간 +0.5, 피해량 +10"
+    "Description": "Effect lasts 0.5 seconds longer., Damage up by 10"
   },
   {
     "Id": "862079",
@@ -1337,7 +367,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262080",
@@ -1349,89 +379,87 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362080",
     "WeaponId": "263080",
     "Level": 3,
     "EffectName": [
-      "ProjectileCount",
-      "Damage"
+      "ProjectileSpeed",
+      "Range"
     ],
     "EffectValue": [
-      1,
-      5
+      30,
+      25
     ],
-    "Description": "투사체 +1, 피해량 +5"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "462080",
     "WeaponId": "263080",
     "Level": 4,
     "EffectName": [
-      "ProjectileCount",
-      "RepeatInterval"
+      "Duration",
+      "Damage"
     ],
     "EffectValue": [
-      1,
-      0.02
+      0.5,
+      10
     ],
-    "Description": "투사체 +1, 연사 간격 -0.02"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
     "Id": "562080",
     "WeaponId": "263080",
     "Level": 5,
     "EffectName": [
-      "ProjectilePenetration"
+      "ProjectileCount"
     ],
     "EffectValue": [
       1
     ],
-    "Description": "관통 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "662080",
     "WeaponId": "263080",
     "Level": 6,
     "EffectName": [
-      "ProjectileCount",
-      "RepeatInterval"
+      "ProjectileSpeed",
+      "Range"
     ],
     "EffectValue": [
-      1,
-      0.02
+      30,
+      25
     ],
-    "Description": "투사체 +1, 연사 간격 -0.02"
+    "Description": "Speed up by 30%, Attack Area up by 25%"
   },
   {
     "Id": "762080",
     "WeaponId": "263080",
     "Level": 7,
     "EffectName": [
-      "ProjectileCount",
+      "Duration",
       "Damage"
     ],
     "EffectValue": [
-      1,
-      5
+      0.5,
+      10
     ],
-    "Description": "투사체 +1, 피해량 +5"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
     "Id": "862080",
     "WeaponId": "263080",
     "Level": 8,
     "EffectName": [
-      "ProjectilePenetration",
-      "RepeatInterval"
+      "ProjectileCount"
     ],
     "EffectValue": [
-      1,
-      0.02
+      1
     ],
-    "Description": "관통 수 +1, 연사 간격 -0.02"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "262084",
@@ -1443,7 +471,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "362084",
@@ -1457,7 +485,7 @@
       100,
       10
     ],
-    "Description": "공격 범위 +100%, 피해량 +10"
+    "Description": "Attack Range +100%, Base Damage up by 10"
   },
   {
     "Id": "462084",
@@ -1469,7 +497,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "562084",
@@ -1483,7 +511,7 @@
       100,
       20
     ],
-    "Description": "공격 범위 +100%, 피해량 +20"
+    "Description": "Attack Range +100%, Base Damage up by 20"
   },
   {
     "Id": "662084",
@@ -1495,7 +523,7 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
     "Id": "762084",
@@ -1509,7 +537,7 @@
       100,
       20
     ],
-    "Description": "공격 범위 +100%, 피해량 +20"
+    "Description": "Attack Range +100%, Base Damage up by 20"
   },
   {
     "Id": "862084",
@@ -1521,11 +549,11 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
-    "Id": "262090",
-    "WeaponId": "263090",
+    "Id": "262160",
+    "WeaponId": "263160",
     "Level": 2,
     "EffectName": [
       "ProjectileCount"
@@ -1533,908 +561,258 @@
     "EffectValue": [
       1
     ],
-    "Description": "투사체 수 +1"
+    "Description": "Fires 1 more projectile."
   },
   {
-    "Id": "362090",
-    "WeaponId": "263090",
+    "Id": "362160",
+    "WeaponId": "263160",
     "Level": 3,
-    "EffectName": [
-      "CoolTime"
-    ],
-    "EffectValue": [
-      0.2
-    ],
-    "Description": "쿨타임 -0.2"
-  },
-  {
-    "Id": "462090",
-    "WeaponId": "263090",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "562090",
-    "WeaponId": "263090",
-    "Level": 5,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "662090",
-    "WeaponId": "263090",
-    "Level": 6,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "762090",
-    "WeaponId": "263090",
-    "Level": 7,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "관통 수 +1"
-  },
-  {
-    "Id": "862090",
-    "WeaponId": "263090",
-    "Level": 8,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      10
-    ],
-    "Description": "피해량 +10"
-  },
-  {
-    "Id": "262097",
-    "WeaponId": "263097",
-    "Level": 2,
-    "EffectName": [
-      "ProjectilePenetration",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      1,
-      30
-    ],
-    "Description": "관통 횟수 +1, 투사체 속도 +30%"
-  },
-  {
-    "Id": "362097",
-    "WeaponId": "263097",
-    "Level": 3,
-    "EffectName": [
-      "ProjectileCount",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      1,
-      0.5
-    ],
-    "Description": "투사체 수 +1, 쿨타임 -0.5"
-  },
-  {
-    "Id": "462097",
-    "WeaponId": "263097",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      10
-    ],
-    "Description": "투사체 수 +1, 피해량 +10"
-  },
-  {
-    "Id": "562097",
-    "WeaponId": "263097",
-    "Level": 5,
-    "EffectName": [
-      "ProjectilePenetration",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      2,
-      30
-    ],
-    "Description": "관통 횟수 +2, 투사체 속도 +30%"
-  },
-  {
-    "Id": "662097",
-    "WeaponId": "263097",
-    "Level": 6,
-    "EffectName": [
-      "ProjectileCount",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      1,
-      0.5
-    ],
-    "Description": "투사체 수 +1, 쿨타임 -0.5"
-  },
-  {
-    "Id": "762097",
-    "WeaponId": "263097",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileCount",
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      1,
-      3
-    ],
-    "Description": "투사체 수 +1, 관통 횟수 +3"
-  },
-  {
-    "Id": "862097",
-    "WeaponId": "263097",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      10
-    ],
-    "Description": "투사체 수 +1, 피해량 +10"
-  },
-  {
-    "Id": "262099",
-    "WeaponId": "263099",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "362099",
-    "WeaponId": "263099",
-    "Level": 3,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      10
-    ],
-    "Description": "투사체 수 +1, 피해량 +10"
-  },
-  {
-    "Id": "462099",
-    "WeaponId": "263099",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      1,
-      0.25
-    ],
-    "Description": "투사체 수 +1, 쿨타임 -0.25"
-  },
-  {
-    "Id": "562099",
-    "WeaponId": "263099",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "662099",
-    "WeaponId": "263099",
-    "Level": 6,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      10
-    ],
-    "Description": "투사체 수 +1, 피해량 +10"
-  },
-  {
-    "Id": "762099",
-    "WeaponId": "263099",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileCount",
-      "CoolTime"
-    ],
-    "EffectValue": [
-      1,
-      0.25
-    ],
-    "Description": "투사체 수 +1, 쿨타임 -0.25"
-  },
-  {
-    "Id": "862099",
-    "WeaponId": "263099",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "262103",
-    "WeaponId": "263103",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "362103",
-    "WeaponId": "263103",
-    "Level": 3,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "관통 수 +2"
-  },
-  {
-    "Id": "462103",
-    "WeaponId": "263103",
-    "Level": 4,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "562103",
-    "WeaponId": "263103",
-    "Level": 5,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      5
-    ],
-    "Description": "피해량 +5"
-  },
-  {
-    "Id": "662103",
-    "WeaponId": "263103",
-    "Level": 6,
-    "EffectName": [
-      "ProjectilePenetration"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "관통 수 +2"
-  },
-  {
-    "Id": "762103",
-    "WeaponId": "263103",
-    "Level": 7,
     "EffectName": [
       "ProjectileSpeed",
+      "Range"
+    ],
+    "EffectValue": [
+      30,
+      25
+    ],
+    "Description": "Speed up by 30%, Attack Area up by 25%"
+  },
+  {
+    "Id": "462160",
+    "WeaponId": "263160",
+    "Level": 4,
+    "EffectName": [
+      "Duration",
       "Damage"
     ],
     "EffectValue": [
-      50,
-      5
+      0.5,
+      10
     ],
-    "Description": "투사체 속도 +50%, 피해량 +5"
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
   },
   {
-    "Id": "862103",
-    "WeaponId": "263103",
+    "Id": "562160",
+    "WeaponId": "263160",
+    "Level": 5,
+    "EffectName": [
+      "ProjectileCount"
+    ],
+    "EffectValue": [
+      1
+    ],
+    "Description": "Fires 1 more projectile."
+  },
+  {
+    "Id": "662160",
+    "WeaponId": "263160",
+    "Level": 6,
+    "EffectName": [
+      "ProjectileSpeed",
+      "Range"
+    ],
+    "EffectValue": [
+      30,
+      25
+    ],
+    "Description": "Speed up by 30%, Attack Area up by 25%"
+  },
+  {
+    "Id": "762160",
+    "WeaponId": "263160",
+    "Level": 7,
+    "EffectName": [
+      "Duration",
+      "Damage"
+    ],
+    "EffectValue": [
+      0.5,
+      10
+    ],
+    "Description": "Effect lasts 0.5 seconds longer., Base Damage up by 10"
+  },
+  {
+    "Id": "862160",
+    "WeaponId": "263160",
     "Level": 8,
+    "EffectName": [
+      "ProjectileCount"
+    ],
+    "EffectValue": [
+      1
+    ],
+    "Description": "Fires 1 more projectile."
+  },
+  {
+    "Id": "262158",
+    "WeaponId": "263158",
+    "Level": 2,
+    "EffectName": [
+      "ProjectileCount"
+    ],
+    "EffectValue": [
+      1
+    ],
+    "Description": "Fires 1 more projectile."
+  },
+  {
+    "Id": "362158",
+    "WeaponId": "263158",
+    "Level": 3,
+    "EffectName": [
+      "Damage"
+    ],
+    "EffectValue": [
+      5
+    ],
+    "Description": "Base Damage up by 5"
+  },
+  {
+    "Id": "462158",
+    "WeaponId": "263158",
+    "Level": 4,
+    "EffectName": [
+      "Damage",
+      "Range"
+    ],
+    "EffectValue": [
+      5,
+      10
+    ],
+    "Description": "Base Damage up by 5, Attack Area up by 10%"
+  },
+  {
+    "Id": "562158",
+    "WeaponId": "263158",
+    "Level": 5,
+    "EffectName": [
+      "Damage"
+    ],
+    "EffectValue": [
+      5
+    ],
+    "Description": "Base Damage up by 5"
+  },
+  {
+    "Id": "662158",
+    "WeaponId": "263158",
+    "Level": 6,
+    "EffectName": [
+      "Damage",
+      "Range"
+    ],
+    "EffectValue": [
+      5,
+      10
+    ],
+    "Description": "Base Damage up by 5, Attack Area up by 10%"
+  },
+  {
+    "Id": "762158",
+    "WeaponId": "263158",
+    "Level": 7,
+    "EffectName": [
+      "Damage"
+    ],
+    "EffectValue": [
+      5
+    ],
+    "Description": "Base Damage up by 5"
+  },
+  {
+    "Id": "862158",
+    "WeaponId": "263158",
+    "Level": 8,
+    "EffectName": [
+      "Damage"
+    ],
+    "EffectValue": [
+      5
+    ],
+    "Description": "Base Damage up by 5"
+  },
+  {
+    "Id": "262161",
+    "WeaponId": "263161",
+    "Level": 2,
+    "EffectName": [
+      "ProjectileCount"
+    ],
+    "EffectValue": [
+      1
+    ],
+    "Description": "Fires 1 more projectile."
+  },
+  {
+    "Id": "362161",
+    "WeaponId": "263161",
+    "Level": 3,
+    "EffectName": [
+      "Damage"
+    ],
+    "EffectValue": [
+      20
+    ],
+    "Description": "Base Damage up by 20"
+  },
+  {
+    "Id": "462161",
+    "WeaponId": "263161",
+    "Level": 4,
     "EffectName": [
       "ProjectilePenetration"
     ],
     "EffectValue": [
       2
     ],
-    "Description": "관통 수 +2"
+    "Description": "Passes through 2 more enemy."
   },
   {
-    "Id": "262106",
-    "WeaponId": "263106",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount",
-      "Range"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
-  },
-  {
-    "Id": "362106",
-    "WeaponId": "263106",
-    "Level": 3,
-    "EffectName": [
-      "ProjectileCount",
-      "Damage"
-    ],
-    "EffectValue": [
-      1,
-      5
-    ],
-    "Description": "투사체 수 +1, 피해량 +5"
-  },
-  {
-    "Id": "462106",
-    "WeaponId": "263106",
-    "Level": 4,
-    "EffectName": [
-      "CoolTime"
-    ],
-    "EffectValue": [
-      0.25
-    ],
-    "Description": "쿨타임 -0.25"
-  },
-  {
-    "Id": "562106",
-    "WeaponId": "263106",
+    "Id": "562161",
+    "WeaponId": "263161",
     "Level": 5,
     "EffectName": [
-      "ProjectileCount",
-      "Range"
+      "ProjectileCount"
     ],
     "EffectValue": [
-      1,
-      40
+      1
     ],
-    "Description": "투사체 수 +1, 공격 범위 +40%"
+    "Description": "Fires 1 more projectile."
   },
   {
-    "Id": "662106",
-    "WeaponId": "263106",
+    "Id": "662161",
+    "WeaponId": "263161",
     "Level": 6,
     "EffectName": [
-      "ProjectileCount",
       "Damage"
     ],
     "EffectValue": [
-      1,
-      5
-    ],
-    "Description": "투사체 수 +1, 피해량 +5"
-  },
-  {
-    "Id": "762106",
-    "WeaponId": "263106",
-    "Level": 7,
-    "EffectName": [
-      "CoolTime"
-    ],
-    "EffectValue": [
-      0.25
-    ],
-    "Description": "쿨타임 -0.25"
-  },
-  {
-    "Id": "862106",
-    "WeaponId": "263106",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      1,
-      40
-    ],
-    "Description": "투사체 수 +1, 투사체 속도 +40%"
-  },
-  {
-    "Id": "262113",
-    "WeaponId": "263113",
-    "Level": 2,
-    "EffectName": [
-      "Damage",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      5,
       20
     ],
-    "Description": "피해량 +5, 투사체 속도 +20%"
+    "Description": "Base Damage up by 20"
   },
   {
-    "Id": "362113",
-    "WeaponId": "263113",
-    "Level": 3,
+    "Id": "762161",
+    "WeaponId": "263161",
+    "Level": 7,
     "EffectName": [
-      "Damage",
-      "Duration"
+      "ProjectilePenetration"
     ],
     "EffectValue": [
-      5,
-      0.25
+      2
     ],
-    "Description": "피해량 +5, 지속시간 +0.25"
+    "Description": "Passes through 2 more enemy."
   },
   {
-    "Id": "462113",
-    "WeaponId": "263113",
-    "Level": 4,
+    "Id": "862161",
+    "WeaponId": "263161",
+    "Level": 8,
     "EffectName": [
-      "ProjectileCount"
+      "Damage"
     ],
     "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "562113",
-    "WeaponId": "263113",
-    "Level": 5,
-    "EffectName": [
-      "Damage",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      5,
       20
     ],
-    "Description": "피해량 +5, 투사체 속도 +20%"
-  },
-  {
-    "Id": "662113",
-    "WeaponId": "263113",
-    "Level": 6,
-    "EffectName": [
-      "Damage",
-      "Duration"
-    ],
-    "EffectValue": [
-      5,
-      0.25
-    ],
-    "Description": "피해량 +5, 지속시간 +0.25"
-  },
-  {
-    "Id": "762113",
-    "WeaponId": "263113",
-    "Level": 7,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "862113",
-    "WeaponId": "263113",
-    "Level": 8,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      0.5
-    ],
-    "Description": "지속시간 +0.5"
-  },
-  {
-    "Id": "262125",
-    "WeaponId": "263125",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "투사체 수 +2"
-  },
-  {
-    "Id": "362125",
-    "WeaponId": "263125",
-    "Level": 3,
-    "EffectName": [
-      "Damage",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      5,
-      10
-    ],
-    "Description": "피해량 +5, 투사체 속도 +10%"
-  },
-  {
-    "Id": "462125",
-    "WeaponId": "263125",
-    "Level": 4,
-    "EffectName": [
-      "Damage",
-      "Duration"
-    ],
-    "EffectValue": [
-      5,
-      0.25
-    ],
-    "Description": "피해량 +5, 지속시간 +0.25"
-  },
-  {
-    "Id": "562125",
-    "WeaponId": "263125",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "투사체 수 +2"
-  },
-  {
-    "Id": "662125",
-    "WeaponId": "263125",
-    "Level": 6,
-    "EffectName": [
-      "Damage",
-      "ProjectileSpeed"
-    ],
-    "EffectValue": [
-      5,
-      10
-    ],
-    "Description": "피해량 +5, 투사체 속도 +10%"
-  },
-  {
-    "Id": "762125",
-    "WeaponId": "263125",
-    "Level": 7,
-    "EffectName": [
-      "Damage",
-      "Duration"
-    ],
-    "EffectValue": [
-      5,
-      0.25
-    ],
-    "Description": "피해량 +5, 지속시간 +0.25"
-  },
-  {
-    "Id": "862125",
-    "WeaponId": "263125",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      2
-    ],
-    "Description": "투사체 수 +2"
-  },
-  {
-    "Id": "262127",
-    "WeaponId": "263127",
-    "Level": 2,
-    "EffectName": [
-      "Range"
-    ],
-    "EffectValue": [
-      100
-    ],
-    "Description": "공격 범위 +100%"
-  },
-  {
-    "Id": "362127",
-    "WeaponId": "263127",
-    "Level": 3,
-    "EffectName": [
-      "CoolTime",
-      "Duration"
-    ],
-    "EffectValue": [
-      0.75,
-      0.5
-    ],
-    "Description": "쿨타임 +0.75, 지속시간 +0.5"
-  },
-  {
-    "Id": "462127",
-    "WeaponId": "263127",
-    "Level": 4,
-    "EffectName": [
-      "Damage",
-      "Range"
-    ],
-    "EffectValue": [
-      10,
-      25
-    ],
-    "Description": "피해량 +10, 공격 범위 +25%"
-  },
-  {
-    "Id": "562127",
-    "WeaponId": "263127",
-    "Level": 5,
-    "EffectName": [
-      "CoolTime",
-      "Duration"
-    ],
-    "EffectValue": [
-      0.75,
-      0.5
-    ],
-    "Description": "쿨타임 +0.75, 지속시간 +0.5"
-  },
-  {
-    "Id": "662127",
-    "WeaponId": "263127",
-    "Level": 6,
-    "EffectName": [
-      "Damage",
-      "Range"
-    ],
-    "EffectValue": [
-      10,
-      25
-    ],
-    "Description": "피해량 +10, 공격 범위 +25%"
-  },
-  {
-    "Id": "762127",
-    "WeaponId": "263127",
-    "Level": 7,
-    "EffectName": [
-      "CoolTime",
-      "Duration"
-    ],
-    "EffectValue": [
-      0.75,
-      0.5
-    ],
-    "Description": "쿨타임 +0.75, 지속시간 +0.5"
-  },
-  {
-    "Id": "862127",
-    "WeaponId": "263127",
-    "Level": 8,
-    "EffectName": [
-      "Damage",
-      "Range"
-    ],
-    "EffectValue": [
-      10,
-      25
-    ],
-    "Description": "피해량 +10, 공격 범위 +25%"
-  },
-  {
-    "Id": "262139",
-    "WeaponId": "263139",
-    "Level": 2,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "362139",
-    "WeaponId": "263139",
-    "Level": 3,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      0.25
-    ],
-    "Description": "지속시간 +0.25"
-  },
-  {
-    "Id": "462139",
-    "WeaponId": "263139",
-    "Level": 4,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      5
-    ],
-    "Description": "피해량 +5"
-  },
-  {
-    "Id": "562139",
-    "WeaponId": "263139",
-    "Level": 5,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "662139",
-    "WeaponId": "263139",
-    "Level": 6,
-    "EffectName": [
-      "Duration"
-    ],
-    "EffectValue": [
-      0.25
-    ],
-    "Description": "지속시간 +0.25"
-  },
-  {
-    "Id": "762139",
-    "WeaponId": "263139",
-    "Level": 7,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      5
-    ],
-    "Description": "피해량 +5"
-  },
-  {
-    "Id": "862139",
-    "WeaponId": "263139",
-    "Level": 8,
-    "EffectName": [
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "투사체 수 +1"
-  },
-  {
-    "Id": "262153",
-    "WeaponId": "263153",
-    "Level": 2,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "피해량 +1"
-  },
-  {
-    "Id": "362153",
-    "WeaponId": "263153",
-    "Level": 3,
-    "EffectName": [
-      "Range",
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      20,
-      1
-    ],
-    "Description": "공격 범위 +20%, 투사체 수 +1"
-  },
-  {
-    "Id": "462153",
-    "WeaponId": "263153",
-    "Level": 4,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "피해량 +1"
-  },
-  {
-    "Id": "562153",
-    "WeaponId": "263153",
-    "Level": 5,
-    "EffectName": [
-      "Range",
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      20,
-      1
-    ],
-    "Description": "공격 범위 +20%, 투사체 수 +1"
-  },
-  {
-    "Id": "662153",
-    "WeaponId": "263153",
-    "Level": 6,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "피해량 +1"
-  },
-  {
-    "Id": "762153",
-    "WeaponId": "263153",
-    "Level": 7,
-    "EffectName": [
-      "Range",
-      "ProjectileCount"
-    ],
-    "EffectValue": [
-      20,
-      1
-    ],
-    "Description": "공격 범위 +20%, 투사체 수 +1"
-  },
-  {
-    "Id": "862153",
-    "WeaponId": "263153",
-    "Level": 8,
-    "EffectName": [
-      "Damage"
-    ],
-    "EffectValue": [
-      1
-    ],
-    "Description": "피해량 +1"
+    "Description": "Base Damage up by 20"
   }
 ]

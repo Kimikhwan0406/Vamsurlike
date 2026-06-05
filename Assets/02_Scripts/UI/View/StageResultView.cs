@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +18,39 @@ public class StageResultView : MonoBehaviour, IView
 
     public bool IsOpen => gameObject.activeSelf;
 
+    public event Action OnClose;
+
+
+    public void Open()
+    {
+        gameObject.SetActive(true);
+        gameOverGO.SetActive(true);
+        resultGO.SetActive(false);
+        SetTopInfo();
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void SetSlotParent(GameObject slotObj)
+    {
+        slotObj.transform.SetParent(weaponLayout);
+    }
+
+    void SetTopInfo()
+    {
+        var hudPresenter = GameManager.UI.GetPresenter<GameHUDPresenter>();
+
+        survivedText.text = (Mathf.Floor(hudPresenter.GetPlayTime() / 60)).ToString()
+            + ":" + (hudPresenter.GetPlayTime() % 60).ToString("F0");
+
+        goldText.text = hudPresenter.GetGold().ToString();
+        levelText.text = hudPresenter.GetLevel().ToString();
+        enemyText.text = hudPresenter.GetEnemyCount().ToString();
+    }
+
     public void OnClickGameOverQuitButton()
     {
         gameOverGO.SetActive(false);
@@ -25,31 +59,7 @@ public class StageResultView : MonoBehaviour, IView
 
     public void OnClickResultOKButton()
     {
+        OnClose?.Invoke();
         GameManager.Instance.StageExit();
-    }
-
-    public void SetSlotParent(GameObject slotObj)
-    {
-        slotObj.transform.SetParent(weaponLayout);
-    }
-    
-    public void SetTopInfo()
-    {
-        var hudPresenter = GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>();
-
-        survivedText.text = (Mathf.Floor(hudPresenter.GetPlayTime() / 60)).ToString() + ":" + (hudPresenter.GetPlayTime() % 60).ToString();
-        goldText.text = hudPresenter.GetGold().ToString();
-        levelText.text = hudPresenter.GetLevel().ToString();
-        enemyText.text = hudPresenter.GetEnemyCount().ToString();
-    }
-
-    public void Open()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void Close()
-    {
-        gameObject.SetActive(false);
     }
 }

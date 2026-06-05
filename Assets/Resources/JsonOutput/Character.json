@@ -5,7 +5,7 @@
     "MaxHealth": 100,
     "DefaultWeapon": "263158",
     "Ability": [
-      "damage"
+      "Damage"
     ],
     "AbilityCondition": [
       "10"
@@ -21,15 +21,15 @@
     ],
     "UnlockCondition": "None",
     "UnlockValue": 0,
-    "Description": "Damage +10% every 10 levels (max +50%)"
+    "Description": "Damage +10% every 10 levels (Max +50%)"
   },
   {
     "Id": "267002",
     "Name": "Imelad",
     "MaxHealth": 100,
-    "DefaultWeapon": "263079",
+    "DefaultWeapon": "263159",
     "Ability": [
-      "exp"
+      "EXP"
     ],
     "AbilityCondition": [
       "5"
@@ -45,15 +45,15 @@
     ],
     "UnlockCondition": "Gold",
     "UnlockValue": 10,
-    "Description": "Growth +10% every 5 levels (max +30%)"
+    "Description": "Growth +10% every 5 levels (Max +30%)"
   },
   {
     "Id": "267003",
     "Name": "Pasqualina",
     "MaxHealth": 100,
-    "DefaultWeapon": "263161",
+    "DefaultWeapon": "263079",
     "Ability": [
-      "투사체속도"
+      "ProjectileSpeed"
     ],
     "AbilityCondition": [
       "5"
@@ -69,7 +69,7 @@
     ],
     "UnlockCondition": "Gold",
     "UnlockValue": 110,
-    "Description": "Projectile speed +10% every 5 levels (max +30%)"
+    "Description": "Projectile Speed ​​+10% every 5 levels (Max +30%)"
   },
   {
     "Id": "267004",
@@ -77,7 +77,7 @@
     "MaxHealth": 120,
     "DefaultWeapon": "263080",
     "Ability": [
-      "투사체 수"
+      "ProjectileCount"
     ],
     "AbilityCondition": [
       "0"
@@ -99,10 +99,10 @@
     "Id": "267005",
     "Name": "Arca",
     "MaxHealth": 100,
-    "DefaultWeapon": "263159",
+    "DefaultWeapon": "263161",
     "Ability": [
-      "피해량",
-      "쿨타임"
+      "Damage",
+      "CoolTime"
     ],
     "AbilityCondition": [
       "0",
@@ -120,7 +120,7 @@
     ],
     "UnlockCondition": "Level",
     "UnlockValue": 50,
-    "Description": "Damage +10%, Cooldown -5% every 10 levels (max -15%)"
+    "Description": "Damage +10%, Cooldown -5% every 10 levels (Max -15%)"
   },
   {
     "Id": "267006",
@@ -128,7 +128,7 @@
     "MaxHealth": 100,
     "DefaultWeapon": "263084",
     "Ability": [
-      "공격 범위"
+      "Ramge"
     ],
     "AbilityCondition": [
       "0"
@@ -152,7 +152,7 @@
     "MaxHealth": 70,
     "DefaultWeapon": "263052",
     "Ability": [
-      "자석"
+      "Magnet"
     ],
     "AbilityCondition": [
       "0"

@@ -1,32 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct OrbitWeaponData
-{
-    public Transform OwnerTransform;
-    public float StartAngle;
-    public float Range;
 
-    public float Duration;
-    public float Damage;
-    public float RotateSpeed;
-    public float HitInterval;
-}
-
-public struct EnemyHitCooldown
-{
-    public EnemyBase Enemy;
-    public float CooldownTimer;
-
-    public EnemyHitCooldown(EnemyBase enemy, float cooldown)
-    {
-        Enemy = enemy;
-        CooldownTimer = cooldown;
-    }
-}
 
 public class OrbitWeaponObject : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer weaponImage;
+
     List<EnemyBase> queryResults = new(32);
     List<EnemyHitCooldown> hitCooldowns = new(64);
 
@@ -42,16 +22,24 @@ public class OrbitWeaponObject : MonoBehaviour
     [SerializeField] float radius = 1f;
     float totalDistance;
 
-    [Header("Rotate Speed")]
+    [Header("Rotation")]
     [SerializeField] float baseSpeed = 10f;
     float totalRotateSpeed;
+    int direction;
 
-    public void Init(string weaponId, OrbitWeaponData data)
+    bool initialized = false;
+
+
+    public void Init(int direction, string weaponId, OrbitWeaponData data)
     {
+        this.direction = direction;
+
         queryResults.Clear();
         hitCooldowns.Clear();
 
         this.data = data;
+
+        weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Weapon/{weaponId}");
 
         angle = data.StartAngle;
         durationTimer = data.Duration;
@@ -66,6 +54,8 @@ public class OrbitWeaponObject : MonoBehaviour
             WeaponId = weaponId,
             Damage = data.Damage,
         };
+
+        initialized = true;
     }
 
     void Update()
@@ -82,6 +72,8 @@ public class OrbitWeaponObject : MonoBehaviour
             return;
         }
 
+        if (!initialized) return;
+
         UpdateHitCooldown(deltaTime);
         Roation(deltaTime);
         CheckHit();
@@ -89,7 +81,7 @@ public class OrbitWeaponObject : MonoBehaviour
 
     void Roation(float deltaTime)
     {
-        angle += deltaTime * totalRotateSpeed; //* data.RotateSpeed;
+        angle += deltaTime * totalRotateSpeed * -direction;
 
         float radian = angle * Mathf.Deg2Rad;
 
@@ -142,7 +134,12 @@ public class OrbitWeaponObject : MonoBehaviour
 
     void Release()
     {
-        GameManager.Pool.ReturnObject(PoolType.Orbit, gameObject);
+        hitCooldowns.Clear();
+        queryResults.Clear();
+        initialized = false;
+
+        transform.SetParent(null);
+        PoolManager.Instance.DespawnToPool(this.gameObject);
     }
 
     void OnDrawGizmos()

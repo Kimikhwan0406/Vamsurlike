@@ -23,6 +23,7 @@ public class PlayerWeaponController
         }
     }
 
+    public int GetWeaponCount() => weaponList.Count;
     public List<string> GetMaxLevelWeapons() => maxLevelWeapons;
     public List<WeaponObject> GetWeaponList() => weaponList;
 
@@ -52,7 +53,7 @@ public class PlayerWeaponController
         var weapon = new WeaponObject(weaponId);
         GameManager.CombatRecorder.RegisterCombatStat(weaponId);
 
-        GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().AddHUDWeaponSlot(weaponId);
+        GameManager.UI.GetPresenter<GameHUDPresenter>().AddHUDWeaponSlot(weaponId);
         weaponList.Add(weapon);
     }
 
@@ -69,7 +70,7 @@ public class PlayerWeaponController
             if (weapon.WeaponId == weaponId)
             {
                 weaponList.Remove(weapon);
-                GameManager.UI.GetPresenter<GameHUDPresenter, GameHUDView>().RemoveHUDWeaponSlot(weaponId);
+                GameManager.UI.GetPresenter<GameHUDPresenter>().RemoveHUDWeaponSlot(weaponId);
                 break;
             }
         }

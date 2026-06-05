@@ -4,7 +4,7 @@ public class LobbyController : MonoBehaviour
 {
     public void OnClickGameStartBtn()
     {
-        GameManager.UI.OpenUI<CharacterSelectView>(new CharacterSelectModel(), new CharacterSelectPresenter());
+        GameManager.UI.OpenUI<CharacterSelectPresenter>();
     }
     public void OnClickAchievementBtn()
     {

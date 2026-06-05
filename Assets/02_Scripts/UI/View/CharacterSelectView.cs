@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class CharacterSelectView : MonoBehaviour, IView
 
     bool notSelectedYet = true;
 
+    public event Action OnStartGame;
+
 
     public bool IsOpen => this.gameObject.activeSelf;
 
@@ -26,6 +29,11 @@ public class CharacterSelectView : MonoBehaviour, IView
         selectedCharacterIcon.gameObject.SetActive(false);
         baseWeaponIcon.gameObject.SetActive(false);
         selectedCharacterDescription.gameObject.SetActive(false);
+    }
+
+    public void OnClickGameStartButton()
+    {
+        OnStartGame?.Invoke();
     }
 
     public void UpdateSelectedCharacterInfo(string characterId)
@@ -48,13 +56,6 @@ public class CharacterSelectView : MonoBehaviour, IView
         selectedCharacterDescription.text = data.Description;
     }
 
-    public void Init()
-    {
-        selectedCharacterName.text = string.Empty;
-        selectedCharacterIcon.sprite = null;
-        selectedCharacterDescription.text = string.Empty;
-    }
-
     public void Open()
     {
         this.gameObject.SetActive(true);
@@ -63,5 +64,13 @@ public class CharacterSelectView : MonoBehaviour, IView
     public void Close()
     {
         this.gameObject.SetActive(false);
+        notSelectedYet = true;
+    }
+
+    void Init()
+    {
+        selectedCharacterName.text = string.Empty;
+        selectedCharacterIcon.sprite = null;
+        selectedCharacterDescription.text = string.Empty;
     }
 }

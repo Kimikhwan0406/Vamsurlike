@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameHUDPresenter : IPresenter
@@ -5,11 +6,13 @@ public class GameHUDPresenter : IPresenter
     GameHUDModel model;
     GameHUDView view;
 
+    public Dictionary<string, GameObject> HudWeaponSlots { get; set; } = new();
+
     public bool IsOpen => view.IsOpen;
 
-    public void Init(IModel _model, IView _view)
+    public void Init(IView _view)
     {
-        model = _model as GameHUDModel;
+        model = new();
         view = _view as GameHUDView;
 
         if (model == null || view == null)
@@ -17,19 +20,20 @@ public class GameHUDPresenter : IPresenter
             Debug.LogError("InGameHUDPresenter Init Failed");
             return;
         }
-
-        ResetModel();
     }
 
     public void Open()
     {
+        if (null == model)
+            model = new();
+
         view.Open();
     }
 
     public void Close()
     {
         view.Close();
-        view = null;
+        ClearHUDWeaponSlot();
         model = null;
     }
 
@@ -74,17 +78,28 @@ public class GameHUDPresenter : IPresenter
     {
         var slot = CreateHUDWeaponSlot(weaponId);
 
-        model.HudWeaponSlots.Add(weaponId, slot);
+        HudWeaponSlots.Add(weaponId, slot);
         view.AddHUDWeaponSlot(slot);
     }
 
     public void RemoveHUDWeaponSlot(string weaponId)
     {
-        if (model.HudWeaponSlots.TryGetValue(weaponId, out var slot))
+        if (HudWeaponSlots.TryGetValue(weaponId, out var slot))
         {
             view.RemoveHUDWeaponSlot(slot);
-            model.HudWeaponSlots.Remove(weaponId);
+            HudWeaponSlots.Remove(weaponId);
         }
+    }
+    
+    void ClearHUDWeaponSlot()
+    {
+        foreach(var slotKV in HudWeaponSlots)
+        {
+            GameObject slotObject = slotKV.Value;
+            Object.Destroy(slotObject);
+        }
+
+        HudWeaponSlots.Clear();
     }
 
     GameObject CreateHUDWeaponSlot(string weaponId)
@@ -110,7 +125,8 @@ public class GameHUDPresenter : IPresenter
 
         SetMaxExp();
 
-        GameManager.UI.OpenUI<LevelUpView>(new LevelUpModel(), new LevelUpPresenter());
+        GameManager.UI.OpenUI<LevelUpPresenter>();
+
     }
 
     void SetMaxExp()
@@ -123,14 +139,8 @@ public class GameHUDPresenter : IPresenter
             model.MaxExp += 16;
     }
 
-    public void ResetModel()
+    public System.Type GetViewType()
     {
-        model.Exp = 0;
-        model.Time = 0;
-        model.EnemyCount = 0;
-        model.Gold = 0;
-
-        model.Level = 1;
-        model.MaxExp = 5f;
+        return typeof(GameHUDView);
     }
 }

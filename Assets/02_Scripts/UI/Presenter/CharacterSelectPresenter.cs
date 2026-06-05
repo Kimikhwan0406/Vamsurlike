@@ -1,43 +1,38 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class CharacterSelectPresenter : IPresenter
 {
-    public Dictionary<string, CharacterSlot> characterSlots { get; private set; } = new();
-
     CharacterSelectView view;
     CharacterSelectModel model;
 
+    Dictionary<string, CharacterSlot> characterSlots { get; set; } = new();
+
     public bool IsOpen => view.IsOpen;
 
-    public void Init(IModel _model, IView _view)
+    public void Init(IView _view)
     {
-        model = _model as CharacterSelectModel;
+        model = new();
         view = _view as CharacterSelectView;
-
         SetCharacterSlot();
-    }
-
-    public void OnClickEnterStage()
-    {
-        GameManager.Instance.SetCharacterId(model.CharacterId, model.BaseWeaponId);
-        GameManager.UI.CloseUI();
-        GameManager.Instance.StageEnter();
     }
 
     public void Open()
     {
         view.Open();
-        view.StartGameButton.onClick.AddListener(OnClickEnterStage);
+        view.OnStartGame += OnClickEnterStage;
     }
 
     public void Close()
     {
         view.Close();
-        view.StartGameButton.onClick.RemoveAllListeners();
-        view = null;
-        model = null;
+        view.OnStartGame -= OnClickEnterStage;
+    }
+
+    void OnClickEnterStage()
+    {
+        GameManager.Instance.SetCharacterId(model.CharacterId, model.BaseWeaponId);
+        GameManager.Instance.StageEnter();
     }
 
     void SetCharacterSlot()
@@ -86,9 +81,8 @@ public class CharacterSelectPresenter : IPresenter
         }
     }
 
-    public void ResetModel()
+    public System.Type GetViewType()
     {
-        model.CharacterId = null;
-        model.BaseWeaponId = null;
+        return typeof(CharacterSelectView);
     }
 }
