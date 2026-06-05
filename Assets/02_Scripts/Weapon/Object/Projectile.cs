@@ -27,7 +27,6 @@ public class Projectile : AutoDespawnObject
     {
         initialized = false;
 
-
         var randomValue = UnityEngine.Random.Range(-0.5f, 0.5f);
         prePosition = transform.position + new Vector3(0f, randomValue, 0f);
     }
@@ -52,7 +51,7 @@ public class Projectile : AutoDespawnObject
 
         weaponImage.sprite = Utils.ResourcesLoad<Sprite>($"Sprite/Projectile/{data.WeaponId}");
 
-        dir = direction.normalized;
+        dir = direction == Vector2.zero ? Vector2.right : direction.normalized;
 
         var weaponData = GameManager.DataTable.GetWeaponData(data.WeaponId);
         positionOffset = new Vector3(weaponData.ProjectileOffset[0], weaponData.ProjectileOffset[1], 0f);
