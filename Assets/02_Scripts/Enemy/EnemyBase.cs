@@ -1,3 +1,5 @@
+using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour//, IPoolObject
@@ -10,6 +12,9 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
     public float HitRadius => hitRadius;
     public bool IsDead => isDead;
 
+    [SerializeField] Transform enemyModel;
+    SpriteRenderer[] spriteRenderers;
+    CancellationToken token;
 
     string enemyId;
     float health;
@@ -21,6 +26,11 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
     [SerializeField] Vector3 hitPositionOffset;
     [SerializeField] float hitRadius;
 
+    void Awake()
+    {
+        token = this.GetCancellationTokenOnDestroy();
+        spriteRenderers = enemyModel.GetComponentsInChildren<SpriteRenderer>();
+    }
 
     public void SetManagerIndex(int _managerIndex)
     {
@@ -66,6 +76,12 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
 
         health -= context.Damage;
 
+        foreach (var spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.color = Color.red;
+        }
+        SetSpriteColor(token).Forget();
+
         float takeDamage = Mathf.Min(befoeHp, context.Damage);
         GameManager.CombatRecorder.AddDamage(context.WeaponId, takeDamage);
 
@@ -74,6 +90,16 @@ public class EnemyBase : MonoBehaviour//, IPoolObject
             Die();
         }
     }
+
+    async UniTask SetSpriteColor(CancellationToken token)
+    {
+        await UniTask.Delay(System.TimeSpan.FromSeconds(0.2), cancellationToken: token);
+        foreach (var spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
+
 
     void Die()
     {
