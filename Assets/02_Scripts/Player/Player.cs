@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -9,15 +8,16 @@ public class Player : MonoBehaviour
     public Vector2 CureentDirection { get => currentDirectionVector; }
     public int CurrentFacingDir => currentFacingDir == 0 ? preFacingDir : currentFacingDir;
 
-    [SerializeField] Transform playerModel;
-    SpriteRenderer[] spriteRenderers;
-
+    Animator anim;
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] Transform playerModel;
+    SpriteRenderer[] spriteRenderers;
 
     float currentHealth;
     float maxHealth;
+
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponent<Animator>();
+
         inputHandler = GetComponent<PlayerInputHandler>();
 
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -71,6 +73,8 @@ public class Player : MonoBehaviour
             Move();
             SmoothDirection();
             Flip();
+            UpdateAnimation();
+
             if (isInvincible)
             {
                 CheckInvincible();
@@ -124,7 +128,10 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    void UpdateAnimation()
+    {
+        anim.SetBool("isMoving", inputHandler.MoveInput != Vector3.zero);
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
