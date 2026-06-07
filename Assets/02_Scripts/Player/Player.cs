@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -7,16 +6,18 @@ public class Player : MonoBehaviour
     public int GetPlayerXDir => inputHandler.MoveInput.x > 0 ? 1 : inputHandler.MoveInput.x < 0 ? -1 : 0;
     public Vector2 MoveInput => inputHandler.MoveInput;
     public Vector2 CureentDirection { get => currentDirectionVector; }
-    public int CurrentFacingDir => currentFacingDir;
+    public int CurrentFacingDir => currentFacingDir == 0 ? preFacingDir : currentFacingDir;
 
-    [SerializeField] Transform playerModel;
-
+    Animator anim;
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] Transform playerModel;
+    SpriteRenderer[] spriteRenderers;
 
     float currentHealth;
     float maxHealth;
+
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
@@ -29,7 +30,11 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponent<Animator>();
+
         inputHandler = GetComponent<PlayerInputHandler>();
+
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     public void Init(string characterId)
@@ -43,16 +48,16 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (isInvincible)
-        {
-            if (invincibilityDuration + lastDamageTime <= GameManager.Instance.GetPlayTime())
-                isInvincible = false;
-            else
-                return;
-        }
+            return;
 
         lastDamageTime = GameManager.Instance.GetPlayTime();
         isInvincible = true;
         currentHealth -= damage;
+
+        foreach (var spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.color = Color.red;
+        }
 
         healthBar.fillAmount = currentHealth / maxHealth;
 
@@ -68,8 +73,25 @@ public class Player : MonoBehaviour
             Move();
             SmoothDirection();
             Flip();
-        }
+            UpdateAnimation();
 
+            if (isInvincible)
+            {
+                CheckInvincible();
+            }
+        }
+    }
+
+    void CheckInvincible()
+    {
+        if (invincibilityDuration + lastDamageTime <= GameManager.Instance.GetPlayTime())
+        {
+            isInvincible = false;
+            foreach (var spriteRenderer in spriteRenderers)
+            {
+                spriteRenderer.color = Color.white;
+            }
+        }
     }
 
     void Move()
@@ -98,15 +120,18 @@ public class Player : MonoBehaviour
 
     void Flip()
     {
-        if(preFacingDir != currentFacingDir && currentFacingDir != 0)
+        if (preFacingDir != currentFacingDir && currentFacingDir != 0)
         {
-            playerModel.localScale = new Vector3(playerModel.localScale.x * -1f, playerModel.localScale.y, playerModel .localScale.z);
+            playerModel.localScale = new Vector3(playerModel.localScale.x * -1f, playerModel.localScale.y, playerModel.localScale.z);
 
             preFacingDir = currentFacingDir;
         }
     }
 
-
+    void UpdateAnimation()
+    {
+        anim.SetBool("isMoving", inputHandler.MoveInput != Vector3.zero);
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
