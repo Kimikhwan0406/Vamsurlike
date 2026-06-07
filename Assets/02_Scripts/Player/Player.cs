@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public Vector2 CureentDirection { get => currentDirectionVector; }
     public int CurrentFacingDir => currentFacingDir == 0 ? preFacingDir : currentFacingDir;
 
-
+    Animator anim;
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponent<Animator>();
+
         inputHandler = GetComponent<PlayerInputHandler>();
 
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -71,6 +73,8 @@ public class Player : MonoBehaviour
             Move();
             SmoothDirection();
             Flip();
+            UpdateAnimation();
+
             if (isInvincible)
             {
                 CheckInvincible();
@@ -124,7 +128,10 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    void UpdateAnimation()
+    {
+        anim.SetBool("isMoving", inputHandler.MoveInput != Vector3.zero);
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
