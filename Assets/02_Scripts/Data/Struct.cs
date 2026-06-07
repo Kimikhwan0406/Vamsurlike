@@ -38,3 +38,9 @@ public struct RunTimeWeaponlData
     public float Knockback;
     public float Duration;
 }
+
+public struct EnemyFacingChange
+{
+    public int Index;
+    public int FacingX;
+}
