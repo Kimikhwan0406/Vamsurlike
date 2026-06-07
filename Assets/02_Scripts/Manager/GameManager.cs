@@ -29,7 +29,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     [Header("Caching")]
     InGameCore inGameCore;
-    GameObject enemyManager;
+    EnemySystem enemySystem;
     GameObject playMap;
 
     [Header("InGame")]
@@ -59,6 +59,15 @@ public class GameManager : SingletonBehaviour<GameManager>
             inGameCore.Update();
             enemySystemHandler.Update();
             weaponController.Update();
+            enemySystem.Update();
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (isPlaying)
+        {
+            enemySystem.LateUpdate();
         }
     }
 
@@ -99,8 +108,9 @@ public class GameManager : SingletonBehaviour<GameManager>
 
         UI.ShowIngameHUD();
 
-        enemyManager = Instantiate(Utils.ResourcesLoad<GameObject>("Object/EnemyManager"));
-        enemySystemHandler.RegisterEnemySystemHandler(enemyManager.GetComponent<EnemyManager>());
+        enemySystem = new();
+        enemySystem.Init();
+        enemySystemHandler.RegisterEnemySystemHandler(enemySystem);
 
         combatQuerySystem = new();
         CreateWeaponContext();
@@ -122,9 +132,9 @@ public class GameManager : SingletonBehaviour<GameManager>
         combatQuerySystem = null;
 
         PoolManager.Instance.AllDespawnToPool();
-        enemySystemHandler.ReleaseEnemySystemHandler();
-        Destroy(enemyManager);
-        enemyManager = null;
+        enemySystemHandler.Release();
+        enemySystem.Release();
+        enemySystem = null;
 
         UI.ShowLobbyHUD();
         inGameCore.Release();

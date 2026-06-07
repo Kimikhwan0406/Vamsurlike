@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class EnemySystemHandler
 {
-    // Job에 넘겨주기 위해 활성화된 적을 관리
-    List<EnemyBase> activatedEnemys = new();
     public List<EnemyBase> ActivatedEnemys => activatedEnemys;
+    List<EnemyBase> activatedEnemys = new();
 
     [Header("Spawn Settings")]
     [SerializeField] float spawnMinRadius = 10f;
@@ -15,21 +14,36 @@ public class EnemySystemHandler
     bool stop = false;
 
     [Header("Caching")]
-    EnemyManager enemyManager;
+    EnemySystem enemySystem;
 
-    public void RegisterEnemySystemHandler(EnemyManager _enemyManager)
+    public void RegisterEnemySystemHandler(EnemySystem _enemyManager)
     {
-        enemyManager = _enemyManager;
+        enemySystem = _enemyManager;
+        enemySystem.OnEnemyFacingChanged += HandleEnemyFacingChanged;
+
         stop = false;
     }
 
-    public void ReleaseEnemySystemHandler()
+    public void Release()
     {
-        enemyManager.Release();
+        if (enemySystem != null)
+        {
+            enemySystem.OnEnemyFacingChanged -= HandleEnemyFacingChanged;
+            enemySystem.Release();
+        }
+
         activatedEnemys.Clear();
 
         stop = true;
-        enemyManager = null;
+        enemySystem = null;
+    }
+
+    void HandleEnemyFacingChanged(int index, int facingX)
+    {
+        if (index < 0 || index >= activatedEnemys.Count)
+            return;
+
+        activatedEnemys[index].SetFacingX(facingX);
     }
 
     public void Update()
@@ -61,7 +75,7 @@ public class EnemySystemHandler
 
             // 위에 활성 적 목록에 추가 후, 아래에서 Job을 위해 등록이 필요
             enemyObj.SetManagerIndex(activatedEnemys.Count - 1);
-            enemyManager.RegisterEnemy(enemyObj);
+            enemySystem.RegisterEnemy(enemyObj);
         }
     }
 
@@ -78,7 +92,7 @@ public class EnemySystemHandler
 
         EnemyBase lastEnemy = activatedEnemys[lastIndex];
 
-        if (!enemyManager.UnregisterEnemy(removeIndex))
+        if (!enemySystem.UnregisterEnemy(removeIndex))
         {
             return;
         }
