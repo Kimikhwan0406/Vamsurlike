@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -9,15 +8,16 @@ public class Player : MonoBehaviour
     public Vector2 CureentDirection { get => currentDirectionVector; }
     public int CurrentFacingDir => currentFacingDir == 0 ? preFacingDir : currentFacingDir;
 
-    [SerializeField] Transform playerModel;
-    SpriteRenderer[] spriteRenderers;
 
     PlayerInputHandler inputHandler;
     [SerializeField] Image healthBar;
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] Transform playerModel;
+    SpriteRenderer[] spriteRenderers;
 
     float currentHealth;
     float maxHealth;
+
     float lastDamageTime;
     float invincibilityDuration = 0.5f;
     bool isInvincible = false;
